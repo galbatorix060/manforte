@@ -18,99 +18,87 @@
         .text-font-strange{
             font-family: "Coiny", system-ui;
         }
-        .container span {
-            color: white !important;
-        }
-
+        .container span,
         .container p {
             color: white !important;
         }
-
         .text-yellow {
             color: rgb(245, 236, 73) !important;
         }
-
         .carousel-item img {
             width: 100%;
             height: 400px; /* Set a specific height */
             object-fit: cover; /* Maintain aspect ratio */
         }
-
         h1 {
             font-size: 2.5rem; /* Default size */
         }
-
         @media (max-width: 576px) {
             h1 {
                 font-size: 1.8rem; /* Smaller size for mobile */
             }
         }
-
         .card-sh {
             border: none;
-            transition: transform 0.3s ease-in-out;
-            box-shadow: 0px 0px 4px 4px rgba(245, 236, 73, 0.521) !important;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 2px 6px rgba(245, 236, 73, 0.3);
         }
-
         .card-sh:hover {
-            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(245, 236, 73, 0.5);
+            transform: none;
         }
-
         .floating {
-            animation: float 3s ease-in-out infinite;
+            /* Removed floating animation as per user request */
+            animation: none !important;
         }
-
         @keyframes float {
             0% {
                 transform: translateY(0px);
             }
-
             50% {
                 transform: translateY(-15px);
             }
-
             100% {
                 transform: translateY(0px);
             }
         }
-            .work-with-us {
-        background-image: url('img/00000076-PHOTO-2025-06-17-17-59-08.jpg'); /* Replace with your new image path */
-        background-size: cover; /* Cover the entire section */
-        background-position: center; /* Center the image */
-        padding: 50px 0; /* Add some padding */
-        color: white; /* Set text color to white for better contrast */
-    }
-
-    .work-with-us h2 {
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
-    }
-
-    .work-with-us p {
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
-    }
-    .navbar-toggler {
-    background-color: transparent; /* Make the button background transparent */
-}
-
-.navbar-toggler-icon {
-    background-color: yellow; /* Set the icon background color to yellow */
-}
-#social:hover{
-    transform: scale(1.2);
-    transition: 2s;
-}
-/* Scroll animation styles */
-.scroll-animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+        .work-with-us {
+            background-image: url('img/00000076-PHOTO-2025-06-17-17-59-08.jpg'); /* Replace with your new image path */
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the image */
+            padding: 50px 0; /* Add some padding */
+            color: white; /* Set text color to white for better contrast */
+        }
+        .work-with-us h2 {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+        }
+        .work-with-us p {
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+        }
+        .navbar-toggler {
+            background-color: transparent; /* Make the button background transparent */
+        }
+        .navbar-toggler-icon {
+            background-color: yellow; /* Set the icon background color to yellow */
+        }
+        #social:hover {
+            transform: scale(1.2);
+            transition: 2s;
+        }
+        /* Scroll animation styles */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar {
+            border-bottom: 2px solid rgba(245, 236, 73, 0.521) !important;
+            box-shadow: 0px 2px 4px rgba(245, 236, 73, 0.521) !important;
+        }
     </style>
     <style>
         /* Clean fade and slide animation for carousel images */
@@ -119,13 +107,11 @@
             position: relative;
             z-index: 1;
         }
-
         .fade-slide-in {
             animation: fadeSlideIn 0.7s ease forwards;
             position: relative;
             z-index: 2;
         }
-
         @keyframes fadeSlideOut {
             0% {
                 opacity: 1;
@@ -136,7 +122,6 @@
                 transform: translateX(-30px);
             }
         }
-
         @keyframes fadeSlideIn {
             0% {
                 opacity: 0;
@@ -147,13 +132,26 @@
                 transform: translateX(0);
             }
         }
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .modal.slide-in-left {
+            animation: slideInLeft 0.5s forwards;
+        }
     </style>
 </head>
 
 <body class="bg-dark">
     <nav class="navbar sticky-top navbar-expand-lg bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/logo-sito.png" style="height: 54px; width: auto;" alt="Logo"></a>
+        <a class="navbar-brand" href="#"><img src="img/logo-sito.png" width="100" height="54" alt="Logo"></a>
         <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation" style="background-color: transparent;">
@@ -182,17 +180,8 @@
 </nav>
 
 
-    <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="3"
-                aria-label="Slide 4"></button>
-        </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="img/cortile.jpg" class="d-block w-100" alt="...">
@@ -233,9 +222,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-    <h1 id="menu" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Il nostro Menù</h1>
+    <h1 id="menu" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Le nostre specialit&agrave;</h1>
 
     <div class="container">
         <div class="row">
@@ -350,7 +340,7 @@
     </div>
 
     <center>
-        <a class="btn btn-sm btn-warning btn-lg" href="/menu.html">Visualizza il menù completo!</a>
+        <a href="menu.html" class="btn btn-sm btn-warning btn-lg">Visualizza il menù completo!</a>
 
         <style>
             /* Custom scrollbar styles for #photoCarousel */
@@ -369,6 +359,7 @@
                 scrollbar-width: thin;
                 scrollbar-color: rgb(245, 236, 73) transparent;
             }
+
         </style>
         <h1 class="text-font-strange mt-5 text-yellow">Galleria fotografica</h1>
         <h2 class="text-font-strange text-yellow">Posa i tuoi occhi sulle nostre delizie!</h2>
@@ -400,11 +391,11 @@
  
  <br>
  
-  <hr width="80%" style="border: 1px solid; color:rgb(245, 236, 73);">
+  <hr id="eventi" width="80%" style="border: 1px solid; color:rgb(245, 236, 73);">
  </center>
  
 
-    <h1 id="eventi" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Eventi</h1>
+    <h1  class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Eventi</h1>
     <br>
     <div class="container text-center">
         <div class="row">
@@ -419,7 +410,6 @@
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Animazione per bambini</li>
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Menù speciali per adulti e bambini</li>
                 </ul>
-                <button class="btn btn-warning">Richiedi un preventivo</button>
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <h2 class="text-yellow">Pranzi Domenicali!</h2>
@@ -432,7 +422,6 @@
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Ampia scelta di vini locali</li>
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Area giochi per bambini</li>
                 </ul>
-                <button class="btn btn-warning">Prenota il tuo tavolo</button>
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <h2 class="text-yellow">Pizze di fine anno!</h2>
@@ -445,47 +434,52 @@
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Possibilità di menù personalizzati</li>
                     <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Spazio dedicato per giochi e attività</li>
                 </ul>
-                <a class="btn btn-warning" href="https://wa.link/r63xw0">Richiedi informazioni</a>
             </div>
+            <center>
+        <a class="btn btn-sm text-center btn-warning" href="eventi.html">Scopri di pi&uacute; sui nostri eventi!</a>
+
+            </center>
         </div>
     </div>
 
-<div id="lavoraconnoi" class="mt-5 work-with-us text-center">
-    <h1 class="d-none d-md-block fs-1 fw-bold text-yellow shadow text-shadow" style="font-family: 'Coiny', system-ui;">Lavora con noi</h1>
-
-                <h2 class="text-yellow">Unisciti al nostro team!</h2>
-                <p class="mx-5">
-                    Siamo sempre alla ricerca di persone appassionate e motivate per unirsi al nostro team. 
-                    Se ami la cucina e il servizio al cliente, potresti essere la persona giusta per noi!
-                </p>
-                <p>
-                    <strong>Posizioni aperte:</strong><br>
-                    - Cameriere/a<br>
-                    - Cuoco/a<br>
-                    - Pizzaiolo/a <br>
-                    - Addetto/a alla consegna
-                </p>
-                <a class="btn btn-warning" href="mailto:info@manforte.eu">
-                    <img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Invia la tua candidatura
-                </a>
+<div id="lavoraconnoi" class="mt-5 work-with-us position-relative d-flex justify-content-center align-items-center" style="min-height: 350px;">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.75); z-index: 1;"></div>
+    <div class="content position-relative text-white p-4 p-md-5 rounded" style="max-width: 800px; background-color: rgba(0,0,0,0.5); box-shadow: 0 0 15px rgba(0,0,0,0.7); z-index: 2;">
+        <h1 class="d-none d-md-block fs-1 fw-bold text-yellow shadow text-shadow mb-4" style="font-family: 'Coiny', system-ui;">Lavora con noi</h1>
+        <h2 class="text-yellow mb-3">Unisciti al nostro team!</h2>
+        <p class="mb-3 fs-5 lh-lg">
+            Siamo sempre alla ricerca di persone appassionate e motivate per unirsi al nostro team. 
+            Se ami la cucina e il servizio al cliente, potresti essere la persona giusta per noi!
+        </p>
+        <p class="mb-4 fs-5 lh-lg">
+            <strong>Posizioni aperte:</strong><br>
+            - Cameriere/a<br>
+            - Cuoco/a<br>
+            - Pizzaiolo/a <br>
+            - Addetto/a alla consegna
+        </p>
+        <a class="btn btn-warning px-4 py-2 fw-semibold" href="mailto:info@manforte.eu" style="border-radius: 0;">
+            <img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Invia la tua candidatura
+        </a>
+    </div>
 </div>
 
     <br>
-
-    <h1 id="dovesiamo" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui">Vieni a trovarci!</h1>
+<div id="dovesiamo"></div>
+    <h1 class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui">Vieni a trovarci!</h1>
     <br>
     <div class="container text-center">
         <div class="row">
             <div class="col-12 col-md-6">
-                <h2 class="text-yellow">La nostra sede</h2>
+                <h2 class="text-yellow">La nostra Sede</h2>
                 <p class="text-white">
                     Scopri il sapore autentico delle migliori pizze romane, preparate con ingredienti selezionati e tutta la passione della tradizione.
                 </p>
                 <p class="text-white">
                     <strong>Indirizzo:</strong>&ensp;Via Giovanni Zanardini 39, Roma, IT 00156
                 </p>
-                <a class="btn btn-warning" href="tel:+3906823871"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/phone-message.png" alt="phone-message"/>&ensp;Chiamaci al Telefono</a>
-                <a class="btn btn-warning" href="mailto:info@manforte.eu"><img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Contattaci via Mail</a>
+                <a class="btn btn-warning m-1" href="tel:+3906823871"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/phone-message.png" alt="phone-message"/>&ensp;Chiamaci al Telefono</a>
+                <a class="btn btn-warning m-1" href="mailto:info@manforte.eu"><img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Contattaci via Mail</a>
                 <h3 class="text-white mt-5">Orari di apertura:</h3>
                 <p>Lunedì – Domenica | 19:00 – 24:00</p>
                 <p>Domenica da ottobre a maggio | 12.30 – 24:00</p>
@@ -504,14 +498,29 @@
         <!-- Social Media Section -->
         <div class="col-md-6 text-center">
             <h1 class="text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Oswald', sans-serif;">Rimani in contatto con noi!</h1>
-            <p class="lead text-white">Seguici sui nostri account social:</p>
-            <a  href="https://www.instagram.com/manfortefood?igsh=ZXV3ZDF3dml4NnJs "><img id="social" width="48" height="48" src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"/></a>
-            <a  href="https://www.facebook.com/manfortefood/"><img id="social" width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"/></a>
-        </div>
+            <h3 class="text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Oswald', sans-serif;">Iscriviti alla nostra Newsletter</h3>
+            <form id="newsletterForm" class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mb-3" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" class="form-control" id="nameInput" placeholder="Il tuo nome" required
+                    style="border-radius: 0; padding: 12px 20px; border: 2px solid rgb(245, 236, 73); background-color: white; color: black; transition: box-shadow 0.3s ease;">
+                <input type="email" class="form-control" id="emailInput" placeholder="La tua email" required
+                    style="border-radius: 0; padding: 12px 20px; border: 2px solid rgb(245, 236, 73); background-color: white; color: black; transition: box-shadow 0.3s ease;">
+                <button type="submit" class="btn btn-warning fw-bold px-4 py-2" style="border-radius: 0; background-color: rgb(245, 236, 73); border-color: rgb(245, 236, 73); color: black; transition: box-shadow 0.3s ease;">Iscriviti</button>
+            </form>
+<h3 class="text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Oswald', sans-serif;">Seguici sui nostri social ufficiali:</h3>
+<div class="d-flex justify-content-center gap-4 mb-4">
+    <a href="https://www.instagram.com/manfortefood" target="_blank" id="social" class="text-yellow fs-2" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/manfortefood" target="_blank" id="social" class="text-yellow fs-2" aria-label="Facebook">
+        <i class="bi bi-facebook"></i>
+    </a>
+</div>
+            
+          </div>
 
         <!-- Reviews Section -->
         <div class="col-md-6">
-            <h2 class="text-center mb-4 text-yellow">Alcune delle nostre recensioni</h2>
+            <h2 class="text-center mb-4 text-yellow">Alcune delle nostre migliori recensioni</h2>
             <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -521,7 +530,7 @@
                                 <p class="card-text">"Abbiamo passato una splendida Pasqua in famiglia con il buon cibo, accoglienza e calore umano unico di Manforte. Un grazie particolare al nostro camerire Francesco che ha reso quest' esperienza indimenticabile."</p>
                                 <p class="card-text"><strong class="text-info">flami87</strong></p>
                                 <div class="rating">
-                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <!-- 4 stars -->
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <!-- 5 stars -->
                                 </div>
                             </div>
                         </div>
@@ -545,7 +554,7 @@
                                 <p class="card-text">"Locale ampio con posti sia interni che esterni. Scelto perchè fanno anche senza glutine, capitato per la serata bruschette no limits e non me la sono fatta scappare."</p>
                                 <p class="card-text"><strong class="text-info">Vincenzo012</strong></p>
                                 <div class="rating">
-                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9734;&#9734;</span> <!-- 3 stars -->
+                                    <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <!-- 5 stars -->
                                 </div>
                             </div>
                         </div>
@@ -575,29 +584,9 @@
         </div>
     </div>
 </div>
-<!-- Modal Eventi -->
-    <div class="modal fade" id="eventiModal" tabindex="-1" aria-labelledby="eventiModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white">
-            <div class="modal-header">
-                <h5 class="modal-title text-yellow" id="eventiModalLabel">Scopri i nostri Eventi!</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Chiudi"></button>
-            </div>
-            <div class="modal-body">
-                🎉 Vieni a festeggiare da Manforte! Organizziamo feste di compleanno, pranzi domenicali e pizze di fine anno. <br><br>
-                <strong class="text-yellow">Prenota ora e rendi speciale il tuo evento!</strong>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" id="btnVaiEventi">Vai agli Eventi</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-            </div>
-            </div>
-        </div>                                                                                              
-    </div>
 
 
-
-
+<br>
 
     <!-- Script di JS non levare -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -667,28 +656,56 @@
             });
         });
     </script>
-    <script>
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
             const eventiModal = new bootstrap.Modal(document.getElementById('eventiModal'));
+            
+            const modalElement = document.getElementById('eventiModal');
+            modalElement.classList.add('slide-in-left');
+            
             eventiModal.show();
-
             const btnVaiEventi = document.getElementById('btnVaiEventi');
             btnVaiEventi.addEventListener('click', function () {
                 eventiModal.hide();
-
-                // Attendi che il modale sia completamente chiuso
-                const modalElement = document.getElementById('eventiModal');
                 modalElement.addEventListener('hidden.bs.modal', function () {
                     const target = document.getElementById('eventi');
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
-                }, { once: true }); // Solo una volta
+                }, { once: true }); 
             });
         });
     </script>
-
-
+    <div class="modal fade" id="eventiModal" tabindex="-1" aria-labelledby="eventiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title text-yellow" id="eventiModalLabel">Scopri i nostri Eventi!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+            </div>
+            <div class="modal-body">
+                🎉 Vieni a festeggiare da Manforte! Organizziamo feste di compleanno, pranzi domenicali e pizze di fine anno. <br><br>
+                <strong class="text-yellow">Prenota ora e rendi speciale il tuo evento!</strong>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" id="btnVaiEventi">Vai agli Eventi</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            </div>
+            </div>
+        </div>                                                                                              
+    </div>
+    <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <h5>Contatti</h5>
+                <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
+                <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
+                <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
+            </div>
+            <div>
+                <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>

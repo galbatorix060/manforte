@@ -145,10 +145,54 @@
         .modal.slide-in-left {
             animation: slideInLeft 0.5s forwards;
         }
+    .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    width: 100px; /* Dimensione del logo */
+    height: auto;
+}
+
+.progress {
+    width: 80%; /* Larghezza della barra di progresso */
+    height: 10px; /* Altezza della barra di progresso */
+    background-color: rgba(245, 236, 73, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: rgb(245, 236, 73);
+    width: 0; /* Inizialmente a 0 */
+    transition: width 0.5s; /* Transizione per l'animazione */
+}
+
     </style>
 </head>
 
 <body class="bg-dark">
+
+<div id="preloader" class="preloader">
+    <img src="img/logo-sito.png" class="loader" alt="Logo">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</div>
+
+
     <nav class="navbar sticky-top navbar-expand-lg bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="img/logo-sito.png" width="100" height="54" alt="Logo"></a>
@@ -676,6 +720,25 @@
             });
         });
     </script>
+    <script>
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progressBar');
+    
+    let width = 0;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            preloader.style.display = 'none'; // Nascondi il preloader
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
+        }
+    }, 30); // Cambia il valore per regolare la velocità
+});
+
+</script>
+
     <div class="modal fade" id="eventiModal" tabindex="-1" aria-labelledby="eventiModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark text-white">
@@ -708,4 +771,4 @@
         </div>
     </footer>
 </body>
-</html>
+</html> 

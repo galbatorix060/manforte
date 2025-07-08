@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,9 +7,53 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
-</head>
+<style>
+          .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 100px;
+            height: auto;
+        }
+
+        .progress {
+            width: 80%;
+            height: 10px;
+            background-color: rgba(245, 236, 73, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: rgb(245, 236, 73);
+            width: 0;
+            transition: width 0.5s;
+        }
+</style>
+  </head>
 
 <body class="bg-dark text-white">
+
+<div id="preloader" class="preloader">
+    <img src="img/logo-sito.png" class="loader" alt="Logo">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</div>
+
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">← Torna alla Home</a>
@@ -26,13 +69,11 @@
           <div class="card-body d-flex flex-column">
             <h2 class="card-title text-warning">Feste di Compleanno</h2>
             <p class="card-text text-light flex-grow-1">
-              Organizza la tua festa di compleanno da noi e rendila un evento indimenticabile! Offriamo menù personalizzati
-              per adulti e bambini, animazione dedicata e tanto divertimento per tutte le età. Il nostro staff si occuperà
-              di ogni dettaglio per garantirti una giornata speciale in un ambiente accogliente e festoso.
+              Organizza la tua festa di compleanno da noi e rendila un evento indimenticabile! Offriamo un'esperienza indimenticabile nonch&eacute; una foto ricordo da portare a casa con te! Scegli la torta che piu preferisci e personalizzala come vuoi!
             </p>
             <ul class="text-warning mb-3">
               <li>Torta personalizzata su richiesta</li>
-              <li>Animazione e giochi per bambini</li>
+              <li>Area giochi per bambini</li>
               <li>Menù speciali per esigenze alimentari</li>
             </ul>
           </div>
@@ -74,6 +115,28 @@
         </div>
       </section>
     </div>
+<br>
+    <section class="col-12">
+  <div class="card bg-dark border-warning">
+    <div class="card-body d-flex flex-column">
+      <h2 class="card-title text-light"><strong>TORTE DI COMPLEANNO</strong> <span class="text-danger">(GLUTEN FREE)</span></h2>
+      <ul class="text-light flex-grow-1">
+        <li><strong class="text-success">Tiramisu Classico:</strong> Savoiardi artigianali gluten free bagnati nel caffè, crema mascarpone e cacao.</li>
+        <li><strong class="text-success">Cheesecake:</strong> Cocco e nutella - cioccolato bianco e caramello salato - frutti di bosco - fragola.</li>
+        <li><strong class="text-success">Charlotte:</strong> Pan di spagna farcito con crema chantilly e cioccolato fondente e frutti di bosco o crema al pistacchio.</li>
+        <li><strong class="text-success">Millefoglie:</strong> Sfoglia friabile con crema chantilly e cioccolato fondente o frutti di bosco. <b class="text-danger">Anche GLUTEN  FREE</b> </li>
+        <li><strong class="text-success">Mimosa:</strong> Pan di spagna farcito con crema chantilly e cioccolato fondente o frutti di bosco o crema al pistacchio.</li>
+        <li><strong class="text-success">Bounty:</strong> Mousse al cocco, amaretto al cocco, copertura al latte.</li>
+        <li><strong class="text-success">Crostata:</strong> Frutti di bosco - fragole.</li>
+        <li><strong class="text-success">Semifreddo alla Fragola:</strong> Mousse fragola e panna, bisquit paradiso, copertura gelè di fragole.</li>
+        <li><strong class="text-success">Torta Paradiso.</strong></li>
+        <li><strong class="text-success">Croccante all'Amarena:</strong> Fior di latte alla vaniglia, morbido ripieno all'amarena, copertura fondente, nocciole pralinate.</li>
+      </ul>
+      <p class="text-warning">Personalizziamo la tua torta con scritte e decorazioni.</p>
+      <p class="text-warning">Il costo delle nostre torte è di 25 euro al kg - la porzione è di 100 gr circa a persona. Dimensione minima 700 gr (6/7 porzioni).</p>
+    </div>
+  </div>
+</section>
 
     <div class="mt-4">
       <a href="tel:+3906823871" class="btn btn-warning me-3" aria-label="Chiama Manforte">
@@ -84,7 +147,24 @@
       </a>
     </div>
   </main>
+  <script>
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progressBar');
+    
+    let width = 0;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            preloader.style.display = 'none'; // Nascondi il preloader
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
+        }
+    }, 30); // Cambia il valore per regolare la velocità
+});
 
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>

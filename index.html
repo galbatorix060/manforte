@@ -10,176 +10,189 @@
     <title>Manforte Pizzeria Roma</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
         nav a:hover {
             text-decoration: underline;
             transform: scale(1.2);
             transition: 1s;
         }
-        .text-font-strange{
+
+        .text-font-strange {
             font-family: "Coiny", system-ui;
         }
+
         .container span,
         .container p {
             color: white !important;
         }
+
         .text-yellow {
             color: rgb(245, 236, 73) !important;
         }
+
         .carousel-item img {
             width: 100%;
-            height: 400px; /* Set a specific height */
-            object-fit: cover; /* Maintain aspect ratio */
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
         }
+
         h1 {
-            font-size: 2.5rem; /* Default size */
+            font-size: 2.5rem;
         }
+
         @media (max-width: 576px) {
             h1 {
-                font-size: 1.8rem; /* Smaller size for mobile */
+                font-size: 1.8rem;
             }
         }
+
         .card-sh {
             border: none;
             transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
             box-shadow: 0 2px 6px rgba(245, 236, 73, 0.3);
         }
+
         .card-sh:hover {
             box-shadow: 0 4px 12px rgba(245, 236, 73, 0.5);
             transform: none;
         }
+
         .floating {
-            /* Removed floating animation as per user request */
             animation: none !important;
         }
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
+
         .work-with-us {
-            background-image: url('img/00000076-PHOTO-2025-06-17-17-59-08.jpg'); /* Replace with your new image path */
-            background-size: cover; /* Cover the entire section */
-            background-position: center; /* Center the image */
-            padding: 50px 0; /* Add some padding */
-            color: white; /* Set text color to white for better contrast */
+            background-image: url('img/00000076-PHOTO-2025-06-17-17-59-08.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0;
+            color: white;
         }
-        .work-with-us h2 {
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
-        }
+
+        .work-with-us h2,
         .work-with-us p {
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
+
         .navbar-toggler {
-            background-color: transparent; /* Make the button background transparent */
+            background-color: transparent;
+            border: none;
         }
+
         .navbar-toggler-icon {
-            background-color: yellow; /* Set the icon background color to yellow */
+            background-color: yellow;
         }
+
         #social:hover {
             transform: scale(1.2);
             transition: 2s;
         }
+
         /* Scroll animation styles */
         .scroll-animate {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .scroll-animate.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .navbar {
             border-bottom: 2px solid rgba(245, 236, 73, 0.521) !important;
             box-shadow: 0px 2px 4px rgba(245, 236, 73, 0.521) !important;
         }
-    </style>
-    <style>
-        /* Clean fade and slide animation for carousel images */
+
+        /* Carousel fade-slide animations */
         .fade-slide-out {
             animation: fadeSlideOut 0.7s ease forwards;
             position: relative;
             z-index: 1;
         }
+
         .fade-slide-in {
             animation: fadeSlideIn 0.7s ease forwards;
             position: relative;
             z-index: 2;
         }
+
         @keyframes fadeSlideOut {
             0% {
                 opacity: 1;
                 transform: translateX(0);
             }
+
             100% {
                 opacity: 0;
                 transform: translateX(-30px);
             }
         }
+
         @keyframes fadeSlideIn {
             0% {
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
+
         @keyframes slideInLeft {
             0% {
                 transform: translateX(-100%);
                 opacity: 0;
             }
+
             100% {
                 transform: translateX(0);
                 opacity: 1;
             }
         }
+
         .modal.slide-in-left {
             animation: slideInLeft 0.5s forwards;
         }
-    .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.loader {
-    width: 100px; /* Dimensione del logo */
-    height: auto;
-}
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-.progress {
-    width: 80%; /* Larghezza della barra di progresso */
-    height: 10px; /* Altezza della barra di progresso */
-    background-color: rgba(245, 236, 73, 0.3);
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 20px;
-}
+        .loader {
+            width: 100px;
+            height: auto;
+        }
 
-.progress-bar {
-    height: 100%;
-    background-color: rgb(245, 236, 73);
-    width: 0; /* Inizialmente a 0 */
-    transition: width 0.5s; /* Transizione per l'animazione */
-}
+        .progress {
+            width: 80%;
+            height: 10px;
+            background-color: rgba(245, 236, 73, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
 
+        .progress-bar {
+            height: 100%;
+            background-color: rgb(245, 236, 73);
+            width: 0;
+            transition: width 0.5s;
+        }
     </style>
 </head>
 
@@ -207,13 +220,13 @@
                     <a class="nav-link active text-yellow fw-semibold" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-yellow fw-semibold" href="#menu">Menù</a>
+                    <a class="nav-link text-yellow fw-semibold" href="menu.html">Menù</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-yellow fw-semibold" href="#eventi">Eventi</a>
+                    <a class="nav-link text-yellow fw-semibold" href="eventi.html">Eventi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-yellow fw-semibold" href="#lavoraconnoi">Lavora con noi</a>
+                    <a class="nav-link text-yellow fw-semibold" href="lavoraconnoi.html">Lavora con noi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-yellow fw-semibold" href="#dovesiamo">Dove siamo</a>
@@ -502,7 +515,7 @@
             - Pizzaiolo/a <br>
             - Addetto/a alla consegna
         </p>
-        <a class="btn btn-warning px-4 py-2 fw-semibold" href="mailto:info@manforte.eu" style="border-radius: 0;">
+        <a class="btn btn-warning px-4 py-2 fw-semibold" href="lavoraconnoi.html" style="border-radius: 0;">
             <img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Invia la tua candidatura
         </a>
     </div>

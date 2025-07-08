@@ -143,12 +143,51 @@
       width: 100% !important;
     }
   }
+          .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 100px;
+            height: auto;
+        }
+
+        .progress {
+            width: 80%;
+            height: 10px;
+            background-color: rgba(245, 236, 73, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: rgb(245, 236, 73);
+            width: 0;
+            transition: width 0.5s;
+        }
 </style>
 
 
 </head>
 <body>
-
+<div id="preloader" class="preloader">
+    <img src="img/logo-sito.png" class="loader" alt="Logo">
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</div>
   <!-- Navbar -->
   <nav class="navbar sticky-top navbar-expand-lg">
     <div class="container">
@@ -162,8 +201,8 @@
         <ul class="navbar-nav gap-2">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="#">Menù</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#eventi">Eventi</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#lavoraconnoi">Lavora con noi</a></li>
+          <li class="nav-item"><a class="nav-link" href="eventi.html">Eventi</a></li>
+          <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
         </ul>
       </div>
@@ -271,7 +310,24 @@
   </div>
 </div>
   
+<script>
+    window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progressBar');
+    
+    let width = 0;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            preloader.style.display = 'none'; // Nascondi il preloader
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
+        }
+    }, 30); // Cambia il valore per regolare la velocità
+});
 
+</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

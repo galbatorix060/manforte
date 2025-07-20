@@ -15,6 +15,19 @@
     margin: 0;
     padding: 0;
   }
+  /* Imposta il colore del testo (e quindi dell’icona SVG che usa currentColor) */
+  .accordion-button {
+    color: rgb(245, 236, 73);
+  }
+
+  /* Se l’icona non rispetta currentColor, la “inverto” con un filtro */
+  .accordion-button::after {
+    filter: brightness(0) invert(1);
+  }
+
+  .accordion-item {
+    border-color: rgb(245, 236, 73);
+  }
 
   .navbar {
     background-color: #000;
@@ -189,7 +202,7 @@
     </div>
 </div>
   <!-- Navbar -->
-  <nav class="navbar sticky-top navbar-expand-lg">
+  <nav class="navbar sticky-top navbar-expand-lg bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html"><img src="img/logo-sito.png" alt="Logo"></a>
       <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
@@ -209,106 +222,303 @@
     </div>
   </nav>
 
-  <!-- PIZZE -->
-<div class="container d-flex justify-content-center pt-4">
-  <div class="card shadow-lg p-4 mb-5 rounded-4 w-75 mb-4" style="background-color: #2b2b2b;">
-  <h1>Il Nostro Menù</h1>
-
-  <div class="menu-section">
-
-    <!-- Esempio 1 -->
-    <div class="menu-item">
-      <img src="img/00000007-PHOTO-2025-06-15-10-50-43.jpg" alt="Margherita">
-      <div class="menu-description">
-        <h3>Pizza Margherita DOP</h3>
-        <p>Pomodoro San Marzano DOP, mozzarella fior di latte, basilico fresco e olio EVO.</p>
-        <div class="price text-end">€8.00</div>
-      </div>
-    </div>
-
-    <!-- Esempio 2 -->
-    <div class="menu-item">
-      <img src="img/pizza2.jpg" alt="Diavola Inferno">
-      <div class="menu-description">
-        <h3 class="text-end">Diavola Inferno</h3>
-        <p class="text-end">Pomodoro, mozzarella, salamino piccante calabrese e un tocco di peperoncino fresco.</p>
-        <div class="price">€9.50</div>
-      </div>
-    </div>
-
-    <!-- Esempio 3 -->
-    <div class="menu-item">
-      <img src="img/pizza3.jpg" alt="Quattro Formaggi">
-      <div class="menu-description">
-        <h3>Quattro Formaggi</h3>
-        <p>Mozzarella, gorgonzola DOP, fontina valdostana e Parmigiano Reggiano stagionato.</p>
-        <div class="price text-end">€10.00</div>
-      </div>
-    </div>
-
-    <!-- Esempio 4 -->
-    <div class="menu-item">
-      <img src="img/bruschetta1.jpg" alt="Bruschetta Vegana">
-      <div class="menu-description">
-        <h3 class="text-end">Bruschetta Vegana</h3>
-        <p class="text-end">Hummus di ceci, melanzane grigliate, zucchine e semi di sesamo tostati.</p>
-        <div class="price">€6.50</div>
-      </div>
-    </div>
-
-  </div>
-  </div>
-</div>
 
 <div class="container d-flex justify-content-center pt-4">
   <div class="card shadow-lg p-4 mb-5 rounded-4 w-75 mb-4" style="background-color: #2b2b2b;">
   <h1>Il Nostro Menù</h1>
 
-  <div class="menu-section">
 
-    <!-- Esempio 1 -->
-    <div class="menu-item">
-      <img src="img/00000007-PHOTO-2025-06-15-10-50-43.jpg" alt="Margherita">
-      <div class="menu-description">
-        <h3>Pizza Margherita DOP</h3>
-        <p>Pomodoro San Marzano DOP, mozzarella fior di latte, basilico fresco e olio EVO.</p>
-        <div class="price text-end">€8.00</div>
+  <div class="container mb-4">
+  <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="cantina">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Cantina">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Cantina</h6>
       </div>
     </div>
-
-    <!-- Esempio 2 -->
-    <div class="menu-item">
-      <img src="img/pizza2.jpg" alt="Diavola Inferno">
-      <div class="menu-description">
-        <h3 class="text-end">Diavola Inferno</h3>
-        <p class="text-end">Pomodoro, mozzarella, salamino piccante calabrese e un tocco di peperoncino fresco.</p>
-        <div class="price">€9.50</div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="birre">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Birre">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Birre</h6>
       </div>
     </div>
-
-    <!-- Esempio 3 -->
-    <div class="menu-item">
-      <img src="img/pizza3.jpg" alt="Quattro Formaggi">
-      <div class="menu-description">
-        <h3>Quattro Formaggi</h3>
-        <p>Mozzarella, gorgonzola DOP, fontina valdostana e Parmigiano Reggiano stagionato.</p>
-        <div class="price text-end">€10.00</div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="analcolici">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Analcolici">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Analcolici</h6>
       </div>
     </div>
-
-    <!-- Esempio 4 -->
-    <div class="menu-item">
-      <img src="img/bruschetta1.jpg" alt="Bruschetta Vegana">
-      <div class="menu-description">
-        <h3 class="text-end">Bruschetta Vegana</h3>
-        <p class="text-end">Hummus di ceci, melanzane grigliate, zucchine e semi di sesamo tostati.</p>
-        <div class="price">€6.50</div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="bruschette">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Bruschette">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Bruschette</h6>
       </div>
     </div>
-
-  </div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="fritti">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Fritti">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Fritti</h6>
+      </div>
+    </div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="pizze">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Pizze">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Pizze</h6>
+      </div>
+    </div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="hamburger">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Hamburger">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Hamburger</h6>
+      </div>
+    </div>
+    <div class="card filter-card text-white bg-dark border-3" 
+         style="min-width:150px; cursor:pointer;" 
+         data-target="insalate">
+      <img src="img/cortile.jpg" class="card-img-top" alt="Insalate">
+      <div class="card-body p-2 text-center">
+        <h6 class="card-title mb-0">Insalate</h6>
+      </div>
+    </div>
   </div>
 </div>
+
+
+  <div class="container">
+
+  <!-- CANTINA -->
+  <div id="cantina-section" class="macro-section">
+    <div class="accordion" id="accordionCantina">
+
+      <!-- Vini bianchi -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingWB">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseWB" 
+                  aria-expanded="false" 
+                  aria-controls="collapseWB"
+                  style="color: rgb(245, 236, 73);">
+            Vini bianchi
+          </button>
+        </h2>
+        <div id="collapseWB" class="accordion-collapse collapse" aria-labelledby="headingWB" data-bs-parent="#accordionCantina">
+          <div class="accordion-body">
+
+            <!-- Singolo prodotto -->
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+            <!-- /prodotto 1 -->
+
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+            <!-- Ripeti per gli altri… -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Vini rossi -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVR">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseVR" 
+                  aria-expanded="false"
+                  style="color: rgb(245, 236, 73);"
+                  aria-controls="collapseVR">
+            Vini rossi
+          </button>
+        </h2>
+        <div id="collapseVR" class="accordion-collapse collapse" aria-labelledby="headingVR" data-bs-parent="#accordionCantina">
+          <div class="accordion-body">
+            <!-- Lista prodotti… -->
+             <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bollicine -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingBO">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseBO" 
+                  aria-expanded="false"
+                  style="color: rgb(245, 236, 73);" 
+                  aria-controls="collapseBO">
+            Bollicine
+          </button>
+        </h2>
+        <div id="collapseBO" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCantina">
+          <div class="accordion-body">
+            <!-- Lista prodotti… -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CUCINA (viene nascosta di default) -->
+  <div id="cucina-section" class="macro-section d-none">
+    <!-- qui un altro accordion per antipasti, primi, secondi… -->
+     <div class="accordion" id="accordionCucina">
+      <!-- Vini rossi -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingVR">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseVR" 
+                  aria-expanded="false" 
+                  aria-controls="collapseVR">
+            Pizze
+          </button>
+        </h2>
+        <div id="collapseVR" class="accordion-collapse collapse" aria-labelledby="headingVR" data-bs-parent="#accordionCucina">
+          <div class="accordion-body">
+            <!-- Lista prodotti… -->
+             <div class="d-flex align-items-center mb-3">
+              <img src="img/cibointavola.jpeg" 
+                   class="rounded-circle me-3" 
+                   style="width:60px; height:60px; object-fit:cover;" 
+                   alt="Prosecco">
+              <div class="flex-grow-1">
+                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
+                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="fw-bold ms-3">€ 25,00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bollicine -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingBO">
+          <button class="accordion-button collapsed" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseBO" 
+                  aria-expanded="false" 
+                  aria-controls="collapseBO">
+            Hamburger
+          </button>
+        </h2>
+        <div id="collapseBO" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCucina">
+          <div class="accordion-body">
+            <!-- Lista prodotti… -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ALLERGENI -->
+  <div id="allergeni-section" class="macro-section d-none">
+    <!-- elenco allergeni… -->
+  </div>
+
+</div>
+
+</div>
+</div>
+
+
+<footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <h5>Contatti</h5>
+                <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
+                <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
+                <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
+            </div>
+            <div>
+                <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+            </div>
+        </div>
+</footer>
+
   
 <script>
     window.addEventListener('load', function() {
@@ -327,7 +537,30 @@
     }, 5); // Cambia il valore per regolare la velocità
 });
 
+  const cards = document.querySelectorAll('.filter-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // evidenzia card
+      cards.forEach(c => c.classList.remove('border-warning'));
+      card.classList.add('border-warning');
+      // mostra solo la section corrispondente
+      document.querySelectorAll('.macro-section')
+              .forEach(sec => sec.classList.add('d-none'));
+      const target = card.dataset.target + '-section';
+      document.getElementById(target).classList.remove('d-none');
+      // chiudi eventuali collapse aperti nella nuova section
+      const btns = document.getElementById(target)
+                       .querySelectorAll('.accordion-button[aria-expanded="true"]');
+      btns.forEach(b => b.click());
+    });
+  });
+  // inizializza: attiva la prima card
+  if (cards.length) cards[0].click();
 </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
+
+
+<!-- fammi l'accordion btn icon (la freccetta per capirci che ruota quando si apre il menu a tendina) di colore bianco -->

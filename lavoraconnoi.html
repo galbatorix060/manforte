@@ -220,9 +220,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     <div class="container py-5 d-flex justify-content-center">
         <div class="card bg-dark bg-opacity-75 text-white shadow-lg" style="backdrop-filter: blur(10px); max-width: 600px; width: 100%;">
             <div class="card-body">
-                <h2 class="card-title text-yellow mb-4">Lavora con noi</h2>
-                <p class="card-text">Compila il form sottostante con le tue informazioni. Questi dati saranno utilizzati per inviare la tua candidatura e lavorare da Manforte Pizzeria!</p>
-                <form action="#" method="post" enctype="multipart/form-data" class="text-white">
+                <!-- form.html -->
+                <form action="sendmail.php" method="post" enctype="multipart/form-data" class="text-white">
+                    <h2 class="card-title text-yellow mb-4">Lavora con noi</h2>
+                    <p class="card-text">Compila il form sottostante con le tue informazioni. Questi dati saranno utilizzati per inviare la tua candidatura e lavorare da Manforte Pizzeria!</p>
+
                     <div class="mb-3">
                         <label for="nomeCognome" class="form-label">Nome e Cognome</label>
                         <input type="text" class="form-control" id="nomeCognome" name="nomeCognome" required>
@@ -257,9 +259,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                         <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
                         <label class="form-check-label" for="privacy">Accetto le condizioni sulla privacy</label>
                     </div>
-                    <button type="submit" class="btn btn-warning text-dark"><i class="bi bi-envelope-fill"> </i>Invia candidatura</button>
+                    <button type="submit" class="btn btn-warning text-dark"><i class="bi bi-envelope-fill"> </i> Invia candidatura</button>
                 </form>
-            </div>
+
         </div>
     </div>
 </section>

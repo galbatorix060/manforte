@@ -244,6 +244,15 @@
             margin-top: 2rem;
         }
     </style>
+    <style>
+        /* Custom style to limit the width of the events button */
+        .btn-limited-width {
+            display: inline-block !important;
+            width: auto !important;
+            max-width: 300px;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <body class="bg-dark">
@@ -351,6 +360,62 @@
         </div>
     </div>
 </div>
+ <h1 class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Eventi</h1>
+
+<div class="container text-center">
+    <div class="row">
+        <!-- Feste di Compleanno -->
+        <div class="col-12 col-md-4 mb-4">
+            <div class="p-4 rounded shadow" style="background-color: #666666;">
+                <h2 class="text-yellow mb-3">Feste di Compleanno</h2>
+                <p class="text-white">
+                    Celebra il tuo giorno speciale con stile! Organizziamo feste su misura con menù dedicati, animazione e tanto divertimento.
+                </p>
+                <ul class="list-unstyled text-start">
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Torta personalizzata</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Animazione per bambini</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Menù speciali per grandi e piccoli</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pranzi Domenicali -->
+        <div class="col-12 col-md-4 mb-4">
+            <div class="p-4 rounded shadow" style="background-color: #666666;">
+                <h2 class="text-yellow mb-3">Pranzi Domenicali</h2>
+                <p class="text-white">
+                    Trascorri la domenica con chi ami gustando piatti genuini in un ambiente caldo e accogliente.
+                </p>
+                <ul class="list-unstyled text-start">
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Menù fisso conveniente</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Selezione di vini locali</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Area giochi per bambini</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pizze di Fine Anno -->
+        <div class="col-12 col-md-4 mb-4">
+            <div class="p-4 rounded shadow" style="background-color: #666666;">
+                <h2 class="text-yellow mb-3">Pizze di Fine Anno</h2>
+                <p class="text-white">
+                    Concludi l’anno scolastico con una festa a base di pizza! Ideale per classi e gruppi, con tante attività su richiesta.
+                </p>
+                <ul class="list-unstyled text-start">
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Sconti per gruppi numerosi</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Menù personalizzabili</li>
+                    <li class="text-white"><i class="bi bi-check-circle text-yellow me-2"></i>Spazio giochi riservato</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-warning btn-sm px-4 py-2 shadow" href="eventi.html">
+            Scopri di più sui nostri eventi
+        </a>
+    </div>
+</div>  
 
 <h1 id="menu" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Le nostre specialit&agrave;</h1>
 
@@ -519,53 +584,7 @@
  
  <br>
  
-  <hr id="eventi" width="80%" style="border: 1px solid; color:rgb(245, 236, 73);">
- </center>
- 
-
-    <h1  class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Coiny', system-ui;">Eventi</h1>
-    <br>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-12 col-md-4 mb-4">
-                <h2 class="text-yellow">Feste di Compleanno!</h2>
-                <p class="text-white">
-                    Organizza la tua festa di compleanno da noi e rendila indimenticabile! Offriamo menù personalizzati,
-                    animazione e tanto divertimento per tutte le età.
-                </p>
-                <ul class="list-unstyled text-start">
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Torta personalizzata</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Animazione per bambini</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Menù speciali per adulti e bambini</li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-                <h2 class="text-yellow">Pranzi Domenicali!</h2>
-                <p class="text-white">
-                    Goditi un pranzo domenicale in famiglia in un'atmosfera accogliente e rilassante. Proponiamo piatti
-                    tradizionali e gustosi, preparati con ingredienti freschi e di stagione.
-                </p>
-                <ul class="list-unstyled text-start">
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Menù fisso a prezzo speciale</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Ampia scelta di vini locali</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Area giochi per bambini</li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-                <h2 class="text-yellow">Pizze di fine anno!</h2>
-                <p class="text-white">
-                    Festeggia la fine dell'anno scolastico con una pizza party! Offriamo sconti speciali per classi e gruppi,
-                    con possibilità di personalizzare il menù e organizzare giochi e attività.
-                </p>
-                <ul class="list-unstyled text-start">
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Sconti per gruppi numerosi</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Possibilità di menù personalizzati</li>
-                    <li class="text-white"><i class="bi bi-check-circle text-yellow"></i> Spazio dedicato per giochi e attività</li>
-                </ul>
-            </div>
-            <center>
-        <a class="btn btn-sm text-center btn-warning" href="eventi.html">Scopri di pi&uacute; sui nostri eventi!</a>
-
+  
             </center>
         </div>
     </div>

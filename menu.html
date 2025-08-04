@@ -15,6 +15,19 @@
     margin: 0;
     padding: 0;
   }
+
+  #macroCards {
+    scroll-behavior: smooth;
+  }
+
+  
+  .accordion-button:focus,
+  .accordion-button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+
   /* Imposta il colore del testo (e quindi dell’icona SVG che usa currentColor) */
   .accordion-button {
     color: rgb(245, 236, 73);
@@ -27,6 +40,57 @@
 
   .accordion-item {
     border-color: rgb(245, 236, 73);
+  }
+  /* wrapper dell’accordion (puoi adattare il selettore se usi un altro container) */
+  .accordion-body {
+    background-color: #1a1a1a;      /* stesso dark della pagina */
+    padding: 1rem;                  /* un po’ di respiro */
+  }
+
+  /* ogni singolo prodotto */
+  .accordion-body .product-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--bs-warning);
+    padding: 1rem 0;
+  }
+  /* rimuove la linea all’ultimo elemento */
+  .accordion-body .product-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /* miniatura tonda */
+  .product-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+
+  /* info testo */
+  .product-item .product-info {
+    flex: 1;
+  }
+  .product-item .product-info .title {
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    color: rgb(245, 236, 73);
+  }
+  .product-item .product-info .desc {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgb(245, 236, 73);
+    opacity: 0.75;
+  }
+
+  /* prezzo giallo a destra */
+  .product-item .price {
+    margin-left: 1rem;
+    font-weight: 600;
+    color: rgb(245, 236, 73);
   }
 
   .navbar {
@@ -190,6 +254,24 @@
             width: 0;
             transition: width 0.1s;
         }
+
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          display: flex;
+          flex-direction: column;
+        }
+        main, .container {
+          flex: 1;            /* fa crescere il contenuto per spingere il footer in basso */
+        }
+        footer {
+          margin-top: auto;   /* incolla il footer al fondo */
+        }
+
+
 </style>
 
 
@@ -306,129 +388,108 @@
 
       <!-- Vini bianchi -->
       <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
-        <h2 class="accordion-header" id="headingWB">
+        <h2 class="accordion-header" id="headingWhiteWine">
           <button class="accordion-button collapsed bg-dark" 
                   type="button" 
                   data-bs-toggle="collapse" 
-                  data-bs-target="#collapseWB" 
+                  data-bs-target="#collapseWhiteWine" 
                   aria-expanded="false" 
-                  aria-controls="collapseWB"
+                  aria-controls="collapseWhiteWine"
                   style="color: rgb(245, 236, 73);">
             Vini bianchi
           </button>
         </h2>
-        <div id="collapseWB" class="accordion-collapse collapse" aria-labelledby="headingWB" data-bs-parent="#accordionCantina">
+        <div id="collapseWhiteWine"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionCantina">
           <div class="accordion-body">
 
-            <!-- Singolo prodotto -->
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
               </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
+              <div class="price">€ 25,00</div>
             </div>
-            <!-- /prodotto 1 -->
 
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
               </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
+              <div class="price">€ 30,00</div>
             </div>
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
-              </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
-              </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
-              </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
-            </div>
-            <!-- Ripeti per gli altri… -->
+
+            <!-- …altri prodotti… -->
 
           </div>
         </div>
+
       </div>
 
       <!-- Vini rossi -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingVR">
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingRedWine">
           <button class="accordion-button collapsed bg-dark" 
                   type="button" 
                   data-bs-toggle="collapse" 
-                  data-bs-target="#collapseVR" 
-                  aria-expanded="false"
-                  style="color: rgb(245, 236, 73);"
-                  aria-controls="collapseVR">
+                  data-bs-target="#collapseRedWine" 
+                  aria-expanded="false" 
+                  aria-controls="collapseRedWine"
+                  style="color: rgb(245, 236, 73);">
             Vini rossi
           </button>
         </h2>
-        <div id="collapseVR" class="accordion-collapse collapse" aria-labelledby="headingVR" data-bs-parent="#accordionCantina">
+        <div id="collapseRedWine"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionCantina">
           <div class="accordion-body">
-            <!-- Lista prodotti… -->
-             <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
               </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
+              <div class="price">€ 25,00</div>
             </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
           </div>
         </div>
+
       </div>
 
       <!-- Bollicine -->
       <div class="accordion-item">
-        <h2 class="accordion-header" id="headingBO">
+        <h2 class="accordion-header" id="headingBollicine">
           <button class="accordion-button collapsed bg-dark" 
                   type="button" 
                   data-bs-toggle="collapse" 
-                  data-bs-target="#collapseBO" 
+                  data-bs-target="#collapseBollicine" 
                   aria-expanded="false"
                   style="color: rgb(245, 236, 73);" 
                   aria-controls="collapseBO">
             Bollicine
           </button>
         </h2>
-        <div id="collapseBO" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCantina">
+        <div id="collapseBollicine" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCantina">
           <div class="accordion-body">
             <!-- Lista prodotti… -->
           </div>
@@ -521,42 +582,63 @@
 
   
 <script>
-    window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
+  window.addEventListener('load', function() {
+    // ——— Preloader + progress bar ———
+    const preloader   = document.getElementById('preloader');
     const progressBar = document.getElementById('progressBar');
-    
     let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            preloader.style.display = 'none'; // Nascondi il preloader
-        } else {
-            width++;
-            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
-        }
-    }, 5); // Cambia il valore per regolare la velocità
-});
+    const intervalPre = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(intervalPre);
+        preloader.style.display = 'none';
+      } else {
+        width++;
+        progressBar.style.width = width + '%';
+      }
+    }, 5);
 
-  const cards = document.querySelectorAll('.filter-card');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      // evidenzia card
-      cards.forEach(c => c.classList.remove('border-warning'));
-      card.classList.add('border-warning');
-      // mostra solo la section corrispondente
-      document.querySelectorAll('.macro-section')
-              .forEach(sec => sec.classList.add('d-none'));
-      const target = card.dataset.target + '-section';
-      document.getElementById(target).classList.remove('d-none');
-      // chiudi eventuali collapse aperti nella nuova section
-      const btns = document.getElementById(target)
-                       .querySelectorAll('.accordion-button[aria-expanded="true"]');
-      btns.forEach(b => b.click());
+    // ——— Cards filter + sezione attiva ———
+    const cards = document.querySelectorAll('.filter-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('border-warning'));
+        card.classList.add('border-warning');
+        document.querySelectorAll('.macro-section')
+                .forEach(sec => sec.classList.add('d-none'));
+        const target = card.dataset.target + '-section';
+        document.getElementById(target).classList.remove('d-none');
+
+        // chiudi eventuali collapse aperti
+        const btns = document.getElementById(target)
+                         .querySelectorAll('.accordion-button[aria-expanded="true"]');
+        btns.forEach(b => b.click());
+      });
+    });
+    if (cards.length) cards[0].click();
+
+    // ——— Carousel auto-scroll ———
+    const carousel = document.getElementById('macroCards');
+    let direction = 1, speed = 0.5, tick = 20;
+    function autoScroll() {
+      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+        direction = -1;
+      } else if (carousel.scrollLeft <= 0) {
+        direction = 1;
+      }
+      carousel.scrollLeft += speed * direction;
+    }
+    let intervalScroll = setInterval(autoScroll, tick);
+    ['mouseover','touchstart'].forEach(evt => {
+      carousel.addEventListener(evt, () => clearInterval(intervalScroll));
+    });
+    ['mouseout','touchend'].forEach(evt => {
+      carousel.addEventListener(evt, () => {
+        intervalScroll = setInterval(autoScroll, tick);
+      });
     });
   });
-  // inizializza: attiva la prima card
-  if (cards.length) cards[0].click();
 </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -14,6 +14,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #000;
   }
   
   .accordion-button:focus,
@@ -306,10 +307,7 @@
 
 
   <div class="container mb-4">
-  <div id="macroCards" class="d-flex overflow-auto gap-3 py-2 border border-2" style="
-    border-color: rgb(245, 236, 73) !important;
-    border-radius: 10px;
-    padding: 10px;">
+  <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
     <div class="card filter-card text-white bg-dark border-3" 
          style="min-width:150px; cursor:pointer;" 
          data-target="cantina">
@@ -599,21 +597,31 @@
 
     // ——— Cards filter + sezione attiva ———
     const cards = document.querySelectorAll('.filter-card');
+
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        cards.forEach(c => c.classList.remove('border-warning'));
-        card.classList.add('border-warning');
+        // 1) Reset di tutti i bordi
+        cards.forEach(c => {
+          c.style.border = ''; 
+        });
+
+        // 2) Evidenziazione del selezionato con bordo giallo spesso 3px
+        card.style.border = '3px solid rgb(245, 236, 73)';
+
+        // 3) Nascondi tutte le macro‐section e mostra quella target
         document.querySelectorAll('.macro-section')
                 .forEach(sec => sec.classList.add('d-none'));
         const target = card.dataset.target + '-section';
         document.getElementById(target).classList.remove('d-none');
 
-        // chiudi eventuali collapse aperti
-        const btns = document.getElementById(target)
-                         .querySelectorAll('.accordion-button[aria-expanded="true"]');
-        btns.forEach(b => b.click());
+        // 4) Chiudi eventuali accordion aperti nella nuova section
+        document.getElementById(target)
+                .querySelectorAll('.accordion-button[aria-expanded="true"]')
+                .forEach(b => b.click());
       });
     });
+
+    // inizializza: attiva la prima card
     if (cards.length) cards[0].click();
   });
 </script>

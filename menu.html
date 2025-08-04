@@ -326,7 +326,7 @@
     </div>
     <div class="card filter-card text-white bg-dark border-3" 
          style="min-width:150px; cursor:pointer;" 
-         data-target="analcolici">
+         data-target="bar">
       <img src="img/cortile.jpg" class="card-img-top" alt="Analcolici">
       <div class="card-body p-2 text-center">
         <h6 class="card-title mb-0">Analcolici</h6>
@@ -497,57 +497,238 @@
     </div>
   </div>
 
-  <!-- CUCINA (viene nascosta di default) -->
-  <div id="cucina-section" class="macro-section d-none">
-    <!-- qui un altro accordion per antipasti, primi, secondi… -->
-     <div class="accordion" id="accordionCucina">
-      <!-- Vini rossi -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingVR">
+  <!-- BIRRA (viene nascosta di default) -->
+  <div id="birre-section" class="macro-section d-none">
+     <div class="accordion" id="accordionBirra">
+      <!-- ARTIGIANALI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingArtigianali">
           <button class="accordion-button collapsed bg-dark" 
                   type="button" 
                   data-bs-toggle="collapse" 
-                  data-bs-target="#collapseVR" 
+                  data-bs-target="#collapseArtigianali" 
                   aria-expanded="false" 
-                  aria-controls="collapseVR">
-            Pizze
+                  aria-controls="collapseArtigianali"
+                  style="color: rgb(245, 236, 73);">
+            Artigianali
           </button>
         </h2>
-        <div id="collapseVR" class="accordion-collapse collapse" aria-labelledby="headingVR" data-bs-parent="#accordionCucina">
+        <div id="collapseArtigianali"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionBirra">
           <div class="accordion-body">
-            <!-- Lista prodotti… -->
-             <div class="d-flex align-items-center mb-3">
-              <img src="img/cibointavola.jpeg" 
-                   class="rounded-circle me-3" 
-                   style="width:60px; height:60px; object-fit:cover;" 
-                   alt="Prosecco">
-              <div class="flex-grow-1">
-                <p class="mb-1 fw-bold">Prosecco Reguta Cuvee Blanche</p>
-                <p class="mb-0 text-muted small">Vino extra dry 0,75l 11,5%vol.</p>
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
               </div>
-              <div class="fw-bold ms-3">€ 25,00</div>
+              <div class="price">€ 25,00</div>
             </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
           </div>
         </div>
+
       </div>
 
-      <!-- Bollicine -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingBO">
-          <button class="accordion-button collapsed" 
+      <!-- SPECIALI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingSpeciali">
+          <button class="accordion-button collapsed bg-dark" 
                   type="button" 
                   data-bs-toggle="collapse" 
-                  data-bs-target="#collapseBO" 
+                  data-bs-target="#collapseSpeciali" 
                   aria-expanded="false" 
-                  aria-controls="collapseBO">
-            Hamburger
+                  aria-controls="collapseSpeciali"
+                  style="color: rgb(245, 236, 73);">
+            Speciali
           </button>
         </h2>
-        <div id="collapseBO" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCucina">
+        <div id="collapseSpeciali"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionBirra">
           <div class="accordion-body">
-            <!-- Lista prodotti… -->
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
           </div>
         </div>
+
+      </div>
+
+      <!-- BOTTIGLIA -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingBottiglia">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseBottiglia" 
+                  aria-expanded="false" 
+                  aria-controls="collapseBottiglia"
+                  style="color: rgb(245, 236, 73);">
+            In Bottiglia
+          </button>
+        </h2>
+        <div id="collapseBottiglia"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionBirra">
+          <div class="accordion-body">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BAR (viene nascosta di default) -->
+  <div id="bar-section" class="macro-section d-none">
+     <div class="accordion" id="accordionBar">
+      <!-- ANALCOLICI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingAnalcolici">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseAnalcolici" 
+                  aria-expanded="false" 
+                  aria-controls="collapseAnalcolici"
+                  style="color: rgb(245, 236, 73);">
+            Analcolici
+          </button>
+        </h2>
+        <div id="collapseAnalcolici"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionBar">
+          <div class="accordion-body">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DRINK -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingDrink">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseDrink" 
+                  aria-expanded="false" 
+                  aria-controls="collapseDrink"
+                  style="color: rgb(245, 236, 73);">
+            Drink
+          </button>
+        </h2>
+        <div id="collapseDrink"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionBirra">
+          <div class="accordion-body">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
       </div>
 
     </div>

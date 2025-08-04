@@ -11,15 +11,24 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 
-        nav a:hover {
-            text-decoration: underline;
-            transform: scale(1.2);
-            transition: 1s;
+        .navbar {
+            background-color: #000;
         }
 
         .navbar-brand img {
             height: 54px;
             width: auto;
+        }
+
+        .nav-link {
+            color: rgb(245, 236, 73) !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+            transform: scale(1.2);
+            transition: 1s;
         }
 
         .text-font-strange {
@@ -88,15 +97,6 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        .navbar-toggler {
-            background-color: transparent;
-            border: none;
-        }
-
-        .navbar-toggler-icon {
-            background-color: yellow;
-        }
-
         #social:hover {
             transform: scale(1.2);
             transition: 2s;
@@ -112,11 +112,6 @@
         .scroll-animate.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .navbar {
-            border-bottom: 2px solid rgba(245, 236, 73, 0.521) !important;
-            box-shadow: 0px 2px 4px rgba(245, 236, 73, 0.521) !important;
         }
 
         /* Carousel fade-slide animations */
@@ -260,7 +255,26 @@
     </div>
 </div>
 
-<nav class="navbar sticky-top navbar-expand-lg bg-dark">
+ <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="img/logo-sito.png" alt="Logo"></a>
+      <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
+          <li class="nav-item"><a class="nav-link" href="eventi.html">Eventi</a></li>
+          <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- <nav class="navbar sticky-top navbar-expand-lg bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="img/logo-sito.png" alt="Logo"></a>
         <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
@@ -288,7 +302,7 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
     <div class="carousel-inner">

@@ -315,6 +315,14 @@
       <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
         <div class="card filter-card text-white bg-dark border-3" 
             style="min-width:150px; cursor:pointer;" 
+            data-target="menu">
+          <img src="img/cortile.jpg" class="card-img-top" alt="Menu">
+            <div class="card-body p-2 text-center">
+              <h6 class="card-title mb-0">Men&ugrave;</h6>
+            </div>
+        </div>
+        <div class="card filter-card text-white bg-dark border-3" 
+            style="min-width:150px; cursor:pointer;" 
             data-target="cantina">
           <img src="img/cortile.jpg" class="card-img-top" alt="Cantina">
             <div class="card-body p-2 text-center">
@@ -369,6 +377,14 @@
           <h6 class="card-title mb-0">Insalate</h6>
         </div>
       </div>
+      <div class="card filter-card text-white bg-dark border-3" 
+          style="min-width:150px; cursor:pointer;" 
+          data-target="dolci">
+        <img src="img/cortile.jpg" class="card-img-top" alt="Dolci">
+        <div class="card-body p-2 text-center">
+          <h6 class="card-title mb-0">Dolci</h6>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -376,6 +392,58 @@
 
 
   <div class="container">
+
+  <!-- MENU -->
+  <div id="menu-section" class="macro-section">
+    <div class="accordion" id="accordionMenu">
+
+      <!-- Menu -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingMenu">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseMenu" 
+                  aria-expanded="false" 
+                  aria-controls="collapseMenu"
+                  style="color: rgb(245, 236, 73);">
+            Men&ugrave;
+          </button>
+        </h2>
+        <div id="collapseMenu"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionMennu">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
   <!-- CANTINA -->
   <div id="cantina-section" class="macro-section">
@@ -979,6 +1047,201 @@
         <div id="collapseFocacce"
             class="accordion-collapse collapse"
             data-bs-parent="#accordionFocacce">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HAMBURGER -->
+  <div id="hamburger-section" class="macro-section d-none">
+    <div class="accordion" id="accordionHamburger">
+      <!-- HAMBURGER -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingHamburger">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseHamburger" 
+                  aria-expanded="false" 
+                  aria-controls="collapseHamburger"
+                  style="color: rgb(245, 236, 73);">
+            Hamburger
+          </button>
+        </h2>
+        <div id="collapseHamburger"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionHamburger">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INSALATE -->
+  <div id="insalate-section" class="macro-section d-none">
+    <div class="accordion" id="accordionInsalate">
+      <!-- INSALATE -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingInsalate">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseInsalate" 
+                  aria-expanded="false" 
+                  aria-controls="collapseInsalate"
+                  style="color: rgb(245, 236, 73);">
+            Insalate
+          </button>
+        </h2>
+        <div id="collapseInsalate"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionInsalate">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DOLCI -->
+  <div id="dolci-section" class="macro-section d-none">
+    <div class="accordion" id="accordionDolci">
+      <!-- DOLCI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingDolci">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseDolci" 
+                  aria-expanded="false" 
+                  aria-controls="collapseDolci"
+                  style="color: rgb(245, 236, 73);">
+            Dolci
+          </button>
+        </h2>
+        <div id="collapseDolci"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionDolci">
+          <div class="accordion-body">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TARTUFI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingTartufi">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseTartufi" 
+                  aria-expanded="false" 
+                  aria-controls="collapseTartufi"
+                  style="color: rgb(245, 236, 73);">
+            Tartufi
+          </button>
+        </h2>
+        <div id="collapseTartufi"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionTartufi">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
             <!-- Prodotto 1 -->

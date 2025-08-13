@@ -249,17 +249,17 @@
         }
     </style>
     <style>
-      .btn:not(.btn-info),
-      .btn:visited:not(.btn-info) {
+      .btn-yellow,
+      .btn-yellow:visited {
         background-color: rgb(245, 236, 73) !important;
         border-color: rgb(245, 236, 73) !important;
         color: #000 !important;
       }
-      .btn:not(.btn-info):hover,
-      .btn:not(.btn-info):focus,
-      .btn:not(.btn-info):active,
-      .btn.active:not(.btn-info),
-      .show > .btn.dropdown-toggle:not(.btn-info) {
+      .btn-yellow:hover,
+      .btn-yellow:focus,
+      .btn-yellow:active,
+      .btn-yellow.active,
+      .show > .btn-yellow.dropdown-toggle {
         background-color: rgb(235, 226, 70) !important; /* slightly darker on hover */
         border-color: rgb(235, 226, 70) !important;
         color: #000 !important;
@@ -333,10 +333,10 @@
           Che sia una serata tra amici, una festa o una cena in famiglia, siamo pronti a riservarti il posto migliore.
         </p>
         <div class="d-flex flex-column flex-sm-row align-items-stretch gap-2 justify-content-center justify-content-lg-start">
-          <a class="btn btn-warning d-flex align-items-center justify-content-center flex-fill w-100" href="tel:+3906823871">
+          <a class="btn btn-yellow d-flex align-items-center justify-content-center flex-fill w-100" href="tel:+3906823871">
             <i class="bi bi-telephone-fill"></i>&ensp;Chiamaci al Telefono
           </a>
-          <a class="btn btn-warning d-flex align-items-center justify-content-center flex-fill w-100" href="mailto:info@manforte.eu">
+          <a class="btn btn-yellow d-flex align-items-center justify-content-center flex-fill w-100" href="mailto:info@manforte.eu">
             <i class="bi bi-envelope-fill"></i>&ensp;Contattaci via Mail
           </a>
         </div>
@@ -439,126 +439,20 @@
 </div>
 
 
-<h1 id="menu" class="text-center text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Lexend Deca', sans-serif;">Le nostre specialit&agrave;</h1>
+<div class="p-3" style="background-color: grey;">
+    <h1 id="menu" class="text-center text-yellow mt-3 mb-3 fw-bold" style="font-family: 'Lexend Deca', sans-serif;">Scopri il nostro men&ugrave;</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-4 mb-4">
-            <div class="card card-sh h-100 shadow floating bg-dark text-white">
-                <div class="card-body">
-                    <h3 class="card-title text-yellow fw-semibold fs-2" style="font-family: 'Roboto', sans-serif;">Bruschette</h3>
-                    <ul class="list-unstyled text-start">
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Classica</span>
-                            <span class="text-muted small float-end">€5.00</span>
-                            <p class="small text-muted">Pomodoro fresco, basilico, aglio e un filo d'olio extra vergine d'oliva.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Funghi Porcini</span>
-                            <span class="text-muted small float-end">€7.00</span>
-                            <p class="small text-muted">Crema di funghi porcini, prezzemolo fresco e scaglie di Grana Padano DOP.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">'Nduja Calabrese</span>
-                            <span class="text-muted small float-end">€8.00</span>
-                            <p class="small text-muted">Crema di 'nduja piccante, cipolla rossa caramellata e ricotta affumicata locale.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Vegana Mediterranea</span>
-                            <span class="text-muted small float-end">€6.50</span>
-                            <p class="small text-muted">Hummus di ceci fatto in casa, melanzane grigliate, zucchine, peperoni e semi di sesamo tostati.</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="container">
 
-        <div class="col-12 col-md-4 mb-4">
-            <div class="card card-sh h-100 shadow floating bg-dark text-white">
-                <div class="card-body">
-                    <h3 class="card-title text-yellow fw-semibold fs-2" style="font-family: 'Roboto', sans-serif;">Pizze</h3>
-                    <ul class="list-unstyled text-start">
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Margherita DOP</span>
-                            <span class="text-muted small float-end">€8.00</span>
-                            <p class="small text-muted">Pomodoro San Marzano DOP, mozzarella fior di latte, basilico fresco e olio EVO.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Diavola Inferno</span>
-                            <span class="text-muted small float-end">€9.50</span>
-                            <p class="small text-muted">Pomodoro, mozzarella, salamino piccante calabrese e un tocco di peperoncino fresco.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Capricciosa Reale</span>
-                            <span class="text-muted small float-end">€11.00</span>
-                            <p class="small text-muted">Pomodoro, mozzarella, prosciutto cotto artigianale, funghi champignon, carciofi e olive taggiasche.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Quattro Formaggi Delizia</span>
-                            <span class="text-muted small float-end">€12.00</span>
-                            <p class="small text-muted">Mozzarella, gorgonzola DOP, fontina valdostana e Parmigiano Reggiano 24 mesi.</p>
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-arrow-right-short text-yellow"></i>
-                            <span class="fw-bold text-white">Vegetariana Primavera</span>
-                            <span class="text-muted small float-end">€10.50</span>
-
-                                <p class="small text-muted">Pomodoro, mozzarella e un mix di verdure di stagione grigliate al momento.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card card-sh h-100 shadow floating bg-dark text-white">
-                    <div class="card-body">
-                        <h3 class="card-title text-yellow fw-semibold fs-2" style="font-family: 'Roboto', sans-serif;">Burgers</h3>
-                        <ul class="list-unstyled text-start">
-                            <li class="mb-2">
-                                <i class="bi bi-arrow-right-short text-yellow"></i>
-                                <span class="fw-bold text-white">Classic Burger Gourmet</span>
-                                <span class="text-muted small float-end">€12.00</span>
-                                <p class="small text-muted">Hamburger di manzo 200g, cheddar stagionato, lattuga fresca, pomodoro cuore di bue e salsa burger artigianale.</p>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-arrow-right-short text-yellow"></i>
-                                <span class="fw-bold text-white">Bacon Burger Deluxe</span>
-                                <span class="text-muted small float-end">€14.00</span>
-                                <p class="small text-muted">Hamburger di manzo 200g, bacon croccante affumicato, cheddar fuso, cipolla caramellata e salsa BBQ fatta in casa.</p>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-arrow-right-short text-yellow"></i>
-                                <span class="fw-bold text-white">Chicken Burger Supreme</span>
-                                <span class="text-muted small float-end">€11.50</span>
-                                <p class="small text-muted">Petto di pollo grigliato marinato alle erbe, maionese al curry, lattuga iceberg e pomodoro maturo.</p>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-arrow-right-short text-yellow"></i>
-                                <span class="fw-bold text-white">Veggie Burger Special</span>
-                                <span class="text-muted small float-end">€10.00</span>
-                                <p class="small text-muted">Burger di ceci e verdure fresche, salsa yogurt leggera, lattuga romana e pomodoro ciliegino.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+    <div class="d-flex justify-content-center m-3">
+    <a href="menu.html" class="btn btn-yellow btn-lg">men&ugrave;</a>
+    </div>
+</div>
 
-    <center>
-        <a href="menu.html" class="btn btn-sm btn-warning btn-lg">Visualizza il menù completo!</a>
 
-        <style>
-            /* Custom scrollbar styles for #photoCarousel */
+<!-- Custom scrollbar styles for #photoCarousel -->
+<style>
             #photoCarousel::-webkit-scrollbar {
                 height: 8px;
             }
@@ -569,15 +463,24 @@
                 background-color: rgb(245, 236, 73);
                 border-radius: 4px;
             }
-            /* Firefox scrollbar */
             #photoCarousel {
                 scrollbar-width: thin;
                 scrollbar-color: rgb(245, 236, 73) transparent;
             }
 
         </style>
+<div class="row">
+    <div class="col text-center">
         <h1 class=" mt-5 text-yellow">Galleria fotografica</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
         <h2 class=" text-yellow">Posa i tuoi occhi sulle nostre delizie!</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col d-flex justify-content-center">
         <div id="photoCarousel" class="mt-4" style="max-width: 900px; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
             <div class="d-flex gap-2" style="display: inline-flex;">
                 <img src="img/00000004-PHOTO-2025-06-15-10-50-42.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 1">
@@ -603,13 +506,9 @@
 
             </div>
         </div>
- 
- <br>
- 
-  
-            </center>
-        </div>
     </div>
+</div>
+
 
 <div id="lavoraconnoi" class="mt-5 work-with-us position-relative d-flex justify-content-center align-items-center" style="min-height: 350px;">
     <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.75); z-index: 1;"></div>
@@ -627,7 +526,7 @@
             - Pizzaiolo/a <br>
             - Addetto/a alla consegna
         </p>
-        <a class="btn btn-warning px-4 py-2 fw-semibold" href="lavoraconnoi.html" style="border-radius: 0;">
+        <a class="btn btn-yellow px-4 py-2 fw-semibold" href="lavoraconnoi.html" style="border-radius: 0;">
             <img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Invia la tua candidatura
         </a>
     </div>
@@ -647,8 +546,8 @@
                 <p class="text-white">
                     <strong>Indirizzo:</strong>&ensp;Via Giovanni Zanardini 39, Roma, IT 00156
                 </p>
-                <a class="btn btn-warning m-1" href="tel:+3906823871"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/phone-message.png" alt="phone-message"/>&ensp;Chiamaci al Telefono</a>
-                <a class="btn btn-warning m-1" href="mailto:info@manforte.eu"><img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Contattaci via Mail</a>
+                <a class="btn btn-yellow m-1" href="tel:+3906823871"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/phone-message.png" alt="phone-message"/>&ensp;Chiamaci al Telefono</a>
+                <a class="btn btn-yellow m-1" href="mailto:info@manforte.eu"><img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Contattaci via Mail</a>
                 <h3 class="text-white mt-5">Orari di apertura:</h3>
                 <p>Lunedì – Domenica | 19:00 – 24:00</p>
                 <p>Domenica da ottobre a maggio | 12.30 – 24:00</p>
@@ -673,7 +572,7 @@
                     style="border-radius: 0; padding: 12px 20px; border: 2px solid rgb(245, 236, 73); background-color: white; color: black; transition: box-shadow 0.3s ease;">
                 <input type="email" class="form-control" id="emailInput" placeholder="La tua email" required
                     style="border-radius: 0; padding: 12px 20px; border: 2px solid rgb(245, 236, 73); background-color: white; color: black; transition: box-shadow 0.3s ease;">
-                <button type="submit" class="btn btn-warning fw-bold px-4 py-2" style="border-radius: 0; background-color: rgb(245, 236, 73); border-color: rgb(245, 236, 73); color: black; transition: box-shadow 0.3s ease;">Iscriviti</button>
+                <button type="submit" class="btn btn-yellow fw-bold px-4 py-2" style="border-radius: 0; background-color: rgb(245, 236, 73); border-color: rgb(245, 236, 73); color: black; transition: box-shadow 0.3s ease;">Iscriviti</button>
             </form>
 <h3 class="text-yellow mt-5 mb-4 fw-bold" style="font-family: 'Oswald', sans-serif;">Seguici sui nostri social ufficiali:</h3>
 <div class="d-flex justify-content-center gap-4 mb-4">
@@ -784,47 +683,40 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const photoCarousel = document.getElementById('photoCarousel');
-            const carouselInner = photoCarousel.querySelector('.carousel-inner');
-            const carouselItems = carouselInner.querySelectorAll('.carousel-item');
+  document.addEventListener('DOMContentLoaded', function () {
+    const scroller = document.getElementById('photoCarousel');
+    if (!scroller) return;
 
-            photoCarousel.addEventListener('slide.bs.carousel', function (event) {
-                const currentIndex = [...carouselItems].findIndex(item => item.classList.contains('active'));
-                const nextIndex = event.to;
+    // Scroll with mouse wheel (horizontal)
+    scroller.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        scroller.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
 
-                const currentItem = carouselItems[currentIndex];
-                const nextItem = carouselItems[nextIndex];
-
-                const currentImages = currentItem.querySelectorAll('img');
-                const nextImages = nextItem.querySelectorAll('img');
-
-                // Add fade-slide-out to current images with staggered delay
-                currentImages.forEach((img, i) => {
-                    img.style.animationDelay = (i * 0.1) + 's';
-                    img.classList.add('fade-slide-out');
-                });
-
-                // Add fade-slide-in to next images with staggered delay
-                nextImages.forEach((img, i) => {
-                    img.style.animationDelay = (i * 0.1) + 's';
-                    img.classList.add('fade-slide-in');
-                });
-
-                // Remove animation classes after animation ends to allow re-trigger
-                setTimeout(() => {
-                    currentImages.forEach(img => {
-                        img.classList.remove('fade-slide-out');
-                        img.style.animationDelay = '';
-                    });
-                    nextImages.forEach(img => {
-                        img.classList.remove('fade-slide-in');
-                        img.style.animationDelay = '';
-                    });
-                }, 900);
-            });
-        });
-    </script>
+    // Click & drag to scroll
+    let isDown = false, startX = 0, scrollLeft = 0;
+    scroller.addEventListener('mousedown', (e) => {
+      isDown = true;
+      scroller.classList.add('dragging');
+      startX = e.pageX - scroller.offsetLeft;
+      scrollLeft = scroller.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+      scroller.classList.remove('dragging');
+    });
+    scroller.addEventListener('mouseleave', () => { isDown = false; scroller.classList.remove('dragging'); });
+    scroller.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scroller.offsetLeft;
+      const walk = (x - startX) * 1; // drag speed
+      scroller.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             const eventiModal = new bootstrap.Modal(document.getElementById('eventiModal'));
@@ -837,7 +729,7 @@
             btnVaiEventi.addEventListener('click', function () {
                 eventiModal.hide();
                 modalElement.addEventListener('hidden.bs.modal', function () {
-                    const target = document.getElementById('eventi');
+                    const target = document.getElementById('sezioneEventi');
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
@@ -877,7 +769,7 @@ window.addEventListener('load', function() {
                 <strong class="text-yellow">Prenota ora e rendi speciale il tuo evento!</strong>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-warning" id="btnVaiEventi">Vai agli Eventi</button>
+                <button class="btn btn-yellow" id="btnVaiEventi">Vai agli Eventi</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
             </div>
             </div>

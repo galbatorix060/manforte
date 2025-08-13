@@ -13,6 +13,12 @@
             background-color: #000;
         }
 
+        .text-yellow {
+            color: rgb(245, 236, 73) !important;
+        }
+
+        .border-yellow { border: 1px solid rgb(245, 236, 73); }
+
         .navbar-brand img {
             height: 54px;
             width: auto;
@@ -84,9 +90,9 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
-          <li class="nav-item"><a class="nav-link" href="eventi.html">Eventi</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Eventi</a></li>
           <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
         </ul>
@@ -181,8 +187,62 @@
       </a>
     </div>
   </main> -->
-<center><img src="img/locandina-manforte.jpg" alt=""></center>
+<div class="card border-yellow position-relative overflow-hidden bg-dark text-white m-4" style="margin-top: 0px !important;">
+  <img src="img/00000060-PHOTO-2025-06-15-10-53-35.jpg" alt="Festa di compleanno Manforte" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; filter: brightness(0.7);">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(transparent, rgba(0,0,0,0.6));"></div>
 
+  <div class="card-body position-relative d-flex flex-column justify-content-center align-items-center text-center p-4 p-md-5">
+    <div class="container">
+      <h2 class="text-yellow fw-bold mb-3">Feste di Compleanno</h2>
+      <p class="lead text-white-50 mb-4">
+        Organizza la tua festa da noi e rendila un evento indimenticabile! Offriamo un’esperienza speciale
+        con <strong>torta personalizzata</strong>, <strong>spazio dedicato</strong> e <strong>foto ricordo</strong> da portare a casa.
+      </p>
+
+      <div class="row g-4 text-start">
+        <div class="col-12 col-md-6">
+          <h5 class="text-yellow eventi-badge mb-2">Cosa offriamo</h5>
+          <ul class="text-white-50 mb-0">
+            <li>Torta personalizzata su richiesta <span class="text-yellow">(anche gluten free)</span></li>
+            <li>Area bimbi e giochi</li>
+            <li>Menù speciali per esigenze alimentari</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6">
+          <h5 class="text-yellow eventi-badge mb-2">Come funziona</h5>
+          <ol class="text-white-50 mb-0">
+            <li><strong>Contattaci</strong>: verifichiamo data e disponibilità.</li>
+            <li><strong>Menu</strong>: scegliamo insieme un menu su misura per adulti e bambini.</li>
+            <li><strong>Torta</strong>: possiamo prepararla noi (anche senza glutine) e personalizzarla.</li>
+            <li><strong>Allestimenti</strong>: riserviamo lo spazio e curiamo i dettagli.</li>
+            <li><strong>Foto ricordo</strong>: per portare a casa un momento speciale.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-4">
+        <a href="tel:+3906823871" class="btn btn-warning btn-limited-width"><i class="bi bi-telephone-fill"></i>&ensp;Chiama</a>
+        <a href="mailto:info@manforte.eu?subject=Festa%20di%20compleanno%20-%20richiesta%20info" class="btn btn-info btn-limited-width"><i class="bi bi-envelope-fill"></i>&ensp;Scrivici</a>
+      </div>
+
+      <small class="d-block text-white-50 mt-3">Suggerimento: porzione torta ~100g a persona. Prezzo di riferimento torte: <strong>25€/kg</strong>. Minimo <strong>700g</strong> (6/7 porzioni).</small>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <h5>Contatti</h5>
+                <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
+                <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
+                <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
+            </div>
+            <div class="text-yellow">
+                <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+            </div>
+        </div>
+    </footer>
   
   <script>
 window.addEventListener('load', function() {

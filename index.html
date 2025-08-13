@@ -9,6 +9,11 @@
     <title>Manforte Pizzeria Roma</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+        body {
+        overflow-x: hidden;
+        }
+
         .navbar {
             background-color: #000;
         }
@@ -468,46 +473,50 @@
                 scrollbar-color: rgb(245, 236, 73) transparent;
             }
 
-        </style>
-<div class="row">
-    <div class="col text-center">
-        <h1 class=" mt-5 text-yellow">Galleria fotografica</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col text-center">
-        <h2 class=" text-yellow">Posa i tuoi occhi sulle nostre delizie!</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col d-flex justify-content-center">
-        <div id="photoCarousel" class="mt-4" style="max-width: 900px; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
-            <div class="d-flex gap-2" style="display: inline-flex;">
-                <img src="img/00000004-PHOTO-2025-06-15-10-50-42.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 1">
-                <img src="img/00000006-PHOTO-2025-06-15-10-50-43.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 2">
-                <img src="img/00000009-PHOTO-2025-06-15-10-50-43.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 3">
-                <img src="img/00000011-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 4">
-                <img src="img/00000013-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 5">
-                <img src="img/00000014-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 6">
-                <img src="img/00000015-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 7">
-                <img src="img/00000016-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 8">
-                <img src="img/00000017-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 9">
-                <img src="img/00000018-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 10">
-                <img src="img/00000021-PHOTO-2025-06-15-10-50-56.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 11">
-                <img src="img/00000026-PHOTO-2025-06-15-10-51-11.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 12">
-                <img src="img/00000030-PHOTO-2025-06-15-10-53-06.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 13">
-                <img src="img/00000033-PHOTO-2025-06-15-10-53-07.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 14">
-                <img src="img/00000036-PHOTO-2025-06-15-10-53-08.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 15">
-                <img src="img/00000039-PHOTO-2025-06-15-10-53-08.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 16">
-                <img src="img/00000069-PHOTO-2025-06-15-17-10-10.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 17">
-                <img src="img/00000077-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 18">
-                <img src="img/00000078-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 19">
-                <img src="img/00000079-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 20">
+</style>
 
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class=" mt-5 text-yellow">Galleria fotografica</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h2 class=" text-yellow">Posa i tuoi occhi sulle nostre delizie!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <div id="photoCarousel" class="mt-4" style="max-width: 900px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
+                <div class="d-flex gap-2">
+                    <img src="img/00000004-PHOTO-2025-06-15-10-50-42.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 1">
+                    <img src="img/00000006-PHOTO-2025-06-15-10-50-43.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 2">
+                    <img src="img/00000009-PHOTO-2025-06-15-10-50-43.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 3">
+                    <img src="img/00000011-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 4">
+                    <img src="img/00000013-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 5">
+                    <img src="img/00000014-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 6">
+                    <img src="img/00000015-PHOTO-2025-06-15-10-50-44.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 7">
+                    <img src="img/00000016-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 8">
+                    <img src="img/00000017-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 9">
+                    <img src="img/00000018-PHOTO-2025-06-15-10-50-45.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 10">
+                    <img src="img/00000021-PHOTO-2025-06-15-10-50-56.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 11">
+                    <img src="img/00000026-PHOTO-2025-06-15-10-51-11.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 12">
+                    <img src="img/00000030-PHOTO-2025-06-15-10-53-06.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 13">
+                    <img src="img/00000033-PHOTO-2025-06-15-10-53-07.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 14">
+                    <img src="img/00000036-PHOTO-2025-06-15-10-53-08.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 15">
+                    <img src="img/00000039-PHOTO-2025-06-15-10-53-08.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 16">
+                    <img src="img/00000069-PHOTO-2025-06-15-17-10-10.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 17">
+                    <img src="img/00000077-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 18">
+                    <img src="img/00000078-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 19">
+                    <img src="img/00000079-PHOTO-2025-06-17-18-01-33.jpg" class="d-block" style="width: 220px; height: 220px; object-fit: cover; flex-shrink: 0;" alt="Photo 20">
+
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <div id="lavoraconnoi" class="mt-5 work-with-us position-relative d-flex justify-content-center align-items-center" style="min-height: 350px;">

@@ -111,6 +111,22 @@
         .navbar {
             border-bottom: 2px solid rgba(245, 236, 73, 0.521) !important;
         }
+
+        .btn-yellow,
+        .btn-yellow:visited {
+            background-color: rgb(245, 236, 73) !important;
+            border-color: rgb(245, 236, 73) !important;
+            color: #000 !important;
+        }
+        .btn-yellow:hover,
+        .btn-yellow:focus,
+        .btn-yellow:active,
+        .btn-yellow.active,
+        .show > .btn-yellow.dropdown-toggle {
+            background-color: rgb(235, 226, 70) !important; /* slightly darker on hover */
+            border-color: rgb(235, 226, 70) !important;
+            color: #000 !important;
+        }
     </style>
     <style>
         /* Clean fade and slide animation for carousel images */
@@ -176,30 +192,25 @@
             height: auto;
         }
 
-        .progress {
-            width: 50%;
-            height: 3px;
-            background-color: rgba(245, 236, 73, 0.3);
-            border-radius: 5px;
-            overflow: hidden;
+        .spinner {
+            width: 56px;
+            height: 56px;
+            border: 4px solid rgba(245, 236, 73, 0.3);
+            border-top-color: rgb(245, 236, 73);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
             margin-top: 20px;
         }
-
-        .progress-bar {
-            height: 100%;
-            background-color: rgb(245, 236, 73);
-            width: 0;
-            transition: width 0.1s;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 
 <body>
     <div id="preloader" class="preloader">
-    <img src="img/logo-sito.png" class="loader" alt="Logo">
-    <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
+        <img src="img/logo-sito.png" class="loader" alt="Logo">
+        <div class="spinner" aria-label="Caricamento" role="status"></div>
     </div>
     <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
         <div class="container">
@@ -264,7 +275,7 @@
                             <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
                             <label class="form-check-label" for="privacy">Accetto le condizioni sulla privacy</label>
                         </div>
-                        <button type="submit" class="btn btn-warning text-dark"><i class="bi bi-envelope-fill"> </i> Invia candidatura</button>
+                        <button type="submit" class="btn btn-yellow text-dark"><i class="bi bi-envelope-fill"> </i> Invia candidatura</button>
                     </form>
 
             </div>
@@ -274,24 +285,47 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 <script>
+    const PRELOADER_STARTED_AT = Date.now();
     window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    const progressBar = document.getElementById('progressBar');
-    
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            preloader.style.display = 'none'; // Nascondi il preloader
-        } else {
-            width++;
-            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
-        }
-    }, 5); // Cambia il valore per regolare la velocità
-});
+        const preloader = document.getElementById('preloader');
+        const MIN_MS = 600;
+        const elapsed = Date.now() - PRELOADER_STARTED_AT;
+        const remaining = Math.max(0, MIN_MS - elapsed);
+        setTimeout(() => {
+        if (preloader) preloader.style.display = 'none';
+        }, remaining);
+
+        // ——— Cards filter + sezione attiva ———
+        const cards = document.querySelectorAll('.filter-card');
+
+        cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // 1) Reset di tutti i bordi
+            cards.forEach(c => { c.style.border = ''; });
+
+            // 2) Evidenziazione del selezionato con bordo giallo spesso 3px
+            card.style.border = '3px solid rgb(245, 236, 73)';
+
+            // 3) Nascondi tutte le macro‐section e mostra quella target
+            document.querySelectorAll('.macro-section')
+                    .forEach(sec => sec.classList.add('d-none'));
+            const target = card.dataset.target + '-section';
+            document.getElementById(target).classList.remove('d-none');
+
+            // 4) Chiudi eventuali accordion aperti nella nuova section
+            document.getElementById(target)
+                    .querySelectorAll('.accordion-button[aria-expanded="true"]')
+                    .forEach(b => b.click());
+        });
+        });
+
+        // inizializza: attiva la prima card
+        const first = document.querySelector('.filter-card');
+        if (first) first.click();
+    });
 
 </script>
-    <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+    <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73);">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">
                 <h5>Contatti</h5>

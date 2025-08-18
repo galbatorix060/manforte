@@ -20,7 +20,23 @@
 
   .text-yellow {
             color: rgb(245, 236, 73) !important;
-        }
+  }
+  
+  .btn-yellow,
+  .btn-yellow:visited {
+    background-color: rgb(245, 236, 73) !important;
+    border-color: rgb(245, 236, 73) !important;
+    color: #000 !important;
+  }
+  .btn-yellow:hover,
+  .btn-yellow:focus,
+  .btn-yellow:active,
+  .btn-yellow.active,
+  .show > .btn-yellow.dropdown-toggle {
+    background-color: rgb(235, 226, 70) !important; /* slightly darker on hover */
+    border-color: rgb(235, 226, 70) !important;
+    color: #000 !important;
+  }
   
   .accordion-button:focus,
   .accordion-button:focus-visible {
@@ -252,6 +268,12 @@
       @keyframes spin {
           to { transform: rotate(360deg); }
       }
+      /* Animazione modale (coerente con index.html) */
+      @keyframes slideInLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      .modal.slide-in-left { animation: slideInLeft 0.5s forwards; }
       @media (max-width: 576px) {
         /* Logo del preloader più grande su mobile */
         .loader { width: 35%; }
@@ -1434,7 +1456,27 @@
 </div>
 </div>
 
- <footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+<!-- Modale Eventi (mostrato una volta per sessione) -->
+<div class="modal fade" id="eventiModal" tabindex="-1" aria-labelledby="eventiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title text-yellow" id="eventiModalLabel">Scopri i nostri Eventi!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+      </div>
+      <div class="modal-body">
+        🎉 Vieni a festeggiare da Manforte! Organizziamo feste di compleanno, pranzi domenicali e pizze di fine anno. <br><br>
+        <strong class="text-yellow">Prenota ora e rendi speciale il tuo evento!</strong>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-yellow" id="btnVaiEventiMenu" href="index.html#sezioneEventi">Vai agli Eventi</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">
                 <h5 class="text-yellow">Contatti</h5>
@@ -1487,6 +1529,49 @@
     // inizializza: attiva la prima card
     const first = document.querySelector('.filter-card');
     if (first) first.click();
+  });
+</script>
+
+<script>
+  // Utilità cookie semplici
+  function setCookie(name, value, seconds) {
+    let cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; path=/';
+    if (typeof seconds === 'number') cookie += '; max-age=' + seconds;
+    document.cookie = cookie;
+  }
+  function getCookie(name) {
+    const target = encodeURIComponent(name) + '=';
+    return document.cookie.split(';').map(s => s.trim()).find(s => s.indexOf(target) === 0)?.slice(target.length) || null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('eventiModal');
+    if (!modalElement) return;
+
+    const eventiModal = new bootstrap.Modal(modalElement);
+
+    // Mostra il modale solo se il cookie non è presente
+    if (getCookie('eventiModalSeen') !== '1') {
+      modalElement.classList.add('slide-in-left');
+      eventiModal.show();
+    }
+
+    // Quando il modale viene chiuso in qualsiasi modo → imposta cookie di 1 ora
+    modalElement.addEventListener('hide.bs.modal', function () {
+      setCookie('eventiModalSeen', '1', 3600);
+    });
+
+    // Bottone "Vai agli Eventi": chiude, setta cookie e naviga a eventi.html
+    /* const btnVaiEventiMenu = document.getElementById('btnVaiEventiMenu');
+    if (btnVaiEventiMenu) {
+      btnVaiEventiMenu.addEventListener('click', function (e) {
+        e.preventDefault();
+        setCookie('eventiModalSeen', '1', 3600);
+        eventiModal.hide();
+        // piccola attesa per chiusura animazione, poi redirect
+        setTimeout(() => { window.location.href = 'eventi.html'; }, 200);
+      });
+    } */
   });
 </script>
 

@@ -730,26 +730,50 @@ background-size: cover;
     });
   });
 </script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const eventiModal = new bootstrap.Modal(document.getElementById('eventiModal'));
-            
-            const modalElement = document.getElementById('eventiModal');
-            modalElement.classList.add('slide-in-left');
-            
-            eventiModal.show();
-            const btnVaiEventi = document.getElementById('btnVaiEventi');
-            btnVaiEventi.addEventListener('click', function () {
-                eventiModal.hide();
-                modalElement.addEventListener('hidden.bs.modal', function () {
-                    const target = document.getElementById('sezioneEventi');
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, { once: true }); 
-            });
-        });
-    </script>
+<script>
+  // Utilità cookie semplici
+  function setCookie(name, value, seconds) {
+    let cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; path=/';
+    if (typeof seconds === 'number') {
+      cookie += '; max-age=' + seconds;
+    }
+    document.cookie = cookie;
+  }
+  function getCookie(name) {
+    const target = encodeURIComponent(name) + '=';
+    return document.cookie.split(';').map(s => s.trim()).find(s => s.indexOf(target) === 0)?.slice(target.length) || null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('eventiModal');
+    if (!modalElement) return;
+
+    const eventiModal = new bootstrap.Modal(modalElement);
+
+    // Mostra il modale solo se il cookie non è presente
+    if (getCookie('eventiModalSeen') !== '1') {
+      modalElement.classList.add('slide-in-left');
+      eventiModal.show();
+    }
+
+    // Quando il modale viene chiuso in qualsiasi modo → imposta cookie di 1 ora
+    modalElement.addEventListener('hide.bs.modal', function () {
+      setCookie('eventiModalSeen', '1', 3600); // 3600 secondi = 1 ora
+    });
+
+    // Bottone "Vai agli Eventi": chiude, setta cookie e scrolla alla sezione
+    const btnVaiEventi = document.getElementById('btnVaiEventi');
+    if (btnVaiEventi) {
+      btnVaiEventi.addEventListener('click', function () {
+        eventiModal.hide();
+        modalElement.addEventListener('hidden.bs.modal', function () {
+          const target = document.getElementById('sezioneEventi');
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, { once: true });
+      });
+    }
+  });
+</script>
 <script>
 (function() {
   const MIN_MS = 600; // soglia minima di visibilita'

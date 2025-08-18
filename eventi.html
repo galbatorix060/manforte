@@ -53,20 +53,24 @@
             height: auto;
         }
 
-        .progress {
-            width: 50%;
-            height: 3px;
-            background-color: rgba(245, 236, 73, 0.3);
-            border-radius: 5px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
+        .spinner {
+          width: 56px;
+          height: 56px;
+          border: 4px solid rgba(245, 236, 73, 0.3);
+          border-top-color: rgb(245, 236, 73);
+          border-radius: 50%;
+          animation: spin 0.9s linear infinite;
+          margin-top: 20px;
+      }
+      @keyframes spin {
+          to { transform: rotate(360deg); }
+      }
+      @media (max-width: 576px) {
+        /* Logo del preloader più grande su mobile */
+        .loader { width: 35%; }
 
-        .progress-bar {
-            height: 100%;
-            background-color: rgb(245, 236, 73);
-            width: 0;
-            transition: width 0.1s;
+        /* Spinner più piccolo su mobile */
+        .spinner { width: 36px; height: 36px; }
         }
 </style>
   </head>
@@ -75,9 +79,7 @@
 
 <div id="preloader" class="preloader">
     <img src="img/logo-sito.png" class="loader" alt="Logo">
-    <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
+    <div class="spinner" aria-label="Caricamento" role="status"></div>
 </div>
 
 <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
@@ -244,23 +246,46 @@
         </div>
     </footer>
   
-  <script>
-window.addEventListener('load', function() {
+<script>
+  // Preloader: soglia minima visibile
+  const PRELOADER_STARTED_AT = Date.now();
+  window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
-    const progressBar = document.getElementById('progressBar');
-    
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            preloader.style.display = 'none'; // Nascondi il preloader
-        } else {
-            width++;
-            progressBar.style.width = width + '%'; // Aggiorna la larghezza della barra
-        }
-    }, 5); // Cambia il valore per regolare la velocità
-});
+    const MIN_MS = 600;
+    const elapsed = Date.now() - PRELOADER_STARTED_AT;
+    const remaining = Math.max(0, MIN_MS - elapsed);
+    setTimeout(() => {
+      if (preloader) preloader.style.display = 'none';
+    }, remaining);
 
+    // ——— Cards filter + sezione attiva ———
+    const cards = document.querySelectorAll('.filter-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        // 1) Reset di tutti i bordi
+        cards.forEach(c => { c.style.border = ''; });
+
+        // 2) Evidenziazione del selezionato con bordo giallo spesso 3px
+        card.style.border = '3px solid rgb(245, 236, 73)';
+
+        // 3) Nascondi tutte le macro‐section e mostra quella target
+        document.querySelectorAll('.macro-section')
+                .forEach(sec => sec.classList.add('d-none'));
+        const target = card.dataset.target + '-section';
+        document.getElementById(target).classList.remove('d-none');
+
+        // 4) Chiudi eventuali accordion aperti nella nuova section
+        document.getElementById(target)
+                .querySelectorAll('.accordion-button[aria-expanded="true"]')
+                .forEach(b => b.click());
+      });
+    });
+
+    // inizializza: attiva la prima card
+    const first = document.querySelector('.filter-card');
+    if (first) first.click();
+  });
 </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"

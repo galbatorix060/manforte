@@ -72,10 +72,115 @@
         /* Spinner più piccolo su mobile */
         .spinner { width: 36px; height: 36px; }
         }
+        
+        /* Stile migliorato per le card del carousel */
+        .carousel-card-enhanced {
+            border: 0px solid rgb(245, 236, 73);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        
+        .carousel-card-header {
+            border-bottom: 1px solid rgba(245, 236, 73, 0.3);
+            border-radius: 13px 13px 0 0;
+        }
+        
+        .carousel-icon {
+            font-size: 2.5rem;
+            color: rgb(245, 236, 73);
+            text-shadow: 0 0 10px rgba(245, 236, 73, 0.5);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓ ";
+            color: rgb(245, 236, 73);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            padding: 5px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 5px;
+            background: rgb(245, 236, 73);
+            color: #000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Position carousel controls at exact button level */
+        .carousel-control-prev,
+        .carousel-control-next {
+            height: 800px;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-control-prev,
+            .carousel-control-next {
+                bottom: 115px;
+                width: 35px;
+                height: 35px;
+            }
+            
+            .carousel-control-prev {
+                left: 10px;
+            }
+            
+            .carousel-control-next {
+                right: 10px;
+            }
+        }
 </style>
   </head>
 
-<body class="bg-dark text-white" style="font-family: 'Lexend Deca', sans-serif;">
+<body class="bg-dark text-white" style="font-family: 'Lexend Deca', sans-serif !important;">
 
 <div id="preloader" class="preloader">
     <img src="img/logo-sito.png" class="loader" alt="Logo">
@@ -102,136 +207,197 @@
     </div>
   </nav>
 
-  <!-- <main class="container my-5">
-    <h1 class="text-warning mb-4">Eventi da Manforte</h1>
+  <h1 class="text-center text-yellow">I Nostri Eventi</h1>
+  <p class="lead text-yellow text-center">Scopri i nostri eventi e partecipa a quello che fa per te!</p>
+<div class="container my-5">
+  <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-    <div class="row g-4">
-      <section class="col-12 col-md-4">
-        <div class="card bg-dark border-warning h-100">
-          <div class="card-body d-flex flex-column">
-            <h2 class="card-title text-warning">Feste di Compleanno</h2>
-            <p class="card-text text-light flex-grow-1">
-              Organizza la tua festa di compleanno da noi e rendila un evento indimenticabile! Offriamo un'esperienza indimenticabile nonch&eacute; una foto ricordo da portare a casa con te! Scegli la torta che piu preferisci e personalizzala come vuoi!
-            </p>
-            <ul class="text-warning mb-3">
-              <li>Torta personalizzata su richiesta</li>
-              <li>Area giochi per bambini</li>
-              <li>Menù speciali per esigenze alimentari</li>
-            </ul>
+      <!-- Card 1 - Feste di Compleanno Migliorata -->
+      <div class="carousel-item active">
+        <div class="card carousel-card-enhanced bg-dark">
+          <div class="card-header carousel-card-header">
+            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
+              <i class="bi bi-balloon-fill me-2"></i>
+              Feste di Compleanno
+              <i class="bi bi-balloon-fill ms-2"></i>
+            </h5>
           </div>
-        </div>
-      </section>
-
-      <section class="col-12 col-md-4">
-        <div class="card bg-dark border-warning h-100">
-          <div class="card-body d-flex flex-column">
-            <h2 class="card-title text-warning">Pranzi Domenicali</h2>
-            <p class="card-text text-light flex-grow-1">
-              Goditi un pranzo domenicale in famiglia in un'atmosfera rilassante e accogliente. Proponiamo piatti tradizionali
-              preparati con ingredienti freschi e di stagione, accompagnati da una selezione di vini locali. Il nostro locale
-              è ideale per trascorrere momenti piacevoli con i tuoi cari.
-            </p>
-            <ul class= "text-warning mb-3">
-              <li>Menù fisso a prezzo speciale</li>
-              <li>Ampia scelta di vini locali</li>
-              <li>Area giochi per bambini</li>
-            </ul>
+          <div class="card-body d-flex flex-column p-4">
+            <div class="text-center mb-4">
+              <i class="bi bi-cake2-fill carousel-icon"></i>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-gift me-2"></i>Cosa include:
+                </h6>
+                <ul class="feature-list text-white-50 small">
+                  <li>Torta personalizzata (anche gluten-free)</li>
+                  <li>Decorazioni festive complete</li>
+                  <li>Foto ricordo professionale</li>
+                  <li>Area giochi dedicata</li>
+                  <li>Menu bambini & adulti</li>
+                </ul>
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-clipboard-check me-2"></i>Prenotazione:
+                </h6>
+                <ol class="feature-list text-white-50 small">
+                  <li>Scegli data e orario</li>
+                  <li>Personalizza torta e menu</li>
+                  <li>Ricevi conferma immediata</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div class="mt-auto pt-3 border-top border-secondary">
+              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
+                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
+                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
+                </a>
+                <div class="text-center mt-2">
+                  <small class="text-white-50">
+                    <i class="bi bi-info-circle me-1"></i>
+                    €25/kg • Min. 700g • 6/7 porzioni
+                  </small>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <section class="col-12 col-md-4">
-        <div class="card bg-dark border-warning h-100">
-          <div class="card-body d-flex flex-column">
-            <h2 class="card-title text-warning">Pizze di Fine Anno</h2>
-            <p class="card-text text-light flex-grow-1">
-              Festeggia la fine dell'anno scolastico con una pizza party da Manforte! Offriamo sconti speciali per classi e gruppi,
-              con la possibilità di personalizzare il menù e organizzare giochi e attività per rendere la festa unica e divertente.
-            </p>
-            <ul class="text-warning mb-3">
-              <li>Sconti per gruppi numerosi</li>
-              <li>Menù personalizzati su richiesta</li>
-              <li>Spazio dedicato per giochi e attività</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
-<br>
-    <section class="col-12">
-  <div class="card bg-dark border-warning">
-    <div class="card-body d-flex flex-column">
-      <h2 class="card-title text-light"><strong>TORTE DI COMPLEANNO</strong> <span class="text-danger">(GLUTEN FREE)</span></h2>
-      <ul class="text-light flex-grow-1">
-        <li><strong class="text-success">Tiramisu Classico:</strong> Savoiardi artigianali gluten free bagnati nel caffè, crema mascarpone e cacao.</li>
-        <li><strong class="text-success">Cheesecake:</strong> Cocco e nutella - cioccolato bianco e caramello salato - frutti di bosco - fragola.</li>
-        <li><strong class="text-success">Charlotte:</strong> Pan di spagna farcito con crema chantilly e cioccolato fondente e frutti di bosco o crema al pistacchio.</li>
-        <li><strong class="text-success">Millefoglie:</strong> Sfoglia friabile con crema chantilly e cioccolato fondente o frutti di bosco. <b class="text-danger">Anche GLUTEN  FREE</b> </li>
-        <li><strong class="text-success">Mimosa:</strong> Pan di spagna farcito con crema chantilly e cioccolato fondente o frutti di bosco o crema al pistacchio.</li>
-        <li><strong class="text-success">Bounty:</strong> Mousse al cocco, amaretto al cocco, copertura al latte.</li>
-        <li><strong class="text-success">Crostata:</strong> Frutti di bosco - fragole.</li>
-        <li><strong class="text-success">Semifreddo alla Fragola:</strong> Mousse fragola e panna, bisquit paradiso, copertura gelè di fragole.</li>
-        <li><strong class="text-success">Torta Paradiso.</strong></li>
-        <li><strong class="text-success">Croccante all'Amarena:</strong> Fior di latte alla vaniglia, morbido ripieno all'amarena, copertura fondente, nocciole pralinate.</li>
-      </ul>
-      <p class="text-warning">Personalizziamo la tua torta con scritte e decorazioni.</p>
-      <p class="text-warning">Il costo delle nostre torte è di 25 euro al kg - la porzione è di 100 gr circa a persona. Dimensione minima 700 gr (6/7 porzioni).</p>
-    </div>
-  </div>
-</section>
-
-    <div class="mt-4">
-      <a href="tel:+3906823871" class="btn btn-warning me-3" aria-label="Chiama Manforte">
-        <i class="bi bi-telephone-fill"></i> Chiama
-      </a>
-      <a href="mailto:info@manforte.eu" class="btn btn-warning" aria-label="Email Manforte">
-        <i class="bi bi-envelope-fill"></i> Email
-      </a>
-    </div>
-  </main> -->
-<div class="card border-yellow position-relative overflow-hidden bg-dark text-white m-4" style="margin-top: 0px !important;">
-  <img src="img/00000060-PHOTO-2025-06-15-10-53-35.jpg" alt="Festa di compleanno Manforte" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; filter: brightness(0.7);">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(transparent, rgba(0,0,0,0.6));"></div>
-
-  <div class="card-body position-relative d-flex flex-column justify-content-center align-items-center text-center p-4 p-md-5">
-    <div class="container">
-      <h2 class="text-yellow fw-bold mb-3">Feste di Compleanno</h2>
-      <p class="lead text-white-50 mb-4">
-        Organizza la tua festa da noi e rendila un evento indimenticabile! Offriamo un’esperienza speciale
-        con <strong>torta personalizzata</strong>, <strong>spazio dedicato</strong> e <strong>foto ricordo</strong> da portare a casa.
-      </p>
-
-      <div class="row g-4 text-start">
-        <div class="col-12 col-md-6">
-          <h5 class="text-yellow eventi-badge mb-2">Cosa offriamo</h5>
-          <ul class="text-white-50 mb-0">
-            <li>Torta personalizzata su richiesta <span class="text-yellow">(anche gluten free)</span></li>
-            <li>Area bimbi e giochi</li>
-            <li>Menù speciali per esigenze alimentari</li>
-          </ul>
-        </div>
-        <div class="col-12 col-md-6">
-          <h5 class="text-yellow eventi-badge mb-2">Come funziona</h5>
-          <ol class="text-white-50 mb-0">
-            <li><strong>Contattaci</strong>: verifichiamo data e disponibilità.</li>
-            <li><strong>Menu</strong>: scegliamo insieme un menu su misura per adulti e bambini.</li>
-            <li><strong>Torta</strong>: possiamo prepararla noi (anche senza glutine) e personalizzarla.</li>
-            <li><strong>Allestimenti</strong>: riserviamo lo spazio e curiamo i dettagli.</li>
-            <li><strong>Foto ricordo</strong>: per portare a casa un momento speciale.</li>
-          </ol>
         </div>
       </div>
 
-      <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 mt-4">
-        <a href="tel:+3906823871" class="btn btn-warning btn-limited-width"><i class="bi bi-telephone-fill"></i>&ensp;Chiama</a>
-        <a href="mailto:info@manforte.eu?subject=Festa%20di%20compleanno%20-%20richiesta%20info" class="btn btn-info btn-limited-width"><i class="bi bi-envelope-fill"></i>&ensp;Scrivici</a>
+      <!-- Card 2 - Cene di Fine Anno -->
+      <div class="carousel-item">
+        <div class="card carousel-card-enhanced bg-dark">
+          <div class="card-header carousel-card-header">
+            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
+              <i class="bi bi-backpack2-fill me-2"></i>
+              Cene di Fine Anno
+              <i class="bi bi-backpack2-fill ms-2"></i>
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column p-4">
+            <div class="text-center mb-4">
+              <i class="bi bi-mortarboard-fill carousel-icon"></i>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-star me-2"></i>Per le scuole:
+                </h6>
+                <ul class="feature-list text-white-50 small">
+                  <li>Sconti speciali per classi</li>
+                  <li>Menù personalizzati</li>
+                  <li>Spazio giochi dedicato</li>
+                  <li>Attività organizzate</li>
+                  <li>Certificato di partecipazione</li>
+                </ul>
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-calendar-check me-2"></i>Organizzazione:
+                </h6>
+                <ol class="feature-list text-white-50 small">
+                  <li>Contatta per disponibilità</li>
+                  <li>Definisci numero partecipanti</li>
+                  <li>Scegli menu e attività</li>
+                  <li>Conferma prenotazione</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div class="mt-auto pt-3 border-top border-secondary">
+              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
+                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
+                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
+                </a>
+                <small class="text-white-50 text-center mt-2">
+                  <i class="bi bi-people-fill me-1"></i>
+                  Min. 15 persone • Sconti gruppi
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <small class="d-block text-white-50 mt-3">Suggerimento: porzione torta ~100g a persona. Prezzo di riferimento torte: <strong>25€/kg</strong>. Minimo <strong>700g</strong> (6/7 porzioni).</small>
+      <!-- Card 3 - Pranzi Domenicali -->
+      <div class="carousel-item">
+        <div class="card carousel-card-enhanced bg-dark">
+          <div class="card-header carousel-card-header">
+            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
+              <i class="bi bi-fork-knife me-2"></i>
+              Pranzi Domenicali
+              <i class="bi bi-fork-knife ms-2"></i>
+            </h5>
+          </div>
+          <div class="card-body d-flex flex-column p-4">
+            <div class="text-center mb-4">
+              <i class="bi bi-house-heart-fill carousel-icon"></i>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-utensils me-2"></i>Il nostro menu:
+                </h6>
+                <ul class="feature-list text-white-50 small">
+                  <li>Piatti tradizionali freschi</li>
+                  <li>Ingredienti di stagione</li>
+                  <li>Vini locali selezionati</li>
+                  <li>Menu bambini disponibile</li>
+                  <li>Opzioni vegetariane/vegan</li>
+                </ul>
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <h6 class="text-yellow mb-2 text-center">
+                  <i class="bi bi-clock me-2"></i>Orari & Info:
+                </h6>
+                <ol class="feature-list text-white-50 small">
+                  <li>Domenica: 12:00 - 15:30</li>
+                  <li>Prenotazione consigliata</li>
+                  <li>Menu fisso a prezzo speciale</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div class="mt-auto pt-3 border-top border-secondary">
+              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
+                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
+                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
+                </a>
+                <small class="text-white-50 text-center mt-2">
+                  <i class="bi bi-currency-euro me-1"></i>
+                  Menu domenicale speciale €25/persona
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="">Precedente</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+      <span class="">Prossimo</span>
+      <span class="carousel-control-next-icon"></span>
+      
+    </button>
   </div>
 </div>
-
 <footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">

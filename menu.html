@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="bg-dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +20,23 @@
 
   .text-yellow {
             color: rgb(245, 236, 73) !important;
-        }
+  }
+  
+  .btn-yellow,
+  .btn-yellow:visited {
+    background-color: rgb(245, 236, 73) !important;
+    border-color: rgb(245, 236, 73) !important;
+    color: #000 !important;
+  }
+  .btn-yellow:hover,
+  .btn-yellow:focus,
+  .btn-yellow:active,
+  .btn-yellow.active,
+  .show > .btn-yellow.dropdown-toggle {
+    background-color: rgb(235, 226, 70) !important; /* slightly darker on hover */
+    border-color: rgb(235, 226, 70) !important;
+    color: #000 !important;
+  }
   
   .accordion-button:focus,
   .accordion-button:focus-visible {
@@ -95,7 +111,7 @@
   }
 
   .navbar {
-    background-color: #000;
+    border-bottom: 2px solid rgb(245, 236, 73) !important;
   }
 
   .navbar-brand img {
@@ -252,6 +268,12 @@
       @keyframes spin {
           to { transform: rotate(360deg); }
       }
+      /* Animazione modale (coerente con index.html) */
+      @keyframes slideInLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      .modal.slide-in-left { animation: slideInLeft 0.5s forwards; }
       @media (max-width: 576px) {
         /* Logo del preloader più grande su mobile */
         .loader { width: 35%; }
@@ -320,7 +342,7 @@
             data-target="menu">
           <img src="img/cortile.jpg" class="card-img-top" alt="Menu">
             <div class="card-body p-2 text-center">
-              <h6 class="card-title mb-0">Men&ugrave;</h6>
+              <h6 class="card-title mb-0">Men&ugrave; Speciali</h6>
             </div>
         </div>
         <div class="card filter-card text-white bg-dark border-3" 
@@ -386,6 +408,14 @@
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Dolci</h6>
         </div>
+      </div>ù
+      <div class="card filter-card text-white bg-dark border-3" 
+          style="min-width:150px; cursor:pointer;" 
+          data-target="caffeAmari">
+        <img src="img/cortile.jpg" class="card-img-top" alt="CaffeAmari">
+        <div class="card-body p-2 text-center">
+          <h6 class="card-title mb-0">Caff&egrave;/Amari</h6>
+        </div>
       </div>
       </div>
     </div>
@@ -399,7 +429,7 @@
   <div id="menu-section" class="macro-section">
     <div class="accordion" id="accordionMenu">
 
-      <!-- Menu -->
+      <!-- Pizza a volonta -->
       <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
         <h2 class="accordion-header" id="headingMenu">
           <button class="accordion-button collapsed bg-dark" 
@@ -409,35 +439,86 @@
                   aria-expanded="false" 
                   aria-controls="collapseMenu"
                   style="color: rgb(245, 236, 73);">
-            Men&ugrave;
+            Pizza a volont&agrave; (min. 4 persone)
           </button>
         </h2>
         <div id="collapseMenu"
             class="accordion-collapse collapse"
-            data-bs-parent="#accordionMennu">
+            data-bs-parent="#accordionMenu">
+          <div class="accordion-body">
+
+            <!-- Menu18 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Menu18">
+              <div class="product-info">
+                <p class="title">Pizza a volont&agrave;</p>
+                <p class="desc">Un cestello di Maltagliate ogni 4 persone, un suppl&iacute;, 1 bruschetta, pizza a volont&agrave; (senza spreco).</p>
+              </div>
+              <div class="price">€ 18,00</div>
+            </div>
+
+            <!-- Menu15 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Menu15">
+              <div class="product-info">
+                <p class="title">Pizza a volont&agrave; (10-14 anni)</p>
+                <p class="desc">Un cestello di Maltagliate ogni 4 persone, un suppl&iacute;, pizza a volont&agrave; (senza spreco).</p>
+              </div>
+              <div class="price">€ 15,00</div>
+            </div>
+
+            <!-- Menu13 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Menu13">
+              <div class="product-info">
+                <p class="title">Pizza a volont&agrave; (sotto 10 anni)</p>
+                <p class="desc">Un cestello di Maltagliate ogni 4 persone, un suppl&iacute;, pizza a volont&agrave; (senza spreco).</p>
+              </div>
+              <div class="price">€ 13,00</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Menu Kids -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingMenuKids">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseMenuKids" 
+                  aria-expanded="false" 
+                  aria-controls="collapseMenuKids"
+                  style="color: rgb(245, 236, 73);">
+            Men&ugrave; Kids
+          </button>
+        </h2>
+        <div id="collapseMenuKids"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionMenuKids">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-            <!-- Prodotto 1 -->
+            <!-- Burger -->
             <div class="product-item">
-              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <img src="img/cibointavola.jpeg" alt="Burger">
               <div class="product-info">
-                <p class="title">Prosecco Reguta Cuvee Blanche</p>
-                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+                <p class="title">Burger Kids</p>
+                <p class="desc">Hamburger 100gr, patatine fritte, bevanda, (con dolce +2.50€).</p>
               </div>
-              <div class="price">€ 25,00</div>
+              <div class="price">€ 10,00</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Hotdog -->
             <div class="product-item">
-              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <img src="img/cibointavola.jpeg" alt="Hotdog">
               <div class="product-info">
-                <p class="title">Nome Prodotto 2</p>
-                <p class="desc">Descrizione prodotto 2</p>
+                <p class="title">HotDog Kids</p>
+                <p class="desc">Hotdog pollo o tacchino, patatine fritte, bevanda, (con dolce +2.50€).</p>
               </div>
-              <div class="price">€ 30,00</div>
+              <div class="price">€ 10,00</div>
             </div>
-
-            <!-- …altri prodotti… -->
 
           </div>
         </div>
@@ -1275,15 +1356,130 @@
     </div>
   </div>
 
+  <!-- CAFFE/AMARI -->
+  <div id="caffeAmari-section" class="macro-section d-none">
+    <div class="accordion" id="accordionCaffe">
+      <!-- CAFFE -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingCaffe">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseCaffe" 
+                  aria-expanded="false" 
+                  aria-controls="collapseCaffe"
+                  style="color: rgb(245, 236, 73);">
+            Caff&egrave;
+          </button>
+        </h2>
+        <div id="collapseCaffe"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionCaffe">
+          <div class="accordion-body">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- AMARI -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingAmari">
+          <button class="accordion-button collapsed bg-dark" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#collapseAmari" 
+                  aria-expanded="false" 
+                  aria-controls="collapseAmari"
+                  style="color: rgb(245, 236, 73);">
+            Amari
+          </button>
+        </h2>
+        <div id="collapseAmari"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionAmari">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- Prodotto 1 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Prosecco Reguta Cuvee Blanche</p>
+                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+              </div>
+              <div class="price">€ 25,00</div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="product-item">
+              <img src="img/cibointavola.jpeg" alt="Prosecco">
+              <div class="product-info">
+                <p class="title">Nome Prodotto 2</p>
+                <p class="desc">Descrizione prodotto 2</p>
+              </div>
+              <div class="price">€ 30,00</div>
+            </div>
+
+            <!-- …altri prodotti… -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 </div>
 </div>
 
- <footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+<!-- Modale Eventi (mostrato una volta per sessione) -->
+<div class="modal fade" id="eventiModal" tabindex="-1" aria-labelledby="eventiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title text-yellow" id="eventiModalLabel">Scopri i nostri Eventi!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+      </div>
+      <div class="modal-body">
+        🎉 Vieni a festeggiare da Manforte! Organizziamo feste di compleanno, pranzi domenicali e pizze di fine anno. <br><br>
+        <strong class="text-yellow">Prenota ora e rendi speciale il tuo evento!</strong>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-yellow" id="btnVaiEventiMenu" href="index.html#sezioneEventi">Vai agli Eventi</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">
-                <h5>Contatti</h5>
+                <h5 class="text-yellow">Contatti</h5>
                 <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
                 <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
                 <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
@@ -1333,6 +1529,49 @@
     // inizializza: attiva la prima card
     const first = document.querySelector('.filter-card');
     if (first) first.click();
+  });
+</script>
+
+<script>
+  // Utilità cookie semplici
+  function setCookie(name, value, seconds) {
+    let cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; path=/';
+    if (typeof seconds === 'number') cookie += '; max-age=' + seconds;
+    document.cookie = cookie;
+  }
+  function getCookie(name) {
+    const target = encodeURIComponent(name) + '=';
+    return document.cookie.split(';').map(s => s.trim()).find(s => s.indexOf(target) === 0)?.slice(target.length) || null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('eventiModal');
+    if (!modalElement) return;
+
+    const eventiModal = new bootstrap.Modal(modalElement);
+
+    // Mostra il modale solo se il cookie non è presente
+    if (getCookie('eventiModalSeen') !== '1') {
+      modalElement.classList.add('slide-in-left');
+      eventiModal.show();
+    }
+
+    // Quando il modale viene chiuso in qualsiasi modo → imposta cookie di 1 ora
+    modalElement.addEventListener('hide.bs.modal', function () {
+      setCookie('eventiModalSeen', '1', 3600);
+    });
+
+    // Bottone "Vai agli Eventi": chiude, setta cookie e naviga a eventi.html
+    /* const btnVaiEventiMenu = document.getElementById('btnVaiEventiMenu');
+    if (btnVaiEventiMenu) {
+      btnVaiEventiMenu.addEventListener('click', function (e) {
+        e.preventDefault();
+        setCookie('eventiModalSeen', '1', 3600);
+        eventiModal.hide();
+        // piccola attesa per chiusura animazione, poi redirect
+        setTimeout(() => { window.location.href = 'eventi.html'; }, 200);
+      });
+    } */
   });
 </script>
 

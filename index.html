@@ -305,7 +305,21 @@ background-size: cover;
         <ul class="navbar-nav gap-2">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
-          <li class="nav-item"><a class="nav-link" href="eventi.html">Eventi</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="eventi.html" id="navEventi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Eventi
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navEventi">
+              <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Compleanni</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Pranzi domenicali</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Pizze di fine anno</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Fantacalcio</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Halloween</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Offerta FootBall</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Bruschette All You Can Eat</a></li>
+              <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Asdsdsd</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
         </ul>
@@ -352,9 +366,6 @@ background-size: cover;
         <div class="d-flex flex-column flex-sm-row align-items-stretch gap-2 justify-content-center justify-content-lg-start">
           <a class="btn btn-yellow d-flex align-items-center justify-content-center flex-fill w-100" href="tel:+3906823871">
             <i class="bi bi-telephone-fill"></i>&ensp;Chiamaci al Telefono
-          </a>
-          <a class="btn btn-yellow d-flex align-items-center justify-content-center flex-fill w-100" href="mailto:info@manforte.eu">
-            <i class="bi bi-envelope-fill"></i>&ensp;Contattaci via Mail
           </a>
         </div>
         <small class="text-white-50 d-block mt-2">Aperti tutti i giorni 19:00–24:00 · Domenica (ott–mag) anche a pranzo</small>
@@ -404,51 +415,128 @@ background-size: cover;
         }
     </style>
 
-    <div class="container text-center">
+    <div class="container text-center mb-3">
+      <!-- Pagine eventi (3 card per pagina) -->
+      <div class="events-page" id="events-page-1">
         <div class="row">
-            <div class="col-12 col-md-4 mb-4 d-flex">
-                <div class="p-4 rounded d-flex flex-column w-100">
-                    <h2 class="text-yellow mb-3">Compleanni</h2>
-                    <p class="text-white">
-                        Celebra il tuo compleanno con stile! Feste su misura, menù dedicati e tanto divertimento.
-                    </p>
-                    <ul class="custom-list text-white text-start mt-auto">
-                        <li class="bg-dark"><i class="bi bi-cake2 text-yellow"></i>Torta personalizzata</li>
-                        <li class="bg-dark"><i class="bi bi-emoji-smile-fill text-yellow"></i>Area giochi per bambini</li>
-                        <li class="bg-dark"><i class="bi bi-list-stars text-yellow"></i>Menù per grandi e piccoli</li>
-                    </ul>
-                </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Compleanni</h2>
+              <p class="text-white">Celebra il tuo compleanno con stile! Feste su misura, menù dedicati e tanto divertimento.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-cake2 text-yellow"></i>Torta personalizzata</li>
+                <li class="bg-dark"><i class="bi bi-emoji-smile-fill text-yellow"></i>Area giochi per bambini</li>
+                <li class="bg-dark"><i class="bi bi-list-stars text-yellow"></i>Menù per grandi e piccoli</li>
+              </ul>
             </div>
-
-            <div class="col-12 col-md-4 mb-4 d-flex">
-                <div class="p-4 rounded d-flex flex-column w-100">
-                    <h2 class="text-yellow mb-3">Pranzi Domenicali</h2>
-                    <p class="text-white">
-                        Trascorri la domenica con chi ami gustando piatti genuini in un ambiente caldo e accogliente.
-                    </p>
-                    <ul class="custom-list text-white text-start mt-auto">
-                        <li class="bg-dark"><i class="bi bi-journal-check text-yellow"></i>Menù fisso conveniente</li>
-                        <li class="bg-dark"><i class="bi bi-cup-straw text-yellow"></i>Lorem ipsum dolor, sit </li>
-                        <li class="bg-dark"><i class="bi bi-balloon-fill text-yellow"></i>Area giochi per bambini</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Pranzi Domenicali</h2>
+              <p class="text-white">Trascorri la domenica con chi ami gustando piatti genuini in un ambiente caldo e accogliente.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-journal-check text-yellow"></i>Menù fisso conveniente</li>
+                <li class="bg-dark"><i class="bi bi-cup-straw text-yellow"></i>Selezione di vini locali</li>
+                <li class="bg-dark"><i class="bi bi-balloon-fill text-yellow"></i>Area giochi per bambini</li>
+              </ul>
             </div>
-
-            <!-- Pizze di Fine Anno -->
-            <div class="col-12 col-md-4 mb-4 d-flex">
-                <div class="p-4 rounded d-flex flex-column w-100">
-                    <h2 class="text-yellow mb-3">Pizze di Fine Anno</h2>
-                    <p class="text-white">
-                        Concludi l’anno con una festa a base di pizza! Ideale per classi e gruppi, con tante attività su richiesta.
-                    </p>
-                    <ul class="custom-list text-white text-start mt-auto">
-                        <li class="bg-dark"><i class="bi bi-people-fill text-yellow"></i>Men&ugrave; pizza all you can eat</li>
-                        <li class="bg-dark"><i class="bi bi-sliders text-yellow"></i>Acqua illimitata</li>
-                        <li class="bg-dark"><i class="bi bi-puzzle-fill text-yellow"></i>Bevanda da 0,3/0,5L a scelta</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Pizze di Fine Anno</h2>
+              <p class="text-white">Concludi l’anno con una festa a base di pizza! Ideale per classi e gruppi, con tante attività su richiesta.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-people-fill text-yellow"></i>Menù pizza all you can eat</li>
+                <li class="bg-dark"><i class="bi bi-sliders text-yellow"></i>Acqua illimitata</li>
+                <li class="bg-dark"><i class="bi bi-puzzle-fill text-yellow"></i>Bevanda da 0,3/0,5L a scelta</li>
+              </ul>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="events-page d-none" id="events-page-2">
+        <div class="row">
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Halloween</h2>
+              <p class="text-white">Serata a tema con decorazioni, maschere e menù speciali mostruosamente buoni.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-moon-stars-fill text-yellow"></i>Allestimenti a tema</li>
+                <li class="bg-dark"><i class="bi bi-emoji-laughing-fill text-yellow"></i>Premio miglior costume</li>
+                <li class="bg-dark"><i class="bi bi-cup-straw text-yellow"></i>Drink speciali</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Fantacalcio</h2>
+              <p class="text-white">Offerte dedicate ai fantallenatori: pizze, bruschette e maxi schermo per le aste.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-trophy-fill text-yellow"></i>Menu convenzionati</li>
+                <li class="bg-dark"><i class="bi bi-tv-fill text-yellow"></i>Maxi schermo</li>
+                <li class="bg-dark"><i class="bi bi-people-fill text-yellow"></i>Sale riservate</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Bruschette No Limits</h2>
+              <p class="text-white">Una selezione illimitata delle nostre bruschette più amate per una serata senza pensieri.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-lightning-charge-fill text-yellow"></i>Formula all you can eat</li>
+                <li class="bg-dark"><i class="bi bi-star-fill text-yellow"></i>Ricette speciali</li>
+                <li class="bg-dark"><i class="bi bi-heart-fill text-yellow"></i>Opzioni senza glutine</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-page d-none" id="events-page-3">
+        <div class="row">
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Calcio &amp; Pizza</h2>
+              <p class="text-white">Partite in diretta con menu dedicati: perfetto per tifare insieme agli amici.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-broadcast-pin text-yellow"></i>Partite su maxi schermo</li>
+                <li class="bg-dark"><i class="bi bi-cup-hot-fill text-yellow"></i>Combo birra + pizza</li>
+                <li class="bg-dark"><i class="bi bi-music-note-beamed text-yellow"></i>Dj set post-partita</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Cene Aziendali</h2>
+              <p class="text-white">Spazi riservati, menù personalizzati e gestione completa dell’evento.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-briefcase-fill text-yellow"></i>Sale dedicate</li>
+                <li class="bg-dark"><i class="bi bi-diagram-3-fill text-yellow"></i>Menù personalizzati</li>
+                <li class="bg-dark"><i class="bi bi-check2-circle text-yellow"></i>Organizzazione completa</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="p-4 rounded d-flex flex-column w-100">
+              <h2 class="text-yellow mb-3">Serate a Tema</h2>
+              <p class="text-white">Dalla serata romana a quella messicana: divertimento e sapori dal mondo.</p>
+              <ul class="custom-list text-white text-start mt-auto">
+                <li class="bg-dark"><i class="bi bi-flag-fill text-yellow"></i>Temi sempre nuovi</li>
+                <li class="bg-dark"><i class="bi bi-vinyl-fill text-yellow"></i>Musica dal vivo</li>
+                <li class="bg-dark"><i class="bi bi-stars text-yellow"></i>Allestimenti dedicati</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controlli paginazione -->
+      <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
+        <button class="btn btn-yellow" id="prevEvents" type="button"><i class="bi bi-chevron-left"></i> Precedente</button>
+        <span id="eventsPageIndicator" class="text-white-50 small">1 / 3</span>
+        <button class="btn btn-yellow" id="nextEvents" type="button">Successivo <i class="bi bi-chevron-right"></i></button>
+      </div>
     </div>
 </div>
 
@@ -559,8 +647,7 @@ background-size: cover;
                 <p class="text-white">
                     <strong>Indirizzo:</strong>&ensp;Via Giovanni Zanardini 39, Roma, IT 00156
                 </p>
-                <a class="btn btn-yellow m-1" href="tel:+3906823871"><img width="20" height="20" src="https://img.icons8.com/ios-filled/20/phone-message.png" alt="phone-message"/>&ensp;Chiamaci al Telefono</a>
-                <a class="btn btn-yellow m-1" href="mailto:info@manforte.eu"><img width="20" height="20" src="https://img.icons8.com/pulsar-line/48/mail.png" alt="mail"/>&ensp;Contattaci via Mail</a>
+                <a class="btn btn-yellow m-1" href="tel:+3906823871"><i class="bi bi-telephone-fill"></i>&ensp;Chiamaci al Telefono</a>
                 <h3 class="text-white mt-5">Orari di apertura:</h3>
                 <p>Lunedì – Domenica | 19:00 – 24:00</p>
                 <p>Domenica da ottobre a maggio | 12.30 – 24:00</p>
@@ -693,6 +780,27 @@ background-size: cover;
                 observer.observe(el);
             });
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const pages = Array.from(document.querySelectorAll('#sezioneEventi .events-page'));
+        if (!pages.length) return;
+        let current = 0;
+
+        const indicator = document.getElementById('eventsPageIndicator');
+        const prevBtn = document.getElementById('prevEvents');
+        const nextBtn = document.getElementById('nextEvents');
+
+        function render() {
+          pages.forEach((p, i) => p.classList.toggle('d-none', i !== current));
+          if (indicator) indicator.textContent = (current + 1) + ' / ' + pages.length;
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { current = (current - 1 + pages.length) % pages.length; render(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { current = (current + 1) % pages.length; render(); });
+
+        render();
+      });
     </script>
 
     <script>

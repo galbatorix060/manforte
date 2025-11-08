@@ -283,7 +283,6 @@
         }
 
         html, body {
-          height: 100%;
           margin: 0;
           padding: 0;
         }
@@ -298,6 +297,23 @@
           margin-top: auto;   /* incolla il footer al fondo */
         }
 
+        .img-fixed {
+          width: 100%;                /* si adatta al contenitore (es. card) */
+          aspect-ratio: 1080 / 582;   /* mantiene le proporzioni */
+          object-fit: cover;          /* riempie senza deformare */
+        }
+
+        /* --- Mobile: centratura e scroll-snap delle macroCards --- */
+        @media (max-width: 576px) {
+          #macroCards {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: .25rem; /* spazio per il dito */
+          }
+          #macroCards .filter-card {
+            scroll-snap-align: center; /* si allinea al centro durante lo scroll */
+          }
+        }
 
 </style>
 
@@ -340,7 +356,7 @@
         <div class="card filter-card text-white bg-dark border-3" 
             style="min-width:150px; cursor:pointer;" 
             data-target="menu">
-          <img src="img/cortile.jpg" class="card-img-top" alt="Menu">
+          <img src="img/menuSpecialiMenu.jpg" class="card-img-top img-fixed" alt="Menu">
             <div class="card-body p-2 text-center">
               <h6 class="card-title mb-0">Men&ugrave; Speciali</h6>
             </div>
@@ -348,7 +364,7 @@
         <div class="card filter-card text-white bg-dark border-3" 
             style="min-width:150px; cursor:pointer;" 
             data-target="cantina">
-          <img src="img/cortile.jpg" class="card-img-top" alt="Cantina">
+          <img src="img/cantinaMenu.jpg" class="card-img-top img-fixed img-fixed" style="object-position: 50% 0%;" alt="Cantina">
             <div class="card-body p-2 text-center">
               <h6 class="card-title mb-0">Cantina</h6>
             </div>
@@ -356,7 +372,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
          style="min-width:150px; cursor:pointer;" 
          data-target="birre">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Birre">
+        <img src="img/00000077-PHOTO-2025-06-17-18-01-33.jpg" style="object-position: 50% 30%;" class="card-img-top img-fixed img-fixed" alt="Birre">
         <div class="card-body p-2 text-center">
          <h6 class="card-title mb-0">Birre</h6>
         </div>
@@ -364,7 +380,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
          style="min-width:150px; cursor:pointer;" 
          data-target="bar">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Bar">
+        <img src="img/barMenu.jpg" class="card-img-top img-fixed img-fixed" alt="Bar">
         <div class="card-body p-2 text-center">
          <h6 class="card-title mb-0">Bar</h6>
         </div>
@@ -372,7 +388,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="fritti">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Fritti">
+        <img src="img/frittiMenu.jpg" class="card-img-top img-fixed" alt="Fritti">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Fritti</h6>
         </div>
@@ -380,7 +396,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="bruschette">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Bruschette">
+        <img src="img/bruschetteMenu.jpeg" style="object-position: 50% 9%;" class="card-img-top img-fixed" alt="Bruschette">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Bruschette</h6>
         </div>
@@ -389,7 +405,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="pizze">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Pizze">
+        <img src="img/pizzaMenu.jpg" class="card-img-top img-fixed" alt="Pizze">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Pizze</h6>
         </div>
@@ -397,7 +413,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="hamburger">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Hamburger">
+        <img src="img/hamburgerMenu.jpg" class="card-img-top img-fixed" alt="Hamburger">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Hamburger</h6>
         </div>
@@ -405,7 +421,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="insalate">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Insalate">
+        <img src="img/insalateMenu.jpg" class="card-img-top img-fixed" alt="Insalate">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Insalate</h6>
         </div>
@@ -413,7 +429,7 @@
       <div class="card filter-card text-white bg-dark border-3" 
           style="min-width:150px; cursor:pointer;" 
           data-target="dolci">
-        <img src="img/cortile.jpg" class="card-img-top" alt="Dolci">
+        <img src="img/dolciMenu.jpg" style="object-position: 50% 30%;" class="card-img-top img-fixed" alt="Dolci">
         <div class="card-body p-2 text-center">
           <h6 class="card-title mb-0">Dolci</h6>
         </div>
@@ -2129,7 +2145,7 @@
               <p class="title">VEGETA – ANCHE GLUTEN FREE</p>
               <p class="desc">Hamburger di Ceci e Spinaci con Provola affumicata, Zucchine grigliate, Rucola e Salsa al Lime e Pepe nero</p>
             </div>
-            <div class="price">€ 19,00</div>
+            <div class="price">€ 9,00</div>
           </div>
 
           <!-- LUCIFERO -->
@@ -2473,19 +2489,20 @@
   </div>
 </div>
 
-<footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div class="mb-3 mb-md-0">
-                <h5 class="text-yellow">Contatti</h5>
-                <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
-                <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
-                <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
-            </div>
-            <div class="text-yellow">
-                <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
-            </div>
-        </div>
-    </footer>
+ <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <div class="mb-3 mb-md-0">
+              <h5>Contatti</h5>
+              <p class="mb-1" style="color: white;">Via Giovanni Zanardini 39, Roma, IT 00156</p>
+              <p class="mb-1" style="color: white;">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
+              <p style="color: white;">Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <a href="/privacyPolicy.html" class="nav-link mb-2" style="color: white !important;">Informativa sulla privacy</a>
+            <small class="text-center">&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+          </div>
+      </div>
+  </footer>
 
   
 <script>
@@ -2557,18 +2574,52 @@
     modalElement.addEventListener('hide.bs.modal', function () {
       setCookie('eventiModalSeen', '1', 3600);
     });
+  });
 
-    // Bottone "Vai agli Eventi": chiude, setta cookie e naviga a eventi.html
-    /* const btnVaiEventiMenu = document.getElementById('btnVaiEventiMenu');
-    if (btnVaiEventiMenu) {
-      btnVaiEventiMenu.addEventListener('click', function (e) {
-        e.preventDefault();
-        setCookie('eventiModalSeen', '1', 3600);
-        eventiModal.hide();
-        // piccola attesa per chiusura animazione, poi redirect
-        setTimeout(() => { window.location.href = 'eventi.html'; }, 200);
+  document.addEventListener('DOMContentLoaded', function(){
+    var isMobile = window.matchMedia('(max-width: 576px)').matches;
+    var strip = document.getElementById('macroCards');
+    if (!strip) return;
+
+    function centerCard(card){
+      if (!card || !strip) return;
+      var target = card.offsetLeft - (strip.clientWidth - card.offsetWidth) / 2;
+      var maxScroll = strip.scrollWidth - strip.clientWidth;
+      if (target < 0) target = 0;
+      if (target > maxScroll) target = maxScroll;
+      strip.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    if (isMobile) {
+      // Centra la card toccata
+      strip.addEventListener('click', function(e){
+        var card = e.target.closest('.filter-card');
+        if (card && strip.contains(card)) centerCard(card);
       });
-    } */
+      var cards = strip.querySelectorAll('.filter-card');
+      function currentSectionKey(){
+        var secs = document.querySelectorAll('.macro-section');
+        for (var i = 0; i < secs.length; i++) {
+          if (!secs[i].classList.contains('d-none')) {
+            var id = secs[i].id; 
+            var dash = id.indexOf('-');
+            return dash > 0 ? id.substring(0, dash) : id; 
+          }
+        }
+        return null;
+      }
+      var key = currentSectionKey();
+      var toCenter = null;
+      if (key) {
+        for (var j = 0; j < cards.length; j++) {
+          if (cards[j].getAttribute('data-target') === key) { toCenter = cards[j]; break; }
+        }
+      }
+      if (!toCenter && cards.length) toCenter = cards[0];
+      if (toCenter) {
+        setTimeout(function(){ centerCard(toCenter); }, 150);
+      }
+    }
   });
 </script>
 

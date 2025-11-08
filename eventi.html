@@ -1,23 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eventi - Manforte Pizzeria Roma</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
-<style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+  <title></title>
 
-        .navbar {
-            background-color: #000;
+  <!-- Icons + Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --mf-yellow: rgb(245,236,73); }
+    body { background-color:#111; color:#fff; }
+    .text-yellow { color: var(--mf-yellow) !important; }
+    .bg-yellow { background-color: var(--mf-yellow) !important; color:#000 !important; }
+    .text-font-strange { font-family: "Coiny", system-ui; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 46vh;          /* più alto su mobile */
+      max-height: 520px;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .hero img { width:100%; height:100%; object-fit: cover; object-position: center; display:block; }
+    .hero .overlay {
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75));
+    }
+    .hero .content {
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center; text-align:center; padding: 0 14px;
+      text-shadow: 2px 2px 5px #000;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+
+    /* Cards info */
+    .feature-card { background:#1b1b1b; border:1px solid rgba(245,236,73,0.25); border-radius:16px; height:100%; }
+    .feature-card .icon { font-size: 2rem; color: var(--mf-yellow); }
+
+    /* Galleria */
+    .gallery-img { width:100%; height: 220px; object-fit: cover; border-radius: 12px; transition: transform .25s ease; }
+    .gallery-img:hover { transform: scale(1.02); }
+
+    /* Ratio helper 1080x582 ≈ 1.855:1 */
+    .ratio-1080x582 { aspect-ratio: 1080 / 582; width:100%; object-fit: cover; object-position: center; }
+
+    /* Preloader */
+    .preloader {
+      position: fixed; inset:0; background:#000; z-index: 9999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+    }
+    .loader { width: 28%; max-width: 220px; height:auto; }
+    .progress { width: 56%; max-width: 360px; height:3px; background-color: rgba(245,236,73,.3); border-radius:5px; overflow:hidden; margin-top:20px; }
+    .progress-bar { height:100%; background-color: var(--mf-yellow); width:0; transition: width .1s; }
+
+    /* Footer */
+    footer { border-top: 2px solid rgba(245,236,73,0.52); }
+
+    .navbar {
+            border-bottom: 2px solid rgb(245, 236, 73) !important;
         }
-
-        .text-yellow {
-            color: rgb(245, 236, 73) !important;
-        }
-
-        .border-yellow { border: 1px solid rgb(245, 236, 73); }
 
         .navbar-brand img {
             height: 54px;
@@ -31,431 +79,324 @@
 
         .nav-link:hover {
             text-decoration: underline;
-            transform: scale(1.2);
-            transition: 1s;
+            transform: scale(1.05);
+            transition: transform .2s ease, text-decoration .2s ease;
         }
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+  </style>
 
-        .loader {
-            width: 20%;
-            height: auto;
-        }
+  <!-- ============ CONFIG (MODIFICA SOLO QUI) ============ -->
+  <script id="evento-config" type="application/json">
+  {
+    "slug": "feste-di-compleanno",
+    "title": "Feste di Compleanno",
+    "subtitle": "Un compleanno da ricordare!",
+    "heroImage": "img/compleanni.jpg",
+    "introHtml": "Festeggia il tuo giorno speciale da Manforte! 🎉 Menù personalizzati, <b>torta su misura</b>, musica e divertimento assicurato.",
+    "date": "Tutto l'anno, su prenotazione",
+    "time": "Consigliato: fascia 19:00 – 22:30",
+    "location": "Via Giovanni Zanardini 39, Roma",
+    "packages": [
+      { "title": "Pacchetto Base", "desc": "Pizza + Bibita + Torta (min. 8 persone).", "price": "18€ p.p." },
+      { "title": "Pacchetto Party", "desc": "Menù bimbi + Animazione + Torta personalizzata.", "price": "25€ p.p." },
+      { "title": "Pacchetto Deluxe", "desc": "Menù completo adulti + Selezione vini + Torta su misura.", "price": "35€ p.p." }
+    ],
+    "features": [
+      { "icon": "bi-cake2", "title": "Torta personalizzata", "text": "Anche versioni <b>gluten free</b>." },
+      { "icon": "bi-music-note-beamed", "title": "Musica e divertimento", "text": "Impianto audio, area giochi." },
+      { "icon": "bi-people", "title": "Spazio per gruppi", "text": "Tavolate dedicate e gestione inviti." }
+    ],
+    "gallery": [
+      "img/evento-compleanni-1.jpg",
+      "img/evento-compleanni-2.jpg",
+      "img/evento-compleanni-3.jpg",
+      "img/evento-compleanni-4.jpg",
+      "img/evento-compleanni-5.jpg",
+      "img/evento-compleanni-6.jpg"
+    ],
+    "cta": {
+      "phone": "+3906823871",
+      "email": "info@manforte.eu",
+      "whatsapp": null
+    },
+    "seo": {
+      "description": "Feste di compleanno a Roma da Manforte: menù personalizzati, torte su misura (anche senza glutine) e area giochi.",
+      "image": "img/evento-compleanni-hero.jpg",
+      "startDate": "2025-01-01T19:00:00+02:00",
+      "endDate": "2025-12-31T23:00:00+02:00"
+    }
+  }
+  </script>
+</head>
 
-        .spinner {
-          width: 56px;
-          height: 56px;
-          border: 4px solid rgba(245, 236, 73, 0.3);
-          border-top-color: rgb(245, 236, 73);
-          border-radius: 50%;
-          animation: spin 0.9s linear infinite;
-          margin-top: 20px;
-      }
-      @keyframes spin {
-          to { transform: rotate(360deg); }
-      }
-      @media (max-width: 576px) {
-        /* Logo del preloader più grande su mobile */
-        .loader { width: 35%; }
+<body class="bg-dark">
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <img src="img/logo-sito.png" class="loader" alt="Logo Manforte">
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
 
-        /* Spinner più piccolo su mobile */
-        .spinner { width: 36px; height: 36px; }
-        }
-        
-        /* Stile migliorato per le card del carousel */
-        .carousel-card-enhanced {
-            border: 0px solid rgb(245, 236, 73);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        
-        .carousel-card-header {
-            border-bottom: 1px solid rgba(245, 236, 73, 0.3);
-            border-radius: 13px 13px 0 0;
-        }
-        
-        .carousel-icon {
-            font-size: 2.5rem;
-            color: rgb(245, 236, 73);
-            text-shadow: 0 0 10px rgba(245, 236, 73, 0.5);
-        }
-        
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .feature-list li {
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .feature-list li::before {
-            content: "✓ ";
-            color: rgb(245, 236, 73);
-            font-weight: bold;
-            margin-right: 8px;
-        }
-        
-        .step-list {
-            counter-reset: step-counter;
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .step-list li {
-            counter-increment: step-counter;
-            padding: 5px 0;
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .step-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 5px;
-            background: rgb(245, 236, 73);
-            color: #000;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        /* Position carousel controls at exact button level */
-        .carousel-control-prev,
-        .carousel-control-next {
-            height: 800px;
-        }
-
-        .carousel-control-prev {
-            left: 20px;
-        }
-
-        .carousel-control-next {
-            right: 20px;
-        }
-
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .carousel-control-prev,
-            .carousel-control-next {
-                bottom: 115px;
-                width: 35px;
-                height: 35px;
-            }
-            
-            .carousel-control-prev {
-                left: 10px;
-            }
-            
-            .carousel-control-next {
-                right: 10px;
-            }
-        }
-</style>
-  </head>
-
-<body class="bg-dark text-white" style="font-family: 'Lexend Deca', sans-serif !important;">
-
-<div id="preloader" class="preloader">
-    <img src="img/logo-sito.png" class="loader" alt="Logo">
-    <div class="spinner" aria-label="Caricamento" role="status"></div>
-</div>
-
-<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="img/logo-sito.png" alt="Logo"></a>
-      <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Eventi</a></li>
-          <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
+            <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="img/logo-sito.png" alt="Logo"></a>
+            <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="eventi.html" id="navEventi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Eventi
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navEventi">
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Compleanni</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Pranzi domenicali</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Pizze di fine anno</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Fantacalcio</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Halloween</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Offerta FootBall</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Bruschette All You Can Eat</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Asdsdsd</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
+                </ul>
+            </div>
+            </div>
   </nav>
 
-  <h1 class="text-center text-yellow">I Nostri Eventi</h1>
-  <p class="lead text-yellow text-center">Scopri i nostri eventi e partecipa a quello che fa per te!</p>
-<div class="container my-5">
-  <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <!-- Card 1 - Feste di Compleanno Migliorata -->
-      <div class="carousel-item active">
-        <div class="card carousel-card-enhanced bg-dark">
-          <div class="card-header carousel-card-header">
-            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
-              <i class="bi bi-balloon-fill me-2"></i>
-              Feste di Compleanno
-              <i class="bi bi-balloon-fill ms-2"></i>
-            </h5>
-          </div>
-          <div class="card-body d-flex flex-column p-4">
-            <div class="text-center mb-4">
-              <i class="bi bi-cake2-fill carousel-icon"></i>
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-gift me-2"></i>Cosa include:
-                </h6>
-                <ul class="feature-list text-white-50 small">
-                  <li>Torta personalizzata (anche gluten-free)</li>
-                  <li>Decorazioni festive complete</li>
-                  <li>Foto ricordo professionale</li>
-                  <li>Area giochi dedicata</li>
-                  <li>Menu bambini & adulti</li>
-                </ul>
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-clipboard-check me-2"></i>Prenotazione:
-                </h6>
-                <ol class="feature-list text-white-50 small">
-                  <li>Scegli data e orario</li>
-                  <li>Personalizza torta e menu</li>
-                  <li>Ricevi conferma immediata</li>
-                </ol>
-              </div>
-            </div>
-            
-            <div class="mt-auto pt-3 border-top border-secondary">
-              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
-                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
-                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
-                </a>
-                <div class="text-center mt-2">
-                  <small class="text-white-50">
-                    <i class="bi bi-info-circle me-1"></i>
-                    €25/kg • Min. 700g • 6/7 porzioni
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <img id="heroImg" src="" alt="">
+    <div class="overlay"></div>
+    <div class="content">
+      <div>
+        <h1 id="heroTitle" class="text-yellow text-font-strange mb-2"></h1>
+        <p id="heroSubtitle" class="lead mb-0"></p>
       </div>
-
-      <!-- Card 2 - Cene di Fine Anno -->
-      <div class="carousel-item">
-        <div class="card carousel-card-enhanced bg-dark">
-          <div class="card-header carousel-card-header">
-            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
-              <i class="bi bi-backpack2-fill me-2"></i>
-              Cene di Fine Anno
-              <i class="bi bi-backpack2-fill ms-2"></i>
-            </h5>
-          </div>
-          <div class="card-body d-flex flex-column p-4">
-            <div class="text-center mb-4">
-              <i class="bi bi-mortarboard-fill carousel-icon"></i>
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-star me-2"></i>Per le scuole:
-                </h6>
-                <ul class="feature-list text-white-50 small">
-                  <li>Sconti speciali per classi</li>
-                  <li>Menù personalizzati</li>
-                  <li>Spazio giochi dedicato</li>
-                  <li>Attività organizzate</li>
-                  <li>Certificato di partecipazione</li>
-                </ul>
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-calendar-check me-2"></i>Organizzazione:
-                </h6>
-                <ol class="feature-list text-white-50 small">
-                  <li>Contatta per disponibilità</li>
-                  <li>Definisci numero partecipanti</li>
-                  <li>Scegli menu e attività</li>
-                  <li>Conferma prenotazione</li>
-                </ol>
-              </div>
-            </div>
-            
-            <div class="mt-auto pt-3 border-top border-secondary">
-              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
-                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
-                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
-                </a>
-                <small class="text-white-50 text-center mt-2">
-                  <i class="bi bi-people-fill me-1"></i>
-                  Min. 15 persone • Sconti gruppi
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 - Pranzi Domenicali -->
-      <div class="carousel-item">
-        <div class="card carousel-card-enhanced bg-dark">
-          <div class="card-header carousel-card-header">
-            <h5 class="card-title text-yellow mb-0 text-center fw-bold">
-              <i class="bi bi-fork-knife me-2"></i>
-              Pranzi Domenicali
-              <i class="bi bi-fork-knife ms-2"></i>
-            </h5>
-          </div>
-          <div class="card-body d-flex flex-column p-4">
-            <div class="text-center mb-4">
-              <i class="bi bi-house-heart-fill carousel-icon"></i>
-            </div>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-utensils me-2"></i>Il nostro menu:
-                </h6>
-                <ul class="feature-list text-white-50 small">
-                  <li>Piatti tradizionali freschi</li>
-                  <li>Ingredienti di stagione</li>
-                  <li>Vini locali selezionati</li>
-                  <li>Menu bambini disponibile</li>
-                  <li>Opzioni vegetariane/vegan</li>
-                </ul>
-              </div>
-              
-              <div class="col-md-6 mb-3">
-                <h6 class="text-yellow mb-2 text-center">
-                  <i class="bi bi-clock me-2"></i>Orari & Info:
-                </h6>
-                <ol class="feature-list text-white-50 small">
-                  <li>Domenica: 12:00 - 15:30</li>
-                  <li>Prenotazione consigliata</li>
-                  <li>Menu fisso a prezzo speciale</li>
-                </ol>
-              </div>
-            </div>
-            
-            <div class="mt-auto pt-3 border-top border-secondary">
-              <div class="d-grid gap-2 align-items-center justify-content-center text-center">
-                <a href="tel:+3906823871" class="btn btn-warning btn-sm">
-                  <i class="bi bi-telephone-fill me-1"></i>Richiedi info
-                </a>
-                <small class="text-white-50 text-center mt-2">
-                  <i class="bi bi-currency-euro me-1"></i>
-                  Menu domenicale speciale €25/persona
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
+  </section>
 
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="">Precedente</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-      <span class="">Prossimo</span>
-      <span class="carousel-control-next-icon"></span>
-      
-    </button>
+  <!-- Breadcrumb / Back -->
+  <div class="container">
+    <nav aria-label="breadcrumb" class="py-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="text-decoration-none text-yellow" href="eventi.html">Eventi</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page" id="breadcrumbTitle"></li>
+      </ol>
+    </nav>
   </div>
-</div>
-<footer class="bg-dark py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
+
+  <!-- Intro -->
+  <section class="bg-dark bg-opacity-75 text-white text-center py-4 px-3">
+    <div class="container">
+      <h2 id="introTitle" class="text-yellow mb-2"></h2>
+      <p id="introText" class="lead mx-auto" style="max-width: 860px;"></p>
+
+      <div class="row g-3 mt-3 text-start">
+        <div class="col-12 col-md-4">
+          <div class="feature-card p-3 h-100">
+            <span class="small text-muted">Quando</span>
+            <p class="mb-0 fw-semibold" id="infoDate"></p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="feature-card p-3 h-100">
+            <span class="small text-muted">Orario</span>
+            <p class="mb-0 fw-semibold" id="infoTime"></p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="feature-card p-3 h-100">
+            <span class="small text-muted">Dove</span>
+            <p class="mb-0 fw-semibold" id="infoLocation"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="py-5">
+    <div class="container">
+      <div id="featuresRow" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- Pacchetti / Prezzi -->
+  <section class="py-3">
+    <div class="container">
+      <h3 class="text-center text-yellow mb-4">Pacchetti & Prezzi</h3>
+      <div id="packagesRow" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="container my-5">
+    <h3 class="text-center text-yellow mb-4">Galleria</h3>
+    <div id="galleryRow" class="row g-3"></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-5 bg-dark">
+    <h2 class="text-yellow mb-3">Prenota ora</h2>
+    <p class="mb-4">Parliamo dei dettagli e blocchiamo la data.</p>
+    <div id="ctaButtons" class="d-flex justify-content-center gap-2 flex-wrap"></div>
+  </section>
+
+  <!-- Footer -->
+   <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-3 mb-md-0">
-                <h5 class="text-yellow">Contatti</h5>
+                <h5>Contatti</h5>
                 <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
                 <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
                 <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
             </div>
-            <div class="text-yellow">
-                <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+            <div class="d-flex flex-column align-items-center">
+              <a href="/privacyPolicy.html" class="nav-link mb-2" style="color: white !important;">Informativa sulla privacy</a>
+              <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
             </div>
         </div>
     </footer>
-  
-<script>
-  // Preloader: soglia minima visibile
-  const PRELOADER_STARTED_AT = Date.now();
-  window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    const MIN_MS = 600;
-    const elapsed = Date.now() - PRELOADER_STARTED_AT;
-    const remaining = Math.max(0, MIN_MS - elapsed);
-    setTimeout(() => {
-      if (preloader) preloader.style.display = 'none';
-    }, remaining);
 
-    // ——— Cards filter + sezione attiva ———
-    const cards = document.querySelectorAll('.filter-card');
+  <!-- SEO JSON-LD Event (compilato da config) -->
+  <script id="seo-jsonld" type="application/ld+json"></script>
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        // 1) Reset di tutti i bordi
-        cards.forEach(c => { c.style.border = ''; });
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+          crossorigin="anonymous"></script>
 
-        // 2) Evidenziazione del selezionato con bordo giallo spesso 3px
-        card.style.border = '3px solid rgb(245, 236, 73)';
-
-        // 3) Nascondi tutte le macro‐section e mostra quella target
-        document.querySelectorAll('.macro-section')
-                .forEach(sec => sec.classList.add('d-none'));
-        const target = card.dataset.target + '-section';
-        document.getElementById(target).classList.remove('d-none');
-
-        // 4) Chiudi eventuali accordion aperti nella nuova section
-        document.getElementById(target)
-                .querySelectorAll('.accordion-button[aria-expanded="true"]')
-                .forEach(b => b.click());
-      });
+  <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      const progressBar = document.getElementById('progressBar');
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= 100) { clearInterval(interval); preloader.style.display = 'none'; }
+        else { width++; progressBar.style.width = width + '%'; }
+      }, 5);
     });
 
-    // inizializza: attiva la prima card
-    const first = document.querySelector('.filter-card');
-    if (first) first.click();
-  });
-</script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-    crossorigin="anonymous"></script>
-</body>
+    // Helpers
+    const $ = (s, p=document) => p.querySelector(s);
+    const $$ = (s, p=document) => [...p.querySelectorAll(s)];
 
+    // Build page from CONFIG
+    (function initEventoPage(){
+      const cfg = JSON.parse(document.getElementById('evento-config').textContent);
+
+      // Titoli / hero
+      document.title = `${cfg.title} - Manforte Pizzeria Roma`;
+      $('#heroImg').src = cfg.heroImage;
+      $('#heroImg').alt = cfg.title;
+      $('#heroTitle').textContent = cfg.title;
+      $('#heroSubtitle').textContent = cfg.subtitle || '';
+      $('#breadcrumbTitle').textContent = cfg.title;
+      $('#introTitle').textContent = cfg.subtitle || cfg.title;
+      $('#introText').innerHTML = cfg.introHtml || '';
+
+      // Info blocchi
+      $('#infoDate').textContent = cfg.date || '—';
+      $('#infoTime').textContent = cfg.time || '—';
+      $('#infoLocation').textContent = cfg.location || '—';
+
+      // Features
+      const featRow = $('#featuresRow');
+      (cfg.features || []).forEach(f => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-4';
+        col.innerHTML = `
+          <div class="feature-card p-4 text-center">
+            <i class="bi ${f.icon} icon"></i>
+            <h5 class="mt-3 text-yellow">${f.title}</h5>
+            <p class="mb-0">${f.text}</p>
+          </div>`;
+        featRow.appendChild(col);
+      });
+
+      // Packages
+      const pkgRow = $('#packagesRow');
+      (cfg.packages || []).forEach(p => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-4';
+        col.innerHTML = `
+          <div class="card h-100 bg-dark border-warning">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-yellow">${p.title}</h5>
+              <p class="card-text flex-grow-1">${p.desc}</p>
+              <div><span class="badge bg-yellow px-3 py-2 fw-semibold">${p.price}</span></div>
+            </div>
+          </div>`;
+        pkgRow.appendChild(col);
+      });
+
+      // Gallery
+      const galRow = $('#galleryRow');
+      (cfg.gallery || []).forEach(src => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4';
+        col.innerHTML = `<img src="${src}" alt="${cfg.title}" class="gallery-img ratio-1080x582">`;
+        galRow.appendChild(col);
+      });
+
+      // CTA
+      const cta = cfg.cta || {};
+      const ctaWrap = $('#ctaButtons');
+      if (cta.phone) {
+        const a = document.createElement('a');
+        a.href = `tel:${cta.phone}`;
+        a.className = 'btn btn-warning';
+        a.innerHTML = `<i class="bi bi-telephone-fill"></i> Chiama`;
+        ctaWrap.appendChild(a);
+      }
+      if (cta.email) {
+        const a = document.createElement('a');
+        a.href = `mailto:${cta.email}?subject=${encodeURIComponent("Richiesta informazioni evento: "+cfg.title)}`;
+        a.className = 'btn btn-warning';
+        a.innerHTML = `<i class="bi bi-envelope-fill"></i> Email`;
+        ctaWrap.appendChild(a);
+      }
+      if (cta.whatsapp) {
+        const a = document.createElement('a');
+        a.href = `https://wa.me/${cta.whatsapp}`;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.className = 'btn btn-warning';
+        a.innerHTML = `<i class="bi bi-whatsapp"></i> WhatsApp`;
+        ctaWrap.appendChild(a);
+      }
+
+      // JSON-LD SEO (Event)
+      const ld = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": cfg.title,
+        "description": (cfg.seo && cfg.seo.description) || cfg.subtitle || "",
+        "image": (cfg.seo && cfg.seo.image) || cfg.heroImage,
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "startDate": (cfg.seo && cfg.seo.startDate) || "",
+        "endDate": (cfg.seo && cfg.seo.endDate) || "",
+        "location": {
+          "@type": "Place",
+          "name": "Manforte Pizzeria Roma",
+          "address": cfg.location || "Via Giovanni Zanardini 39, Roma"
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "Manforte Pizzeria Roma",
+          "url": "https://manforte.eu"
+        }
+      };
+      $('#seo-jsonld').textContent = JSON.stringify(ld);
+    })();
+  </script>
+</body>
 </html>

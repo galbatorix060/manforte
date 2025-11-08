@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+        <title>Manforte Pizzeria Roma</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+            body {
+            overflow-x: hidden;
+            }
+            .navbar {
+                border-bottom: 2px solid rgb(245, 236, 73) !important;
+            }
+
+            .navbar-brand img {
+                height: 54px;
+                width: auto;
+            }
+
+            .nav-link {
+                color: rgb(245, 236, 73) !important;
+                font-weight: 600;
+            }
+
+            .nav-link:hover {
+                text-decoration: underline;
+                transform: scale(1.05);
+                transition: transform .2s ease, text-decoration .2s ease;
+            }
+
+
+            .container span,
+            .container p {
+                color: white !important;
+            }
+
+            .text-yellow {
+                color: rgb(245, 236, 73) !important;
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+                object-fit: cover;
+            }
+
+            @media (max-width: 576px) {
+                .carousel-item img {
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            @media (max-width: 576px) {
+                h1 {
+                    font-size: 1.8rem;
+                }
+            }
+
+            .card-sh {
+                border: none;
+                transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+                box-shadow: 0 2px 6px rgba(245, 236, 73, 0.3);
+            }
+
+            .card-sh:hover {
+                box-shadow: 0 4px 12px rgba(245, 236, 73, 0.5);
+                transform: none;
+            }
+
+            .floating {
+                animation: none !important;
+            }
+
+            .work-with-us {
+                background-image: url('img/00000076-PHOTO-2025-06-17-17-59-08.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 50px 0;
+                color: white;
+            }
+
+            .work-with-us h2,
+            .work-with-us p {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            }
+
+            #social:hover {
+                transform: scale(1.2);
+                transition: 2s;
+            }
+
+            .scroll-animate {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .scroll-animate.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .fade-slide-out {
+                animation: fadeSlideOut 0.7s ease forwards;
+                position: relative;
+                z-index: 1;
+            }
+
+            .fade-slide-in {
+                animation: fadeSlideIn 0.7s ease forwards;
+                position: relative;
+                z-index: 2;
+            }
+
+            @keyframes fadeSlideOut {
+                0% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translateX(-30px);
+                }
+            }
+
+            @keyframes fadeSlideIn {
+                0% {
+                    opacity: 0;
+                    transform: translateX(30px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes slideInLeft {
+                0% {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .modal.slide-in-left {
+                animation: slideInLeft 0.5s forwards;
+            }
+
+            .preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000000;
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .loader {
+                width: 20%;
+                height: auto;
+            }
+            .spinner {
+                width: 56px;
+                height: 56px;
+                border: 4px solid rgba(245, 236, 73, 0.3);
+                border-top-color: rgb(245, 236, 73);
+                border-radius: 50%;
+                animation: spin 0.9s linear infinite;
+                margin-top: 20px;
+            }
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+            @media (max-width: 576px) {
+            .loader { width: 35%; }
+
+            .spinner { width: 36px; height: 36px; }
+            }
+
+            .countdown-container {
+                text-align: center;
+                background: white;
+                padding: 3rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin: 2rem auto;
+                max-width: 600px;
+            }
+
+            .time-block {
+                display: inline-block;
+                background: #3498db;
+                color: white;
+                padding: 1.5rem;
+                border-radius: 10px;
+                min-width: 100px;
+                box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+                margin: 0 1rem;
+            }
+
+            .time-value {
+                font-size: 3rem;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .time-label {
+                font-size: 1rem;
+                opacity: 0.9;
+                margin: 0;
+            }
+
+            .completed-message {
+                display: none;
+                font-size: 1.5rem;
+                color: #27ae60;
+                font-weight: bold;
+                margin-top: 2rem;
+            }
+
+            .btn-limited-width {
+                display: inline-block !important;
+                width: auto !important;
+                max-width: 300px;
+                white-space: nowrap;
+            }
+
+        .btn-yellow,
+        .btn-yellow:visited {
+            background-color: rgb(245, 236, 73) !important;
+            border-color: rgb(245, 236, 73) !important;
+            color: #000 !important;
+        }
+        .btn-yellow:hover,
+        .btn-yellow:focus,
+        .btn-yellow:active,
+        .btn-yellow.active,
+        .show > .btn-yellow.dropdown-toggle {
+            background-color: rgb(235, 226, 70) !important; 
+            border-color: rgb(235, 226, 70) !important;
+            color: #000 !important;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link,
+            .nav-link:hover,
+            .dropdown-item,
+            .dropdown-item:hover {
+            transform: none !important;
+            transition: none !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav-link,
+            .nav-link:hover,
+            .dropdown-item,
+            .dropdown-item:hover {
+            transform: none !important;
+            transition: none !important;
+            }
+        }
+        </style>
+    </head>
+
+    <body class="bg-dark" style="font-family: 'Lexend Deca', sans-serif;">
+
+        <div id="preloader" class="preloader">
+            <img src="img/logo-sito.png" class="loader" alt="Logo">
+            <div class="spinner" aria-label="Caricamento" role="status"></div>
+        </div>
+
+        <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
+            <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="img/logo-sito.png" alt="Logo"></a>
+            <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="eventi.html" id="navEventi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Eventi
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navEventi">
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Compleanni</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Pranzi domenicali</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Pizze di fine anno</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Fantacalcio</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Halloween</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Offerta FootBall</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Bruschette All You Can Eat</a></li>
+                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Asdsdsd</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <div id="contenitoreTesto">
+<section class="container my-4">
+  <h1 class="text-yellow">DICHIARAZIONE PRIVACY E POLICY PER SITO INTERNET</h1>
+  <h2 class="text-yellow mt-4">INFORMATIVA SUL TRATTAMENTO DEI DATI PERSONALI</h2>
+  <p class="text-white">ai sensi degli articoli 13 e 14 del Regolamento UE 2016/679</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">1. TITOLARE DEL TRATTAMENTO</h4>
+  <p class="text-white">Il Titolare del trattamento dei dati personali è:</p>
+  <p class="text-white mb-1">ORIZZONTE S.R.L.</p>
+  <p class="text-white mb-1">Sede legale: Via Giovanni Zanardini, 39 – ROMA 00156</p>
+  <p class="text-white mb-1">Codice Fiscale/Partita IVA: 14138841003</p>
+  <p class="text-white mb-1">Telefono: 06823871</p>
+  <p class="text-white mb-1">Email: <a href="mailto:info@manforte.eu" class="text-white text-decoration-underline">info@manforte.eu</a></p>
+  <p class="text-white">PEC: <a href="mailto:Orizzonte.srl.roma@legalmail.it" class="text-white text-decoration-underline">Orizzonte.srl.roma@legalmail.it</a></p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">2. RESPONSABILE DELLA PROTEZIONE DEI DATI (DPO)</h4>
+  <p class="text-white">Il Responsabile della Protezione dei Dati (Data Protection Officer - DPO) può essere contattato ai seguenti recapiti:</p>
+  <p class="text-white mb-1">Email: <a href="mailto:info@manforte.eu" class="text-white text-decoration-underline">info@manforte.eu</a></p>
+  <p class="text-white">Telefono: 06823871</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">3. TIPOLOGIE DI DATI TRATTATI E FINALITÀ</h4>
+  <p class="text-white">In conformità a quanto stabilito dall'articolo 13 del Regolamento UE 2016/679, il Titolare informa che i dati personali raccolti attraverso il presente sito web sono trattati per le seguenti finalità:</p>
+
+  <h5 class="text-yellow mt-3">3.1 Dati di navigazione</h5>
+  <p class="text-white">I sistemi informatici e le procedure software preposte al funzionamento di questo sito web acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet. Tali dati includono:</p>
+  <ul class="text-white">
+    <li>Indirizzi IP degli utenti</li>
+    <li>Tipo di browser utilizzato</li>
+    <li>Sistema operativo</li>
+    <li>Nome del dominio e indirizzi dei siti web dai quali si è effettuato l'accesso</li>
+    <li>Informazioni sulle pagine visitate dagli utenti all'interno del sito</li>
+    <li>Orario dell'accesso</li>
+    <li>Durata della permanenza sul sito</li>
+    <li>Altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente</li>
+  </ul>
+  <p class="text-white"><strong>Base giuridica:</strong> Legittimo interesse del Titolare (art. 6, par. 1, lett. f) GDPR) per garantire la sicurezza e il corretto funzionamento del sito web.</p>
+  <p class="text-white"><strong>Finalità:</strong> Questi dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime sull'uso del sito, per controllarne il corretto funzionamento e per identificare eventuali malfunzionamenti e/o attività illecite.</p>
+
+  <h5 class="text-yellow mt-3">3.2 Dati forniti volontariamente dall'utente</h5>
+  <p class="text-white">I dati personali forniti volontariamente dagli utenti attraverso i moduli di contatto, registrazione, newsletter o altre funzionalità del sito vengono trattati per le seguenti finalità:</p>
+
+  <p class="text-white mb-1"><strong>a) Gestione delle richieste di contatto</strong></p>
+  <ul class="text-white">
+    <li><strong>Dati trattati:</strong> Nome, cognome, indirizzo email, numero di telefono, messaggio</li>
+    <li><strong>Base giuridica:</strong> Consenso dell'interessato (art. 6, par. 1, lett. a) GDPR)</li>
+    <li><strong>Finalità:</strong> Rispondere alle richieste di informazioni e fornire assistenza</li>
+  </ul>
+
+  <p class="text-white mb-1"><strong>b) Invio di newsletter e comunicazioni promozionali</strong></p>
+  <ul class="text-white">
+    <li><strong>Dati trattati:</strong> Nome, cognome, indirizzo email</li>
+    <li><strong>Base giuridica:</strong> Consenso dell'interessato (art. 6, par. 1, lett. a) GDPR)</li>
+    <li><strong>Finalità:</strong> Invio di comunicazioni commerciali, newsletter, aggiornamenti sui prodotti/servizi</li>
+  </ul>
+
+  <p class="text-white mb-1"><strong>c) Registrazione al sito e gestione dell'account utente</strong></p>
+  <ul class="text-white">
+    <li><strong>Dati trattati:</strong> Nome, cognome, indirizzo email, password (criptata), data di nascita, numero di telefono</li>
+    <li><strong>Base giuridica:</strong> Esecuzione di un contratto (art. 6, par. 1, lett. b) GDPR)</li>
+    <li><strong>Finalità:</strong> Creazione e gestione dell'account utente, erogazione dei servizi richiesti</li>
+  </ul>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">4. MODALITÀ DI TRATTAMENTO</h4>
+  <p class="text-white">I dati personali sono trattati con strumenti automatizzati per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti. Il trattamento avviene nel rispetto dei principi di liceità, correttezza, trasparenza, limitazione delle finalità, minimizzazione dei dati, esattezza, limitazione della conservazione, integrità e riservatezza stabiliti dall'articolo 5 del GDPR.</p>
+  <p class="text-white">Sono adottate specifiche misure di sicurezza per prevenire la perdita dei dati, usi illeciti o non corretti ed accessi non autorizzati, in conformità a quanto previsto dall'articolo 32 del GDPR.</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">5. PERIODO DI CONSERVAZIONE</h4>
+  <p class="text-white">I dati personali saranno conservati per i seguenti periodi:</p>
+  <ul class="text-white">
+    <li>Dati di navigazione: Massimo 12 mesi dalla raccolta</li>
+    <li>Dati di contatto: Fino alla risoluzione della richiesta e per ulteriori 2 anni per eventuali contestazioni</li>
+    <li>Dati per newsletter: Fino alla revoca del consenso</li>
+    <li>Dati dell'account utente: Per tutta la durata del rapporto contrattuale e per ulteriori 10 anni per adempimenti fiscali e contabili</li>
+  </ul>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">6. COMUNICAZIONE E DIFFUSIONE DEI DATI</h4>
+  <p class="text-white">I dati personali potranno essere comunicati a:</p>
+  <ul class="text-white">
+    <li>Responsabili del trattamento esterni, quali fornitori di servizi informatici, di hosting, di manutenzione del sito web, società di marketing, consulenti legali e fiscali</li>
+    <li>Autorità competenti per adempimenti di legge o su richiesta delle stesse</li>
+    <li>Soggetti terzi solo previo specifico consenso dell'interessato</li>
+  </ul>
+  <p class="text-white">I dati non saranno mai diffusi senza il consenso esplicito dell'interessato.</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">7. TRASFERIMENTO DEI DATI VERSO PAESI TERZI</h4>
+  <p class="text-white">Alcuni dei servizi utilizzati dal presente sito web potrebbero comportare il trasferimento di dati personali verso Paesi terzi (extra-UE). In tali casi, il trasferimento avviene nel rispetto delle garanzie appropriate previste dal Capo V del GDPR, mediante:</p>
+  <ul class="text-white">
+    <li>Decisioni di adeguatezza della Commissione Europea</li>
+    <li>Clausole contrattuali standard approvate dalla Commissione Europea</li>
+    <li>Norme vincolanti d'impresa</li>
+    <li>Altri strumenti di tutela riconosciuti dalla normativa europea</li>
+  </ul>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">8. DIRITTI DELL'INTERESSATO</h4>
+  <p class="text-white">In conformità agli articoli 15-22 del GDPR, l'interessato ha il diritto di:</p>
+  <ul class="text-white">
+    <li><strong>Accesso (art. 15):</strong> ottenere conferma dell'esistenza di un trattamento di dati personali e ricevere copia degli stessi</li>
+    <li><strong>Rettifica (art. 16):</strong> ottenere la correzione dei dati inesatti o l'integrazione di quelli incompleti</li>
+    <li><strong>Cancellazione (art. 17):</strong> ottenere la cancellazione dei dati personali nelle ipotesi previste dalla legge</li>
+    <li><strong>Limitazione (art. 18):</strong> ottenere la limitazione del trattamento quando ricorrono le condizioni previste</li>
+    <li><strong>Portabilità (art. 20):</strong> ricevere i dati in formato strutturato e trasmetterli ad altro titolare</li>
+    <li><strong>Opposizione (art. 21):</strong> opporsi al trattamento per motivi legittimi</li>
+    <li><strong>Revoca del consenso:</strong> revocare il consenso prestato in qualsiasi momento senza pregiudicare la liceità del trattamento basata sul consenso prestato prima della revoca</li>
+  </ul>
+  <p class="text-white">Come confermato dalla giurisprudenza di legittimità, il diritto di accesso ai dati personali costituisce un diritto autonomo e distinto dalla questione della legittimità del trattamento, configurandosi come specifica espressione del bene costituzionalmente rilevante della riservatezza.</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">9. MODALITÀ DI ESERCIZIO DEI DIRITTI</h4>
+  <p class="text-white">Per esercitare i diritti sopra elencati, l'interessato può rivolgersi al Titolare del trattamento mediante:</p>
+  <ul class="text-white">
+    <li>Email: <a href="mailto:info@manforte.eu" class="text-white text-decoration-underline">info@manforte.eu</a></li>
+    <li>PEC: <a href="mailto:Orizzonte.srl.roma@legalmail.it" class="text-white text-decoration-underline">Orizzonte.srl.roma@legalmail.it</a></li>
+    <li>Lettera raccomandata A/R all'indirizzo: Via Giovanni Zanardini, 39 – ROMA 00156</li>
+  </ul>
+  <p class="text-white">Il Titolare fornirà riscontro senza ingiustificato ritardo e comunque entro un mese dal ricevimento della richiesta. Tale termine può essere prorogato di due mesi in caso di particolare complessità, previa comunicazione all'interessato entro il primo mese.</p>
+</section>
+
+<section class="container my-4">
+  <h4 class="text-yellow mt-4">10. DIRITTO DI RECLAMO</h4>
+  <p class="text-white">L'interessato ha il diritto di proporre reclamo al Garante per la protezione dei dati personali, con sede in Piazza di Monte Citorio n. 121, 00186 Roma, o tramite il sito web <a href="https://www.gpdp.it" class="text-white text-decoration-underline">www.gpdp.it</a>, qualora ritenga che il trattamento dei propri dati personali avvenga in violazione della normativa vigente.</p>
+</section>
+
+<section class="container my-4">
+  <h2 class="text-yellow mt-5">COOKIE POLICY</h2>
+  <h5 class="text-yellow mt-3">1. COSA SONO I COOKIE</h5>
+  <p class="text-white">I cookie sono piccoli file di testo che i siti web visitati inviano al terminale dell'utente, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse e possono essere utilizzati sia dal titolare del sito che si sta visitando, sia da terze parti.</p>
+
+  <h5 class="text-yellow mt-3">2. TIPOLOGIE DI COOKIE UTILIZZATI</h5>
+  <p class="text-white">In conformità all'articolo 122 del Codice Privacy, questo sito utilizza le seguenti tipologie di cookie:</p>
+
+  <h6 class="text-yellow mt-3">2.1 Cookie Tecnici (non richiedono consenso)</h6>
+  <p class="text-white">Questi cookie sono essenziali per il corretto funzionamento del sito web e non possono essere disattivati nei nostri sistemi:</p>
+  <p class="text-white mb-1">Cookie di navigazione o di sessione</p>
+  <ul class="text-white">
+    <li><strong>Finalità:</strong> Garantire la normale navigazione e fruizione del sito web</li>
+    <li><strong>Durata:</strong> Sessione di navigazione</li>
+    <li><strong>Esempi:</strong> Mantenimento dello stato di login, carrello acquisti, preferenze di lingua</li>
+  </ul>
+  <p class="text-white mb-1">Cookie analytics di prima parte</p>
+  <ul class="text-white">
+    <li><strong>Finalità:</strong> Raccogliere informazioni aggregate sul numero di utenti e su come questi visitano il sito</li>
+    <li><strong>Durata:</strong> Fino a 24 mesi</li>
+    <li><strong>Trattamento:</strong> I dati sono raccolti in forma anonima e aggregata</li>
+  </ul>
+  <p class="text-white mb-1">Cookie di funzionalità</p>
+  <ul class="text-white">
+    <li><strong>Finalità:</strong> Permettere all'utente la navigazione in funzione di criteri selezionati</li>
+    <li><strong>Durata:</strong> Variabile (da sessione a 12 mesi)</li>
+    <li><strong>Esempi:</strong> Memorizzazione delle preferenze di visualizzazione, impostazioni di accessibilità</li>
+  </ul>
+
+  <h6 class="text-yellow mt-3">2.2 Cookie di Profilazione (richiedono consenso)</h6>
+  <p class="text-white">Questi cookie sono utilizzati per creare profili relativi all'utente e vengono utilizzati al fine di inviare messaggi pubblicitari in linea con le preferenze manifestate dallo stesso nell'ambito della navigazione in rete:</p>
+  <ul class="text-white">
+    <li><strong>Cookie di profilazione di prima parte</strong></li>
+    <li><strong>Finalità:</strong> Analizzare le abitudini di navigazione dell'utente per proporgli contenuti personalizzati</li>
+    <li><strong>Durata:</strong> Fino a 24 mesi</li>
+    <li><strong>Base giuridica:</strong> Consenso dell'interessato</li>
+  </ul>
+
+  <h6 class="text-yellow mt-3">2.3 Cookie di Terze Parti (richiedono consenso)</h6>
+  <p class="text-white">Il sito incorpora anche cookie di terze parti per le seguenti finalità:</p>
+  <ul class="text-white">
+    <li><strong>Google Analytics</strong><br> Titolare: Google LLC<br> Finalità: Analisi statistiche aggregate delle modalità di utilizzo del sito web<br> Privacy Policy: <a href="https://policies.google.com/privacy" class="text-white text-decoration-underline">https://policies.google.com/privacy</a><br> Opt-out: <a href="https://tools.google.com/dlpage/gaoptout" class="text-white text-decoration-underline">https://tools.google.com/dlpage/gaoptout</a></li>
+    <li><strong>Google Ads</strong><br> Titolare: Google LLC<br> Finalità: Pubblicità comportamentale e remarketing<br> Privacy Policy: <a href="https://policies.google.com/privacy" class="text-white text-decoration-underline">https://policies.google.com/privacy</a></li>
+    <li><strong>Facebook Pixel</strong><br> Titolare: Meta Platforms Ireland Limited<br> Finalità: Remarketing e analisi delle conversioni<br> Privacy Policy: <a href="https://www.facebook.com/privacy/policy/" class="text-white text-decoration-underline">https://www.facebook.com/privacy/policy/</a></li>
+  </ul>
+
+  <h5 class="text-yellow mt-3">3. GESTIONE DEI COOKIE</h5>
+  <h6 class="text-yellow mt-3">3.1 Consenso ai Cookie</h6>
+  <p class="text-white">Al primo accesso al sito, viene mostrato un banner informativo che richiede il consenso per l'utilizzo dei cookie non tecnici. L'utente può:</p>
+  <ul class="text-white">
+    <li>Accettare tutti i cookie</li>
+    <li>Rifiutare i cookie non necessari</li>
+    <li>Personalizzare le proprie preferenze attraverso il pannello delle impostazioni</li>
+  </ul>
+  <p class="text-white">Il consenso può essere revocato in qualsiasi momento attraverso le impostazioni del browser o utilizzando il link "Gestisci Cookie" presente nel footer del sito.</p>
+
+  <h6 class="text-yellow mt-3">3.2 Disabilitazione dei Cookie tramite Browser</h6>
+  <p class="text-white">È possibile disabilitare i cookie direttamente dal proprio browser. Di seguito i link alle guide dei principali browser:</p>
+  <ul class="text-white">
+    <li><a href="https://support.google.com/chrome/answer/95647" class="text-white text-decoration-underline">Chrome</a></li>
+    <li><a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" class="text-white text-decoration-underline">Firefox</a></li>
+    <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" class="text-white text-decoration-underline">Safari</a></li>
+    <li><a href="https://support.microsoft.com/it-it/help/4027947" class="text-white text-decoration-underline">Edge</a></li>
+    <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies" class="text-white text-decoration-underline">Opera</a></li>
+  </ul>
+
+  <h5 class="text-yellow mt-3">4. COOKIE DI TERZE PARTI E TRASFERIMENTI INTERNAZIONALI</h5>
+  <p class="text-white">Alcuni cookie utilizzati dal presente sito sono gestiti da fornitori di servizi con sede negli Stati Uniti o in altri Paesi extra-UE. Il trasferimento dei dati avviene nel rispetto delle garanzie appropriate previste dal GDPR, in particolare attraverso le Clausole Contrattuali Standard approvate dalla Commissione Europea.</p>
+</section>
+
+<section class="container my-4">
+  <h2 class="text-yellow mt-5">TERMINI E CONDIZIONI D'USO</h2>
+  <h5 class="text-yellow mt-3">1. OGGETTO E ACCETTAZIONE</h5>
+  <p class="text-white">I presenti Termini e Condizioni disciplinano l'utilizzo del sito web e dei servizi in esso contenuti. L'accesso e l'utilizzo del sito comportano l'accettazione integrale dei presenti termini.</p>
+
+  <h5 class="text-yellow mt-3">2. PROPRIETÀ INTELLETTUALE</h5>
+  <p class="text-white">Tutti i contenuti del sito web, inclusi testi, immagini, loghi, grafica, video, software e codice sorgente, sono protetti da diritti di proprietà intellettuale e appartengono al Titolare del sito o ai rispettivi proprietari. È vietata la riproduzione, distribuzione, modifica o utilizzo commerciale senza autorizzazione scritta.</p>
+
+  <h5 class="text-yellow mt-3">3. UTILIZZO CONSENTITO</h5>
+  <p class="text-white">L'utente si impegna a utilizzare il sito web in conformità alla legge e ai presenti termini, astenendosi da:</p>
+  <ul class="text-white">
+    <li>Attività illecite o che violino i diritti di terzi</li>
+    <li>Invio di contenuti offensivi, diffamatori o inappropriati</li>
+    <li>Tentativi di accesso non autorizzato ai sistemi informatici</li>
+    <li>Utilizzo di software o dispositivi che possano danneggiare il funzionamento del sito</li>
+  </ul>
+
+  <h5 class="text-yellow mt-3">4. LIMITAZIONE DI RESPONSABILITÀ</h5>
+  <p class="text-white">Il Titolare non assume responsabilità per:</p>
+  <ul class="text-white">
+    <li>Interruzioni temporanee del servizio per manutenzione o aggiornamenti</li>
+    <li>Danni derivanti dall'utilizzo improprio del sito web</li>
+    <li>Contenuti di siti web di terzi raggiungibili tramite link</li>
+    <li>Perdite di dati dovute a malfunzionamenti tecnici</li>
+  </ul>
+
+  <h5 class="text-yellow mt-3">5. MODIFICHE</h5>
+  <p class="text-white">Il Titolare si riserva il diritto di modificare i presenti termini in qualsiasi momento. Le modifiche saranno pubblicate sul sito web e entreranno in vigore dalla data di pubblicazione.</p>
+
+  <h5 class="text-yellow mt-3">6. LEGGE APPLICABILE E FORO COMPETENTE</h5>
+  <p class="text-white">I presenti Termini e Condizioni sono disciplinati dalla legge italiana. Per qualsiasi controversia è competente il Foro di Roma.</p>
+</section>
+
+<section class="container my-4">
+  <h2 class="text-yellow mt-5">INFORMAZIONI AGGIUNTIVE</h2>
+  <h6 class="text-yellow mt-3">Data di ultimo aggiornamento</h6>
+  <p class="text-white">La presente informativa è stata aggiornata in data 15 ottobre 2025.</p>
+
+  <h6 class="text-yellow mt-3">Contatti per informazioni sulla privacy</h6>
+  <p class="text-white">Per qualsiasi informazione relativa al trattamento dei dati personali, è possibile contattare il Titolare ai recapiti sopra indicati.</p>
+
+  <h6 class="text-yellow mt-3">Modifiche all'informativa</h6>
+  <p class="text-white">La presente informativa può essere soggetta a modifiche. In caso di modifiche sostanziali, gli utenti saranno informati attraverso apposito avviso pubblicato sul sito web.</p>
+
+  <p class="text-white">La presente dichiarazione privacy e policy è stata redatta in conformità al Regolamento UE 2016/679 (GDPR), al Decreto Legislativo 30 giugno 2003, n. 196 (Codice Privacy) come modificato dal Decreto Legislativo 10 agosto 2018, n. 101, e alle Linee Guida del Garante per la protezione dei dati personali.</p>
+</section>
+        </div>
+    </body>
+    <script>
+        (function() {
+        const MIN_MS = 600; // soglia minima di visibilita'
+        const startedAt = Date.now();
+
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (!preloader) return;
+            const elapsed = Date.now() - startedAt;
+            const remaining = Math.max(0, MIN_MS - elapsed);
+            setTimeout(() => {
+            preloader.style.display = 'none';
+            }, remaining);
+        });
+        })();
+    </script>
+</html>

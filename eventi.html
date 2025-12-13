@@ -3,55 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title></title>
+  <title>Eventi & Promozioni - Manforte Pizzeria Roma</title>
 
-  <!-- Icons + Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
-  <!-- Font -->
+
   <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
 
   <style>
     :root { --mf-yellow: rgb(245,236,73); }
+
     body { background-color:#111; color:#fff; }
     .text-yellow { color: var(--mf-yellow) !important; }
     .bg-yellow { background-color: var(--mf-yellow) !important; color:#000 !important; }
     .text-font-strange { font-family: "Coiny", system-ui; }
 
-    /* Hero */
-    .hero {
+    .navbar { border-bottom: 2px solid rgb(245, 236, 73) !important; }
+    .navbar-brand img { height: 54px; width: auto; }
+    .nav-link { color: rgb(245, 236, 73) !important; font-weight: 600; }
+    .nav-link:hover { text-decoration: underline; transform: scale(1.05); transition: transform .2s ease, text-decoration .2s ease; }
+
+    .hero-promo {
       position: relative;
-      width: 100%;
-      height: 46vh;          /* più alto su mobile */
-      max-height: 520px;
-      min-height: 320px;
+      padding: 3.5rem 0 2.5rem;
+      background: radial-gradient(circle at top left, #2a2a2a, #111);
       overflow: hidden;
     }
-    .hero img { width:100%; height:100%; object-fit: cover; object-position: center; display:block; }
-    .hero .overlay {
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75));
+    .hero-pill {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      border:1px solid rgba(245,236,73,.6);
+      font-size:.75rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
     }
-    .hero .content {
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center; text-align:center; padding: 0 14px;
-      text-shadow: 2px 2px 5px #000;
+    .hero-promo h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); }
+    .hero-promo p.lead { max-width: 540px; }
+
+    .promo-card {
+      background:#181818;
+      border-radius:18px;
+      border:1px solid rgba(245,236,73,.25);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+    .promo-card:hover {
+      transform: translateY(-3px);
+      box-shadow:0 14px 26px rgba(0,0,0,.55);
+      border-color: rgba(245,236,73,.7);
+    }
+    .promo-image-wrapper {
+      position:relative;
+      width:100%;
+      overflow:hidden;
+    }
+    .promo-image {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+    @media (min-width: 768px) {
+      .promo-card.horizontal-md { flex-direction:row; }
+      .promo-card.horizontal-md .promo-image { height:100%; max-width:260px; }
+    }
 
-    /* Cards info */
-    .feature-card { background:#1b1b1b; border:1px solid rgba(245,236,73,0.25); border-radius:16px; height:100%; }
-    .feature-card .icon { font-size: 2rem; color: var(--mf-yellow); }
+    .promo-badge {
+      position:absolute;
+      left:12px;
+      top:12px;
+      padding:.25rem .6rem;
+      border-radius:999px;
+      background:rgba(0,0,0,.7);
+      border:1px solid rgba(245,236,73,.7);
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
 
-    /* Galleria */
-    .gallery-img { width:100%; height: 220px; object-fit: cover; border-radius: 12px; transition: transform .25s ease; }
-    .gallery-img:hover { transform: scale(1.02); }
+    .promo-body { padding:1.25rem 1.25rem 1.1rem; display:flex; flex-direction:column; gap:.35rem; }
+    .promo-eyebrow { font-size:.75rem; letter-spacing:.05em; text-transform:uppercase; opacity:.8; }
+    .promo-title { font-size:1.15rem; }
+    .promo-meta { font-size:.8rem; opacity:.75; }
 
-    /* Ratio helper 1080x582 ≈ 1.855:1 */
-    .ratio-1080x582 { aspect-ratio: 1080 / 582; width:100%; object-fit: cover; object-position: center; }
+    .pill-tag {
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.22rem .7rem;
+      border-radius:999px;
+      background-color:rgba(245,236,73,.12);
+      font-size:.72rem;
+    }
 
-    /* Preloader */
     .preloader {
       position: fixed; inset:0; background:#000; z-index: 9999;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -60,72 +108,25 @@
     .progress { width: 56%; max-width: 360px; height:3px; background-color: rgba(245,236,73,.3); border-radius:5px; overflow:hidden; margin-top:20px; }
     .progress-bar { height:100%; background-color: var(--mf-yellow); width:0; transition: width .1s; }
 
-    /* Footer */
     footer { border-top: 2px solid rgba(245,236,73,0.52); }
 
-    .navbar {
-            border-bottom: 2px solid rgb(245, 236, 73) !important;
-        }
+    .btn-yellow,
+      .btn-yellow:visited {
+        background-color: rgb(245, 236, 73) !important;
+        border-color: rgb(245, 236, 73) !important;
+        color: #000 !important;
+      }
+      .btn-yellow:hover,
+      .btn-yellow:focus,
+      .btn-yellow:active,
+      .btn-yellow.active,
+      .show > .btn-yellow.dropdown-toggle {
+        background-color: rgb(235, 226, 70) !important; 
+        border-color: rgb(235, 226, 70) !important;
+        color: #000 !important;
+      }
 
-        .navbar-brand img {
-            height: 54px;
-            width: auto;
-        }
-
-        .nav-link {
-            color: rgb(245, 236, 73) !important;
-            font-weight: 600;
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-            transform: scale(1.05);
-            transition: transform .2s ease, text-decoration .2s ease;
-        }
   </style>
-
-  <!-- ============ CONFIG (MODIFICA SOLO QUI) ============ -->
-  <script id="evento-config" type="application/json">
-  {
-    "slug": "feste-di-compleanno",
-    "title": "Feste di Compleanno",
-    "subtitle": "Un compleanno da ricordare!",
-    "heroImage": "img/compleanni.jpg",
-    "introHtml": "Festeggia il tuo giorno speciale da Manforte! 🎉 Menù personalizzati, <b>torta su misura</b>, musica e divertimento assicurato.",
-    "date": "Tutto l'anno, su prenotazione",
-    "time": "Consigliato: fascia 19:00 – 22:30",
-    "location": "Via Giovanni Zanardini 39, Roma",
-    "packages": [
-      { "title": "Pacchetto Base", "desc": "Pizza + Bibita + Torta (min. 8 persone).", "price": "18€ p.p." },
-      { "title": "Pacchetto Party", "desc": "Menù bimbi + Animazione + Torta personalizzata.", "price": "25€ p.p." },
-      { "title": "Pacchetto Deluxe", "desc": "Menù completo adulti + Selezione vini + Torta su misura.", "price": "35€ p.p." }
-    ],
-    "features": [
-      { "icon": "bi-cake2", "title": "Torta personalizzata", "text": "Anche versioni <b>gluten free</b>." },
-      { "icon": "bi-music-note-beamed", "title": "Musica e divertimento", "text": "Impianto audio, area giochi." },
-      { "icon": "bi-people", "title": "Spazio per gruppi", "text": "Tavolate dedicate e gestione inviti." }
-    ],
-    "gallery": [
-      "img/evento-compleanni-1.jpg",
-      "img/evento-compleanni-2.jpg",
-      "img/evento-compleanni-3.jpg",
-      "img/evento-compleanni-4.jpg",
-      "img/evento-compleanni-5.jpg",
-      "img/evento-compleanni-6.jpg"
-    ],
-    "cta": {
-      "phone": "+3906823871",
-      "email": "info@manforte.eu",
-      "whatsapp": null
-    },
-    "seo": {
-      "description": "Feste di compleanno a Roma da Manforte: menù personalizzati, torte su misura (anche senza glutine) e area giochi.",
-      "image": "img/evento-compleanni-hero.jpg",
-      "startDate": "2025-01-01T19:00:00+02:00",
-      "endDate": "2025-12-31T23:00:00+02:00"
-    }
-  }
-  </script>
 </head>
 
 <body class="bg-dark">
@@ -137,141 +138,276 @@
 
   <!-- Navbar -->
   <nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-dark">
-            <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="img/logo-sito.png" alt="Logo"></a>
-            <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-2">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="eventi.html" id="navEventi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Eventi
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navEventi">
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Compleanni</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Pranzi domenicali</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Pizze di fine anno</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Fantacalcio</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#compleanni">Halloween</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#pranzi">Offerta FootBall</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html#pizze-fine-anno">Bruschette All You Can Eat</a></li>
-                    <li><a class="dropdown-item text-yellow" href="eventi.html">Offerta Asdsdsd</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
-                </ul>
-            </div>
-            </div>
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="img/logo-sito.png" alt="Logo"></a>
+      <button class="navbar-toggler text-yellow border-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menù</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="eventi.html" id="navEventi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Eventi
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="navEventi">
+              <li><a class="dropdown-item text-yellow" href="#promo-compleanno">Promo Compleanno</a></li>
+              <li><a class="dropdown-item text-yellow" href="#pranzi-domenicali">Pranzi della domenica</a></li>
+              <li><a class="dropdown-item text-yellow" href="#pizze-fine-anno">Pizze di fine anno</a></li>
+              <li><a class="dropdown-item text-yellow" href="#bruschette-ayce">Bruschette All You Can Eat</a></li>
+              <li><a class="dropdown-item text-yellow" href="#fantacalcio">Promo Fantacalcio</a></li>
+              <li><a class="dropdown-item text-yellow" href="#football">Partite & Football</a></li>
+              <li><a class="dropdown-item text-yellow" href="#halloween">Halloween</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="lavoraconnoi.html">Lavora con noi</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#dovesiamo">Dove siamo</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <img id="heroImg" src="" alt="">
-    <div class="overlay"></div>
-    <div class="content">
-      <div>
-        <h1 id="heroTitle" class="text-yellow text-font-strange mb-2"></h1>
-        <p id="heroSubtitle" class="lead mb-0"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Breadcrumb / Back -->
-  <div class="container">
-    <nav aria-label="breadcrumb" class="py-3">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a class="text-decoration-none text-yellow" href="eventi.html">Eventi</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page" id="breadcrumbTitle"></li>
-      </ol>
-    </nav>
-  </div>
-
-  <!-- Intro -->
-  <section class="bg-dark bg-opacity-75 text-white text-center py-4 px-3">
+  <!-- HERO / INTRO -->
+  <section class="hero-promo">
     <div class="container">
-      <h2 id="introTitle" class="text-yellow mb-2"></h2>
-      <p id="introText" class="lead mx-auto" style="max-width: 860px;"></p>
-
-      <div class="row g-3 mt-3 text-start">
-        <div class="col-12 col-md-4">
-          <div class="feature-card p-3 h-100">
-            <span class="small text-muted">Quando</span>
-            <p class="mb-0 fw-semibold" id="infoDate"></p>
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-7">
+          <div class="hero-pill mb-3 text-yellow">
+            <i class="bi bi-stars"></i>
+            <span>Promo & Eventi Manforte</span>
           </div>
+          <h1 class="text-yellow mb-3">Ogni settimana un motivo in più per venire da Manforte</h1>
+          <p class="lead mb-3">Compleanni, pizze di fine anno, serate a tema, bruschette all you can eat e offerte per chi ama il calcio: qui trovi tutte le promo attive nel nostro ristorante.</p>
+          <p class="small text-secondary mb-0"><i class="bi bi-envelope-heart me-1"></i>Alcune promozioni sono riservate agli iscritti alla mailing list Manforte.</p>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="feature-card p-3 h-100">
-            <span class="small text-muted">Orario</span>
-            <p class="mb-0 fw-semibold" id="infoTime"></p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="feature-card p-3 h-100">
-            <span class="small text-muted">Dove</span>
-            <p class="mb-0 fw-semibold" id="infoLocation"></p>
+        <div class="col-12 col-md-5 text-md-end">
+          <div class="d-inline-flex flex-column align-items-start align-items-md-end gap-2 bg-dark bg-opacity-75 p-3 rounded-4 border border-warning">
+            <span class="fw-semibold">Vuoi le promo in anteprima?</span>
+            <p class="mb-2 small">Iscriviti alla mailing list durante la tua prossima visita in pizzeria e ricevi le offerte dedicate direttamente via email.</p>
+            <span class="badge bg-yellow text-wrap">Promo soggette a disponibilità e variazioni. Chiedi sempre conferma in sala.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Cards -->
-  <section class="py-5">
+  <!-- LISTA PROMO / EVENTI -->
+  <main class="py-4 py-md-5" style="background-image: url(img/sfondoSitoManforte.png);">
     <div class="container">
-      <div id="featuresRow" class="row g-4"></div>
-    </div>
-  </section>
+      <div class="row gy-4">
 
-  <!-- Pacchetti / Prezzi -->
-  <section class="py-3">
+        <!-- Promo compleanno -->
+        <div class="col-12 col-md-6 col-lg-4" id="promo-compleanno">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/compleanni.jpg" alt="Promo compleanno Manforte" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-balloon-heart me-1"></i>Compleanno</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">In compagnia</div>
+                <h2 class="promo-title mb-2">Promo compleanno</h2>
+                <p class="mb-3">Torta in omaggio e foto ricordo per chi festeggia da noi.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoCompleanno">Scopri evento</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pranzi domenicali -->
+        <div class="col-12 col-md-6 col-lg-4" id="pranzi-domenicali">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/pranzoDomenica.jpg" alt="Pranzi della domenica" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-sun me-1"></i>Domenica</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Famiglia &amp; amici</div>
+              <h2 class="promo-title mb-2">Pranzo della domenica</h2>
+              <p class="mb-3">Men&ugrave; fisso che cambia ogni settimana.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoPranzo">Scopri evento</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pizze di fine anno -->
+        <div class="col-12 col-md-6 col-lg-4" id="pizze-fine-anno">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/cibointavola.jpeg" alt="Pizze di fine anno" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-calendar-event me-1"></i>Stagionale</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Scuole, squadre, uffici</div>
+              <h2 class="promo-title mb-2">Pizze di fine anno</h2>
+              <p class="mb-3">Tavolate per classi, squadre e uffici a fine stagione.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoPfa">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-people-fill"></i> Ideale per gruppi numerosi</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bruschette All You Can Eat -->
+        <div class="col-12 col-md-6 col-lg-4" id="bruschette-ayce">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/bruschetteMenu.jpeg" alt="Bruschette all you can eat" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-fire me-1"></i>Special</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">All you can eat</div>
+              <h2 class="promo-title mb-2">Bruschette All You Can Eat</h2>
+              <p class="mb-3">Bruschette illimitate con ricette sempre diverse.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoBruschetteAYCE">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-hourglass-split"></i> Turni a tempo</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Fantacalcio -->
+        <div class="col-12 col-md-6 col-lg-4" id="fantacalcio">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/fantacalcio.png" alt="Promo Fantacalcio" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-trophy me-1"></i>Fantacalcio</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Gruppi di amici</div>
+              <h2 class="promo-title mb-2">Serata Fantacalcio</h2>
+              <p class="mb-3">Pizza, birra e tavolo riservato per la tua lega.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoFantacalcio">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-controller"></i> Spazio per aste &amp; draft</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Partite & Football -->
+        <div class="col-12 col-md-6 col-lg-4" id="football">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/menuFootball.png" alt="Partite di calcio" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-tv me-1"></i>Match Day</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Partite &amp; sport</div>
+              <h2 class="promo-title mb-2">Serate calcio &amp; birra</h2>
+              <p class="mb-3">Le partite più importanti viste insieme davanti alla pizza.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoFootball">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-beer"></i> Pizza &amp; birra combo</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Halloween -->
+        <div class="col-12 col-md-6 col-lg-4" id="halloween">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/evento-halloween.jpg" alt="Serata Halloween" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-emoji-dizzy me-1"></i>Halloween</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Evento speciale</div>
+              <h2 class="promo-title mb-2">Serata Halloween</h2>
+              <p class="mb-3">Decorazioni, menu a tema e dolcetti per tutti.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-instagram"></i> Segui @manforte per gli aggiornamenti</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Halloween -->
+        <div class="col-12 col-md-6 col-lg-4" id="halloween">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/evento-halloween.jpg" alt="Serata Halloween" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-emoji-dizzy me-1"></i>Halloween</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Evento speciale</div>
+              <h2 class="promo-title mb-2">Serata Halloween</h2>
+              <p class="mb-3">Decorazioni, menu a tema e dolcetti per tutti.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-instagram"></i> Segui @manforte per gli aggiornamenti</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Halloween -->
+        <div class="col-12 col-md-6 col-lg-4" id="halloween">
+          <article class="promo-card">
+            <div class="promo-image-wrapper">
+              <img src="img/evento-halloween.jpg" alt="Serata Halloween" class="promo-image">
+              <span class="promo-badge text-yellow"><i class="bi bi-emoji-dizzy me-1"></i>Halloween</span>
+            </div>
+            <div class="promo-body">
+              <div class="promo-eyebrow text-yellow">Evento speciale</div>
+              <h2 class="promo-title mb-2">Serata Halloween</h2>
+              <p class="mb-3">Decorazioni, menu a tema e dolcetti per tutti.</p>
+              <div class="d-flex flex-column gap-2 align-items-center mt-auto">
+                <a href="#" class="btn btn-yellow">Scopri evento</a>
+                <span class="pill-tag text-yellow mt-3"><i class="bi bi-instagram"></i> Segui @manforte per gli aggiornamenti</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA finale -->
+  <!-- <section class="py-4 py-md-5 bg-dark border-top border-warning border-opacity-50">
     <div class="container">
-      <h3 class="text-center text-yellow mb-4">Pacchetti & Prezzi</h3>
-      <div id="packagesRow" class="row g-4"></div>
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-8">
+          <h2 class="h4 text-yellow mb-2">Vuoi organizzare un evento su misura?</h2>
+          <p class="mb-0">Scrivici o chiamaci per raccontarci cosa hai in mente: compleanni, feste aziendali, cene di squadra o serate a tema. Troviamo insieme la formula giusta per il tuo gruppo.</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <div class="d-flex flex-wrap justify-content-md-end gap-2">
+            <a href="tel:+3906823871" class="btn btn-outline-warning btn-sm"><i class="bi bi-telephone-fill me-1"></i>Chiama ora</a>
+            <a href="mailto:info@manforte.eu?subject=Richiesta informazioni eventi Manforte" class="btn btn-warning btn-sm"><i class="bi bi-envelope-fill me-1"></i>Scrivici</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <!-- Gallery -->
-  <section class="container my-5">
-    <h3 class="text-center text-yellow mb-4">Galleria</h3>
-    <div id="galleryRow" class="row g-3"></div>
-  </section>
-
-  <!-- CTA -->
-  <section class="text-center py-5 bg-dark">
-    <h2 class="text-yellow mb-3">Prenota ora</h2>
-    <p class="mb-4">Parliamo dei dettagli e blocchiamo la data.</p>
-    <div id="ctaButtons" class="d-flex justify-content-center gap-2 flex-wrap"></div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
-   <footer class="bg-dark text-yellow py-4 mt-5" style="border-top: 2px solid rgba(245, 236, 73, 0.521);">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div class="mb-3 mb-md-0">
-                <h5>Contatti</h5>
-                <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
-                <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
-                <p>Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
-            </div>
-            <div class="d-flex flex-column align-items-center">
-              <a href="/privacyPolicy.html" class="nav-link mb-2" style="color: white !important;">Informativa sulla privacy</a>
-              <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
-            </div>
-        </div>
-    </footer>
+  <footer class="bg-dark text-yellow py-4 mt-0">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="mb-3 mb-md-0">
+        <h5>Contatti</h5>
+        <p class="mb-1">Via Giovanni Zanardini 39, Roma, IT 00156</p>
+        <p class="mb-1">Telefono: <a href="tel:+3906823871" class="text-yellow text-decoration-none">+39 06 823871</a></p>
+        <p class="mb-1">Email: <a href="mailto:info@manforte.eu" class="text-yellow text-decoration-none">info@manforte.eu</a></p>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <a href="/privacyPolicy.html" class="nav-link mb-2" style="color: white !important;">Informativa sulla privacy</a>
+        <small>&copy; 2025 Manforte Pizzeria Roma. Tutti i diritti riservati.</small>
+      </div>
+    </div>
+  </footer>
 
-  <!-- SEO JSON-LD Event (compilato da config) -->
-  <script id="seo-jsonld" type="application/ld+json"></script>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-          crossorigin="anonymous"></script>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
   <script>
     // Preloader
@@ -284,119 +420,274 @@
         else { width++; progressBar.style.width = width + '%'; }
       }, 5);
     });
-
-    // Helpers
-    const $ = (s, p=document) => p.querySelector(s);
-    const $$ = (s, p=document) => [...p.querySelectorAll(s)];
-
-    // Build page from CONFIG
-    (function initEventoPage(){
-      const cfg = JSON.parse(document.getElementById('evento-config').textContent);
-
-      // Titoli / hero
-      document.title = `${cfg.title} - Manforte Pizzeria Roma`;
-      $('#heroImg').src = cfg.heroImage;
-      $('#heroImg').alt = cfg.title;
-      $('#heroTitle').textContent = cfg.title;
-      $('#heroSubtitle').textContent = cfg.subtitle || '';
-      $('#breadcrumbTitle').textContent = cfg.title;
-      $('#introTitle').textContent = cfg.subtitle || cfg.title;
-      $('#introText').innerHTML = cfg.introHtml || '';
-
-      // Info blocchi
-      $('#infoDate').textContent = cfg.date || '—';
-      $('#infoTime').textContent = cfg.time || '—';
-      $('#infoLocation').textContent = cfg.location || '—';
-
-      // Features
-      const featRow = $('#featuresRow');
-      (cfg.features || []).forEach(f => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-4';
-        col.innerHTML = `
-          <div class="feature-card p-4 text-center">
-            <i class="bi ${f.icon} icon"></i>
-            <h5 class="mt-3 text-yellow">${f.title}</h5>
-            <p class="mb-0">${f.text}</p>
-          </div>`;
-        featRow.appendChild(col);
-      });
-
-      // Packages
-      const pkgRow = $('#packagesRow');
-      (cfg.packages || []).forEach(p => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-4';
-        col.innerHTML = `
-          <div class="card h-100 bg-dark border-warning">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-yellow">${p.title}</h5>
-              <p class="card-text flex-grow-1">${p.desc}</p>
-              <div><span class="badge bg-yellow px-3 py-2 fw-semibold">${p.price}</span></div>
-            </div>
-          </div>`;
-        pkgRow.appendChild(col);
-      });
-
-      // Gallery
-      const galRow = $('#galleryRow');
-      (cfg.gallery || []).forEach(src => {
-        const col = document.createElement('div');
-        col.className = 'col-6 col-md-4';
-        col.innerHTML = `<img src="${src}" alt="${cfg.title}" class="gallery-img ratio-1080x582">`;
-        galRow.appendChild(col);
-      });
-
-      // CTA
-      const cta = cfg.cta || {};
-      const ctaWrap = $('#ctaButtons');
-      if (cta.phone) {
-        const a = document.createElement('a');
-        a.href = `tel:${cta.phone}`;
-        a.className = 'btn btn-warning';
-        a.innerHTML = `<i class="bi bi-telephone-fill"></i> Chiama`;
-        ctaWrap.appendChild(a);
-      }
-      if (cta.email) {
-        const a = document.createElement('a');
-        a.href = `mailto:${cta.email}?subject=${encodeURIComponent("Richiesta informazioni evento: "+cfg.title)}`;
-        a.className = 'btn btn-warning';
-        a.innerHTML = `<i class="bi bi-envelope-fill"></i> Email`;
-        ctaWrap.appendChild(a);
-      }
-      if (cta.whatsapp) {
-        const a = document.createElement('a');
-        a.href = `https://wa.me/${cta.whatsapp}`;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.className = 'btn btn-warning';
-        a.innerHTML = `<i class="bi bi-whatsapp"></i> WhatsApp`;
-        ctaWrap.appendChild(a);
-      }
-
-      // JSON-LD SEO (Event)
-      const ld = {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": cfg.title,
-        "description": (cfg.seo && cfg.seo.description) || cfg.subtitle || "",
-        "image": (cfg.seo && cfg.seo.image) || cfg.heroImage,
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "startDate": (cfg.seo && cfg.seo.startDate) || "",
-        "endDate": (cfg.seo && cfg.seo.endDate) || "",
-        "location": {
-          "@type": "Place",
-          "name": "Manforte Pizzeria Roma",
-          "address": cfg.location || "Via Giovanni Zanardini 39, Roma"
-        },
-        "organizer": {
-          "@type": "Organization",
-          "name": "Manforte Pizzeria Roma",
-          "url": "https://manforte.eu"
-        }
-      };
-      $('#seo-jsonld').textContent = JSON.stringify(ld);
-    })();
   </script>
 </body>
+<!-- Modal Promo Compleanno -->
+<div class="modal fade" id="modalPromoCompleanno" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Compleanno 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-3 text-center">
+          🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Ti offriamo la torta se festeggi il giorno del tuo compleanno, prenotando un tavolo di almeno 6 persone</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo in omaggio</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Possibilit&aacute; di personalizzare la torta</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+        </ul>
+
+        <div class="d-flex justify-content-center">
+          <a href="/img/MenuTorteManforte.jpg" class="btn btn-secondary mb-3">Visualizza le nostre torte artigianali</a>
+        </div>
+        
+
+        <p class="mb-3 fs-8 text-center" style="color: #907318;">
+          Tutte le nostre torte artigianali sono gluten free ad eccezione della torta Millefoglie, che è disponibile sia in versione con glutine che in versione gluten free, e vanno prenotate con almeno due giorni di anticipo
+        </p>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Pranzo -->
+<div class="modal fade" id="modalPromoPranzo" tabindex="-1" aria-labelledby="modalPromoPranzoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoPranzoLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Pranzo 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/pranzoDomenica.jpg" alt="Promo Pranzo" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-3 text-center">
+          Il Pranzo della Domenica
+        </p>
+
+        <p class="mb-3 fs-5 text-center">
+          Da Ottobre a Maggio con i piatti della tradizione italiana
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>menu adulti 22</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>menu adulti 18</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>menu bambini 15</li>
+        </ul>
+
+        <p class="mb-3 fs-8 text-center" style="color: #907318;">
+          MENU’ SENZA GLUTINE DISPONIBILE SU RICHIESTA &dash; Il men&ugrave; potrebbe subire variazioni
+        </p>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo PFA -->
+<div class="modal fade" id="modalPromoPfa" tabindex="-1" aria-labelledby="modalPromoPfaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoPfaLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Compleanno 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Pranzo Fine Anno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Torta omaggio (anche gluten free su richiesta)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo con il tuo gruppo</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Posti dedicati per tavolate numerose</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+        </ul>
+
+        <div class="text-center mt-4">
+          <span class="badge bg-yellow text-dark p-2 px-3 fs-6">
+            Riservata agli iscritti alla mailing list 💌
+          </span>
+        </div>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Bruschette All You Can Eat -->
+<div class="modal fade" id="modalPromoBruschetteAYCE" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Compleanno 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Torta omaggio (anche gluten free su richiesta)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo con il tuo gruppo</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Posti dedicati per tavolate numerose</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+        </ul>
+
+        <div class="text-center mt-4">
+          <span class="badge bg-yellow text-dark p-2 px-3 fs-6">
+            Riservata agli iscritti alla mailing list 💌
+          </span>
+        </div>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Fantacalcio -->
+<div class="modal fade" id="modalPromoFantacalcio" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Compleanno 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Torta omaggio (anche gluten free su richiesta)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo con il tuo gruppo</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Posti dedicati per tavolate numerose</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+        </ul>
+
+        <div class="text-center mt-4">
+          <span class="badge bg-yellow text-dark p-2 px-3 fs-6">
+            Riservata agli iscritti alla mailing list 💌
+          </span>
+        </div>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Football -->
+<div class="modal fade" id="modalPromoFootball" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          <i class="bi bi-balloon-heart-fill"></i>
+          Promo Compleanno 🎉
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Torta omaggio (anche gluten free su richiesta)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo con il tuo gruppo</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Posti dedicati per tavolate numerose</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+        </ul>
+
+        <div class="text-center mt-4">
+          <span class="badge bg-yellow text-dark p-2 px-3 fs-6">
+            Riservata agli iscritti alla mailing list 💌
+          </span>
+        </div>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </html>

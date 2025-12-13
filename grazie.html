@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatura Inviata • Manforte</title>
+
+<style>
+    /* SFONDO GRADIENT ANIMATO */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(-45deg, #0e0e0e, #1b1b1b, #2e2e2e, #0c0c0c);
+        background-size: 400% 400%;
+        animation: gradientBG 10s ease infinite;
+        font-family: 'Arial', sans-serif;
+        color: #f5ec49;
+        overflow: hidden;
+    }
+
+    .navbar-brand img {
+        height: 25px;
+        width: auto;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* CONFETTI */
+    .confetti {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .confetti span {
+        position: absolute;
+        width: 8px;
+        height: 14px;
+        background: #f5ec49;
+        opacity: 0.8;
+        animation: fall linear infinite;
+        border-radius: 2px;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-100vh) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* CARD GLASSMORPHISM */
+    .card {
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.07);
+        border-radius: 20px;
+        padding: 40px 50px;
+        text-align: center;
+        border: 1px solid rgba(245,236,73,0.3);
+        box-shadow: 0 0 25px rgba(245,236,73,0.2);
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .check {
+        font-size: 90px;
+        color: #f5ec49;
+        animation: pop 0.5s ease forwards;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0); opacity: 0; }
+        70% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+
+    h1 {
+        margin-top: 10px;
+        font-size: 2.4rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #fff;
+        opacity: 0.9;
+        margin-top: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 14px 35px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        background: #f5ec49;
+        color: #111;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: 0.3s ease;
+        box-shadow: 0 0 12px rgba(245,236,73,0.7);
+    }
+
+    .btn:hover {
+        background: #fff47f;
+        transform: scale(1.08);
+        box-shadow: 0 0 20px rgba(255,255,150,1);
+    }
+
+    /* LOGO */
+    .logo {
+        width: 120px;
+        margin-bottom: 10px;
+        animation: fadeInLogo 1.2s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeInLogo {
+        from { opacity: 0; transform: scale(0.6); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+
+</head>
+
+<body>
+
+    <!-- CONFETTI -->
+    <div class="confetti">
+        <!-- 40 confetti -->
+        <script>
+            for (let i = 0; i < 40; i++) {
+                const conf = document.createElement("span");
+                conf.style.left = Math.random() * 100 + "%";
+                conf.style.animationDuration = 2 + Math.random() * 3 + "s";
+                conf.style.animationDelay = Math.random() * 2 + "s";
+                document.querySelector(".confetti").appendChild(conf);
+            }
+        </script>
+    </div>
+
+    <div class="card">
+
+        <!-- LOGO -->
+        <img src="img/logo-sito.png" alt="Logo" style="width: auto; height: 54px;">
+
+        <div class="check">✔</div>
+
+        <h1>Candidatura Inviata!</h1>
+        <p>Grazie per averci contattato.<br>Ti risponderemo il prima possibile!</p>
+
+        <a href="index.html" class="btn">Torna alla Home</a>
+    </div>
+
+</body>
+</html>

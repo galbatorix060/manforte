@@ -414,129 +414,154 @@
           font-weight: 500;
           line-height: 1.2;
         }
+
+        .events-preview-wrap {
+          overflow: hidden;
+          padding: 0 0 1rem;
+        }
+
+        .events-preview-scroller {
+          display: flex;
+          gap: 1rem;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 0 18vw 1rem;
+          scrollbar-width: none;
+        }
+
+        .events-preview-scroller::-webkit-scrollbar {
+          display: none;
+        }
+
+        .events-preview-card {
+          flex: 0 0 64vw;
+          max-width: 64vw;
+          scroll-snap-align: center;
+          background-color: rgba(255, 255, 255, 0.05);
+          border-radius: 18px;
+        }
+
+        .events-preview-card img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          border-radius: 14px;
+        }
+
+        .events-preview-badge {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          background: rgba(0, 0, 0, 0.55);
+          padding: 0.4rem 0.75rem;
+          border-radius: 999px;
+          font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+          .events-preview-scroller {
+            padding: 0 24vw 1rem;
+          }
+
+          .events-preview-card {
+            flex: 0 0 38vw;
+            max-width: 38vw;
+          }
+        }
     </style>
 
     <div class="container text-center mb-3">
-      <!-- Pagine eventi (3 card per pagina) -->
-      <div class="events-page" id="events-page-1">
-        <div class="row">
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Compleanni</a>
-              <p class="text-white">Celebra il tuo compleanno con stile! Feste su misura, menù dedicati e tanto divertimento.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-cake2 text-yellow"></i>Torta personalizzata</li>
-                <li class="bg-dark"><i class="bi bi-emoji-smile-fill text-yellow"></i>Area giochi per bambini</li>
-                <li class="bg-dark"><i class="bi bi-list-stars text-yellow"></i>Menù per grandi e piccoli</li>
-              </ul>
+      <div class="events-preview-wrap">
+        <div class="events-preview-scroller" id="eventsPreviewScroller">
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/compleanni.jpg" alt="Promo compleanno Manforte">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-balloon-heart me-1"></i>Compleanno</span>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Pranzi Domenicali</a>
-              <p class="text-white">Trascorri la domenica con chi ami gustando piatti genuini in un ambiente caldo e accogliente.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-journal-check text-yellow"></i>Menù fisso conveniente</li>
-                <li class="bg-dark"><i class="bi bi-cup-straw text-yellow"></i>Selezione di vini locali</li>
-                <li class="bg-dark"><i class="bi bi-balloon-fill text-yellow"></i>Area giochi per bambini</li>
-              </ul>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">In compagnia</div>
+              <h2 class="text-yellow mb-2 custom-href">Promo compleanno</h2>
+              <p class="text-white mb-3">Torta in omaggio e foto ricordo per chi festeggia da noi.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Pizze di Fine Anno</a>
-              <p class="text-white">Concludi l’anno con una festa a base di pizza! Ideale per classi e gruppi, con tante attività su richiesta.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-people-fill text-yellow"></i>Menù pizza all you can eat</li>
-                <li class="bg-dark"><i class="bi bi-sliders text-yellow"></i>Acqua illimitata</li>
-                <li class="bg-dark"><i class="bi bi-puzzle-fill text-yellow"></i>Bevanda da 0,3/0,5L a scelta</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+          </article>
 
-      <div class="events-page d-none" id="events-page-2">
-        <div class="row">
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Halloween</a>
-              <p class="text-white">Serata a tema con decorazioni, maschere e menù speciali mostruosamente buoni.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-moon-stars-fill text-yellow"></i>Allestimenti a tema</li>
-                <li class="bg-dark"><i class="bi bi-emoji-laughing-fill text-yellow"></i>Premio miglior costume</li>
-                <li class="bg-dark"><i class="bi bi-cup-straw text-yellow"></i>Drink speciali</li>
-              </ul>
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/pranzoDomenica.jpg" alt="Pranzo della domenica">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-sun me-1"></i>Domenica</span>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Fantacalcio</a>
-              <p class="text-white">Offerte dedicate ai fantallenatori: pizze, bruschette e maxi schermo per le aste.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-trophy-fill text-yellow"></i>Menu convenzionati</li>
-                <li class="bg-dark"><i class="bi bi-tv-fill text-yellow"></i>Maxi schermo</li>
-                <li class="bg-dark"><i class="bi bi-people-fill text-yellow"></i>Sale riservate</li>
-              </ul>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">Famiglia &amp; amici</div>
+              <h2 class="text-yellow mb-2 custom-href">Pranzo della domenica</h2>
+              <p class="text-white mb-3">Menù fisso che cambia ogni settimana.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Bruschette No Limits</a>
-              <p class="text-white">Una selezione illimitata delle nostre bruschette più amate per una serata senza pensieri.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-lightning-charge-fill text-yellow"></i>Formula all you can eat</li>
-                <li class="bg-dark"><i class="bi bi-star-fill text-yellow"></i>Ricette speciali</li>
-                <li class="bg-dark"><i class="bi bi-heart-fill text-yellow"></i>Opzioni senza glutine</li>
-              </ul>
+          </article>
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/cibointavola.jpeg" alt="Pizze di fine anno">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-calendar-event me-1"></i>Stagionale</span>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">Scuole, squadre, uffici</div>
+              <h2 class="text-yellow mb-2 custom-href">Pizze di fine anno</h2>
+              <p class="text-white mb-3">Tavolate per classi, squadre e uffici a fine stagione.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
+            </div>
+          </article>
 
-      <div class="events-page d-none" id="events-page-3">
-        <div class="row">
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Calcio &amp; Pizza</a>
-              <p class="text-white">Partite in diretta con menu dedicati: perfetto per tifare insieme agli amici.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-broadcast-pin text-yellow"></i>Partite su maxi schermo</li>
-                <li class="bg-dark"><i class="bi bi-cup-hot-fill text-yellow"></i>Combo birra + pizza</li>
-                <li class="bg-dark"><i class="bi bi-music-note-beamed text-yellow"></i>Dj set post-partita</li>
-              </ul>
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/bruschetteMenu.jpeg" alt="Bruschette all you can eat">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-fire me-1"></i>Special</span>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Cene Aziendali</a>
-              <p class="text-white">Spazi riservati, menù personalizzati e gestione completa dell’evento.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-briefcase-fill text-yellow"></i>Sale dedicate</li>
-                <li class="bg-dark"><i class="bi bi-diagram-3-fill text-yellow"></i>Menù personalizzati</li>
-                <li class="bg-dark"><i class="bi bi-check2-circle text-yellow"></i>Organizzazione completa</li>
-              </ul>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">All you can eat</div>
+              <h2 class="text-yellow mb-2 custom-href">Bruschette All You Can Eat</h2>
+              <p class="text-white mb-3">Bruschette illimitate con ricette sempre diverse.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
             </div>
-          </div>
-          <div class="col-12 col-md-4 mb-4 d-flex">
-            <div class="p-4 rounded d-flex flex-column w-100">
-              <a href="" class="text-yellow mb-3 custom-href">Serate a Tema</a>
-              <p class="text-white">Dalla serata romana a quella messicana: divertimento e sapori dal mondo.</p>
-              <ul class="custom-list text-white text-start mt-auto">
-                <li class="bg-dark"><i class="bi bi-flag-fill text-yellow"></i>Temi sempre nuovi</li>
-                <li class="bg-dark"><i class="bi bi-vinyl-fill text-yellow"></i>Musica dal vivo</li>
-                <li class="bg-dark"><i class="bi bi-stars text-yellow"></i>Allestimenti dedicati</li>
-              </ul>
+          </article>
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/fantacalcio.png" alt="Promo Fantacalcio">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-trophy me-1"></i>Fantacalcio</span>
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">Gruppi di amici</div>
+              <h2 class="text-yellow mb-2 custom-href">Serata Fantacalcio</h2>
+              <p class="text-white mb-3">Pizza, birra e tavolo riservato per la tua lega.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
+            </div>
+          </article>
 
-      <!-- Controlli paginazione -->
-      <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
-        <button class="btn btn-yellow" id="prevEvents" type="button"><i class="bi bi-chevron-left"></i> Precedente</button>
-        <span id="eventsPageIndicator" class="text-white-50 small">1 / 3</span>
-        <button class="btn btn-yellow" id="nextEvents" type="button">Successivo <i class="bi bi-chevron-right"></i></button>
+          <article class="events-preview-card p-3 d-flex flex-column">
+            <div class="position-relative mb-3">
+              <img src="img/menuFootball.png" alt="Partite di calcio">
+              <span class="events-preview-badge text-yellow"><i class="bi bi-tv me-1"></i>Match Day</span>
+            </div>
+            <div class="d-flex flex-column h-100 text-start">
+              <div class="text-yellow">Partite &amp; sport</div>
+              <h2 class="text-yellow mb-2 custom-href">Serate calcio &amp; birra</h2>
+              <p class="text-white mb-3">Le partite più importanti viste insieme davanti alla pizza.</p>
+              <div class="mt-auto text-center">
+                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 </div>
@@ -802,6 +827,90 @@
         crossorigin="anonymous"></script>
 
     <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scroller = document.getElementById('eventsPreviewScroller');
+    if (!scroller) return;
+
+    const originalCards = Array.from(scroller.querySelectorAll('.events-preview-card'));
+    if (originalCards.length < 2) return;
+
+    // Crea un blocco prima e uno dopo per simulare il loop
+    const prependClones = originalCards.map(card => card.cloneNode(true));
+    const appendClones = originalCards.map(card => card.cloneNode(true));
+
+    prependClones.reverse().forEach(clone => {
+      scroller.insertBefore(clone, scroller.firstChild);
+    });
+    appendClones.forEach(clone => {
+      scroller.appendChild(clone);
+    });
+
+    const cards = () => Array.from(scroller.querySelectorAll('.events-preview-card'));
+    const baseLength = originalCards.length;
+    let cardSpan = 0;
+    let isAdjusting = false;
+
+    function measureCardSpan() {
+      const all = cards();
+      if (all.length < 2) return;
+      cardSpan = all[1].offsetLeft - all[0].offsetLeft;
+    }
+
+    function jumpToIndex(index) {
+      const all = cards();
+      if (!all.length || !all[index]) return;
+      const card = all[index];
+      const targetLeft = card.offsetLeft - ((scroller.clientWidth - card.clientWidth) / 2);
+      scroller.scrollLeft = targetLeft;
+    }
+
+    function setInitialPosition() {
+      measureCardSpan();
+      jumpToIndex(baseLength + 1);
+    }
+
+    function normalizeInfiniteScroll() {
+      if (isAdjusting || !cardSpan) return;
+
+      const all = cards();
+      const firstOriginal = all[baseLength];
+      const lastOriginal = all[(baseLength * 2) - 1];
+      if (!firstOriginal || !lastOriginal) return;
+
+      const minLeft = firstOriginal.offsetLeft - ((scroller.clientWidth - firstOriginal.clientWidth) / 2);
+      const maxLeft = lastOriginal.offsetLeft - ((scroller.clientWidth - lastOriginal.clientWidth) / 2);
+      const originalWidth = cardSpan * baseLength;
+
+      if (scroller.scrollLeft <= minLeft - (cardSpan * 0.5)) {
+        isAdjusting = true;
+        scroller.style.scrollSnapType = 'none';
+        scroller.scrollLeft += originalWidth;
+        requestAnimationFrame(function () {
+          scroller.style.scrollSnapType = 'x mandatory';
+          isAdjusting = false;
+        });
+      } else if (scroller.scrollLeft >= maxLeft + (cardSpan * 0.5)) {
+        isAdjusting = true;
+        scroller.style.scrollSnapType = 'none';
+        scroller.scrollLeft -= originalWidth;
+        requestAnimationFrame(function () {
+          scroller.style.scrollSnapType = 'x mandatory';
+          isAdjusting = false;
+        });
+      }
+    }
+
+    requestAnimationFrame(setInitialPosition);
+
+    scroller.addEventListener('scroll', normalizeInfiniteScroll, { passive: true });
+
+    window.addEventListener('resize', function () {
+      setInitialPosition();
+    });
+  });
+</script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const elements = document.querySelectorAll('.card-sh, h1, p, eventi, li, .carousel-caption, .work-with-us, .container img, .btn');
 
@@ -821,82 +930,6 @@
             });
         });
     </script>
-    <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const section = document.getElementById('sezioneEventi');
-    if (!section) return;
-
-    // Riferimenti ai controlli
-    const indicator = document.getElementById('eventsPageIndicator');
-    const prevBtn = document.getElementById('prevEvents');
-    const nextBtn = document.getElementById('nextEvents');
-
-    // Rileva mobile (Bootstrap xs)
-    const isMobile = window.matchMedia('(max-width: 576px)').matches;
-
-    // Prende le pagine originali (3 pagine, 3 card ciascuna)
-    let pages = Array.from(section.querySelectorAll('.events-page'));
-
-    if (isMobile) {
-      // Converte in 1 card per pagina (9 pagine totali)
-      const host = section.querySelector('.container');
-      if (host) {
-        const newPages = [];
-        pages.forEach(function(origPage){
-          const cols = Array.from(origPage.querySelectorAll('.col-12.col-md-4'));
-          cols.forEach(function(col){
-            // Crea nuova pagina per ciascuna card
-            const page = document.createElement('div');
-            page.className = 'events-page';
-            const row = document.createElement('div');
-            row.className = 'row';
-            // Sposta il nodo esistente (non clone, conserva eventi/DOM)
-            row.appendChild(col);
-            page.appendChild(row);
-            // Inserisci la nuova pagina PRIMA del blocco controlli, così restano sotto
-            var prevBtnEl = host.querySelector('#prevEvents');
-            var controlsWrap = prevBtnEl ? prevBtnEl.parentNode : null;
-            if (controlsWrap && controlsWrap.parentNode === host) {
-              host.insertBefore(page, controlsWrap);
-            } else {
-              host.appendChild(page);
-            }
-            newPages.push(page);
-          });
-          // Rimuove la pagina originale (svuotata)
-          origPage.parentNode && origPage.parentNode.removeChild(origPage);
-        });
-        pages = newPages;
-      }
-    }
-
-    if (!pages.length) return;
-
-    let current = 0;
-
-    function render() {
-      pages.forEach(function(p, i){
-        if (i === current) {
-          p.classList.remove('d-none');
-        } else {
-          p.classList.add('d-none');
-        }
-      });
-      if (indicator) indicator.textContent = (current + 1) + ' / ' + pages.length;
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', function(){
-      current = (current - 1 + pages.length) % pages.length;
-      render();
-    });
-    if (nextBtn) nextBtn.addEventListener('click', function(){
-      current = (current + 1) % pages.length;
-      render();
-    });
-
-    render();
-  });
-</script>
 <script>
   (function () {
     const form = document.getElementById('mc-embedded-subscribe-form');

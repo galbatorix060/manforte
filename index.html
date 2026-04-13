@@ -353,8 +353,8 @@
       <div class="col-12 col-lg-7 text-center text-lg-start">
         <h1 class="text-yellow fw-bold mb-3" style="font-family: 'Lexend Deca', sans-serif;">Prenota un tavolo</h1>
         <p class="text-white lead mb-4">
-          Benvenuti da <strong>Manforte</strong>: pizza romana croccante, ingredienti genuini e un’accoglienza di casa.
-          Che sia una serata tra amici, una festa o una cena in famiglia, siamo pronti a riservarti il posto migliore.
+          Dal 2017 maxi pizza cotta in forno a legna, più di 20 gusti diversi di bruschette e hamburger con condimenti sfiziosi, il tutto “bagnato” da 12 vie di birre artigianali. 
+          Senza dimenticare una cucina completamente separata per le pietanze Gluten Free
         </p>
         <div class="d-flex flex-column flex-sm-row align-items-stretch gap-2 justify-content-center justify-content-lg-start">
           <a class="btn btn-yellow d-flex align-items-center justify-content-center flex-fill w-100" href="tel:+3906823871">
@@ -484,7 +484,7 @@
               <h2 class="text-yellow mb-2 custom-href">Promo compleanno</h2>
               <p class="text-white mb-3">Torta in omaggio e foto ricordo per chi festeggia da noi.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoCompleanno">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -499,7 +499,7 @@
               <h2 class="text-yellow mb-2 custom-href">Pranzo della domenica</h2>
               <p class="text-white mb-3">Menù fisso che cambia ogni settimana.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoPranzo">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -513,7 +513,7 @@
               <h2 class="text-yellow mb-2 custom-href">Pizze di fine anno</h2>
               <p class="text-white mb-3">Tavolate per classi, squadre e uffici a fine stagione.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoPfa">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -528,7 +528,7 @@
               <h2 class="text-yellow mb-2 custom-href">Bruschette All You Can Eat</h2>
               <p class="text-white mb-3">Bruschette illimitate con ricette sempre diverse.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoBruschetteAYCE">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -542,7 +542,7 @@
               <h2 class="text-yellow mb-2 custom-href">Serata Fantacalcio</h2>
               <p class="text-white mb-3">Pizza, birra e tavolo riservato per la tua lega.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoFantacalcio">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -557,7 +557,7 @@
               <h2 class="text-yellow mb-2 custom-href">Serate calcio &amp; birra</h2>
               <p class="text-white mb-3">Le partite più importanti viste insieme davanti alla pizza.</p>
               <div class="mt-auto text-center">
-                <a href="eventi.html" class="btn btn-yellow">Scopri evento</a>
+                <a href="#" class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#modalPromoFootball">Scopri evento</a>
               </div>
             </div>
           </article>
@@ -1059,6 +1059,46 @@
     }, remaining);
   });
 })();
+
+    // Toggle menu torte (Modal Promo Compleanno)
+    function toggleMenuTorte() {
+      const text = document.getElementById('menuTorteText');
+      const imgWrap = document.getElementById('menuTorteWrapper');
+      const descWrap = document.getElementById('descrizioneCompleanniWrapper');
+      const btn = document.getElementById('menuTorteBtn');
+      if (!text || !imgWrap || !descWrap || !btn) return;
+
+      const isShowingImage = imgWrap.style.display !== 'none';
+
+      if (isShowingImage) {
+        imgWrap.style.display = 'none';
+        text.style.display = '';
+        descWrap.style.display = '';
+        btn.textContent = 'Visualizza le nostre torte artigianali';
+      } else {
+        text.style.display = 'none';
+        imgWrap.style.display = '';
+        descWrap.style.display = 'none';
+        btn.textContent = 'Nascondi le nostre torte artigianali';
+      }
+    }
+
+    // Reset state when the Compleanno modal closes
+    document.addEventListener('DOMContentLoaded', function () {
+      const modalEl = document.getElementById('modalPromoCompleanno');
+      if (!modalEl) return;
+
+      modalEl.addEventListener('hidden.bs.modal', function () {
+        const text = document.getElementById('menuTorteText');
+        const imgWrap = document.getElementById('menuTorteWrapper');
+        const descWrap = document.getElementById('descrizioneCompleanniWrapper');
+        const btn = document.getElementById('menuTorteBtn');
+        if (text) text.style.display = '';
+        if (imgWrap) imgWrap.style.display = 'none';
+        if (descWrap) descWrap.style.display = '';
+        if (btn) btn.textContent = 'Visualizza le nostre torte artigianali';
+      });
+    });
 </script>
 
 
@@ -1095,4 +1135,360 @@
         </div>
     </footer>
 </body>
+
+<!-- Modal Promo Compleanno -->
+<div class="modal fade" id="modalPromoCompleanno" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          Promo Compleanno 
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/compleanni.jpg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <div id="descrizioneCompleanniWrapper">
+          <p class="mb-3 fs-3 text-center">
+            🎂 Festeggia da <span class="fw-bold">Manforte</span> e rendi il tuo compleanno unico!
+          </p>
+
+          <ul class="list-unstyled ps-0">
+            <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Ti offriamo la torta se festeggi il giorno del tuo compleanno, prenotando un tavolo di almeno 6 persone</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Foto ricordo in omaggio</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Possibilit&aacute; di personalizzare la torta</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Promo attiva solo su prenotazione</li>
+          </ul>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="button" id="menuTorteBtn" class="btn btn-secondary mb-3" onclick="toggleMenuTorte()">
+            Visualizza le nostre torte artigianali
+          </button>
+        </div>
+
+        <div class="mb-3" id="menuTorteWrapper" style="display:none;">
+          <div class="p-3 p-md-4 rounded-4" style="border:1px solid rgba(245,236,73,.4); background:rgba(0,0,0,.35);">
+            <div class="text-center mb-3">
+              <h6 class="text-yellow text-uppercase" style="letter-spacing:.08em;">Torte &amp; Torte</h6>
+              <div class="fw-semibold" style="opacity:.9;">Festeggia da Manforte con la tua torta preferita!</div>
+            </div>
+
+            <div class="d-flex flex-column gap-3">
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Tiramisù Classico</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Savoiardi artigianali gluten free con bagna al caffè, crema al mascarpone e cacao</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Tiramisù alla Nocciola</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Savoiardi artigianali gluten free con bagna al caffè, crema al mascarpone e nocciola, caffè e cacao</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Charlotte</div>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                    <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Anche vegana</span>
+                  </div>
+                </div>
+                <div class="small" style="opacity:.85;">Pan di spagna farcito con crema chantilly e cioccolato fondente o frutti di bosco o crema al pistacchio</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Millefoglie</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Anche Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Sfoglia friabile farcita con crema chantilly, cioccolato fondente o frutti di bosco</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Mimosa</div>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                    <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Anche vegana</span>
+                  </div>
+                </div>
+                <div class="small" style="opacity:.85;">Pan di spagna farcito con crema chantilly e cioccolato fondente o frutti di bosco o crema al pistacchio</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Bacio</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Mousse alla Nutella, bisquit al cioccolato, granella di nocciole, copertura al latte</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Cheesecake</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Cocco e Nutella &middot; Cioccolato bianco e caramello salato &middot; Frutti di bosco</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Sbrisolona</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Frolla gluten free, cioccolato fondente, pere</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Cuore Matto</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">Morbida crema al mascarpone e cioccolato con cuore al pistacchio salato e copertura al pistacchio</div>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-between align-items-baseline flex-wrap gap-2">
+                  <div class="fw-bold fs-5">Girellone</div>
+                  <span class="badge" style="background: rgba(245,236,73,.18); border:1px solid rgba(245,236,73,.5); color: var(--mf-yellow);">Gluten Free</span>
+                </div>
+                <div class="small" style="opacity:.85;">La girella come una volta, farcita con abbondante Nutella</div>
+              </div>
+            </div>
+
+            <hr style="border-color: rgba(245,236,73,.35);" class="my-4">
+
+            <div class="text-center small" style="opacity:.9;">
+              <div class="fw-semibold">Personalizziamo la tua torta con scritte e decorazioni</div>
+              <div>Il costo delle nostre torte è <span class="text-yellow fw-semibold">25€ al kg</span> &middot; Porzione circa <span class="text-yellow fw-semibold">100gr</span> a persona</div>
+              <div>Dimensione minima <span class="text-yellow fw-semibold">700gr</span> (6/7 porzioni)</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="menuTorteText">
+          <p class="mb-3 fs-8 text-center" style="color: #907318;">
+            Tutte le nostre torte artigianali sono gluten free ad eccezione della torta Millefoglie, che è disponibile sia in versione con glutine che in versione gluten free, e vanno prenotate con almeno due giorni di anticipo
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Pranzo -->
+<div class="modal fade" id="modalPromoPranzo" tabindex="-1" aria-labelledby="modalPromoPranzoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoPranzoLabel">
+          Promo Pranzo
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/pranzoDomenica.jpg" alt="Promo Pranzo" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-3 text-center">
+          Il Pranzo della Domenica
+        </p>
+
+        <p class="mb-3 fs-5 text-center">
+          Da Ottobre a Maggio con i piatti della tradizione italiana
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Pranzo completo e ricco: antipasto all’italiana, primo, secondo e contorno, dolce</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Men&ugrave; fisso per grandi e piccini, con prezzo differenziato: 22€ adulti e 15€ bambini</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Possibilit&agrave; di scelta tra pi&ugrave; primi e secondi</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Ogni domenica da ottobre a maggio</li>
+        </ul>
+
+        <p class="mb-3 fs-8 text-center" style="color: #907318;">
+          MENU’ SENZA GLUTINE DISPONIBILE SU RICHIESTA &dash; Il men&ugrave; potrebbe subire variazioni
+        </p>
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo PFA -->
+<div class="modal fade" id="modalPromoPfa" tabindex="-1" aria-labelledby="modalPromoPfaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoPfaLabel">
+          Promo Feste Fine Anno
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/cibointavola.jpeg" alt="Promo Pranzo Fine Anno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          Organizza la pizza di fine scuola o fine corso
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Ideale per cene di fine anno scolastiche e sportive: scuole, classi, squadre e gruppi di amici</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Evento proposto nel periodo di giugno, per celebrare la fine dell’anno scolastico e l&apos;inizio delle vacanze</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Accogliamo gruppi numerosi, con organizzazione dedicata e solo su prenotazione</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Men&ugrave; differenziati per ragazzi e adulti</li>
+        </ul>
+
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Bruschette All You Can Eat -->
+<div class="modal fade" id="modalPromoBruschetteAYCE" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          Bruschette All You Can Eat
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/bruschetteMenu.jpeg" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          Ecco l&apos;occasione giusta per assaggiare tutti i nostri fantastici gusti di bruschette!
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Bruschette no limits a 15€, incluse tutte le varianti, anche gluten free</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Il primo mix lo scegliamo noi, dal secondo giro in poi scegli tu!</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Formula valida solo se aderisce tutto il tavolo, perch&eacute; il bello è condividere</li>
+        </ul>
+
+        <p class="mb-3 fs-8 text-center" style="color: #907318;">
+          Evento speciale disponibile solo in alcune serate durante l&apos;anno, sempre annunciato in anticipo sui nostri canali social
+        </p>
+
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Fantacalcio -->
+<div class="modal fade" id="modalPromoFantacalcio" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          Promo Fantacalcio
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/fantacalcio.png" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          Organizza da noi l&apos;asta del Fantacalcio, insieme a tutti gli amici della tua lega
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Men&ugrave; dedicato a 15€ con burger, patatine e bevanda da 0,3L inclusa</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Sconto del 50% su tutte le bevande extra, per rendere la serata ancora più lunga</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Spazio riservato al tuo gruppo, con possibilit&agrave; di proseguire l&apos;asta fino alle 2:00 di notte</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Coppa omaggio a fine campionato, perch&eacute; vincere merita di essere celebrato!</li>
+        </ul>
+
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Promo Football -->
+<div class="modal fade" id="modalPromoFootball" tabindex="-1" aria-labelledby="modalPromoCompleannoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark text-yellow border border-warning rounded-4 shadow-lg">
+      <div class="modal-header border-warning py-3">
+        <h5 class="modal-title text-yellow d-flex align-items-center gap-2" id="modalPromoCompleannoLabel">
+          Manforte Football Club
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body py-4">
+        <div class="text-center mb-4">
+          <img src="img/menuFootball.png" alt="Promo Compleanno" style="width:100%; max-height:260px; object-fit:cover; border-radius:12px; border:1px solid rgba(245,236,73,.4);">
+        </div>
+
+        <p class="mb-3 fs-5 text-center">
+          Prenota il tavolo e goditi le tue partite preferite sul maxischermo, in una sala dedicata
+        </p>
+
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Combo speciale a 5€ con birra 0,3L + patatine, perfetta per tifare senza pensieri</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Disponibile anche il men&ugrave; completo a 15€ con burger, patatine e birra 0,3L</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Atmosfera da stadio, ideale per gruppi di amici e serate di tifo</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Consigliata la prenotazione, soprattutto per le partite più attese</li>
+        </ul>
+
+      </div>
+
+      <div class="modal-footer border-warning d-flex justify-content-center py-3">
+        <button type="button" class="btn btn-yellow px-4" data-bs-dismiss="modal">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 </html> 

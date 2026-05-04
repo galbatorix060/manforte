@@ -290,9 +290,6 @@
           display: flex;
           flex-direction: column;
         }
-        main, .container {
-          flex: 1;            /* fa crescere il contenuto per spingere il footer in basso */
-        }
         footer {
           margin-top: auto;   /* incolla il footer al fondo */
         }
@@ -303,21 +300,96 @@
           object-fit: cover;          /* riempie senza deformare */
         }
 
+        .menu-categories-shell {
+          position: relative;
+        }
+
         /* --- Mobile: centratura e scroll-snap delle macroCards --- */
         @media (max-width: 576px) {
+          .menu-page-frame {
+            width: 100% !important;
+            padding: 1rem !important;
+          }
+
+          .menu-categories-shell {
+            margin-inline: -0.35rem;
+          }
+
+          .menu-categories-shell::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0.25rem;
+            width: 3rem;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0.92) 15%, rgba(0, 0, 0, 0));
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.25s ease;
+          }
+
+          .menu-categories-shell::before {
+            content: "\F138";
+            font-family: "bootstrap-icons";
+            position: absolute;
+            right: 0.6rem;
+            top: 50%;
+            transform: translateY(-10%);
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            background: rgba(245, 236, 73, 0.15);
+            border: 1px solid rgba(245, 236, 73, 0.35);
+            color: rgb(245, 236, 73);
+            font-size: 1rem;
+            pointer-events: none;
+            z-index: 3;
+            animation: menuScrollCue 1.4s ease-in-out infinite;
+            transition: opacity 0.25s ease;
+          }
+
+          .menu-categories-shell.has-scrolled::after,
+          .menu-categories-shell.has-scrolled::before,
+          .menu-categories-shell.is-at-end::after,
+          .menu-categories-shell.is-at-end::before {
+            opacity: 0;
+          }
+
           #macroCards {
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            padding-bottom: .25rem; /* spazio per il dito */
+            padding: 0 .85rem .35rem .35rem;
+            scroll-padding-left: .35rem;
+            gap: 0.75rem !important;
+            scrollbar-width: none;
           }
+
+          #macroCards::-webkit-scrollbar {
+            display: none;
+          }
+
           #macroCards .filter-card {
             scroll-snap-align: center; /* si allinea al centro durante lo scroll */
+            flex: 0 0 41vw;
+            min-width: 138px !important;
+            max-width: 150px;
+          }
+        }
+
+        @keyframes menuScrollCue {
+          0%, 100% {
+            transform: translateY(-10%) translateX(0);
+            opacity: 0.75;
+          }
+          50% {
+            transform: translateY(-10%) translateX(6px);
+            opacity: 1;
           }
         }
 
 </style>
-
-
 </head>
 <body>
 <div id="preloader" class="preloader">
@@ -348,12 +420,13 @@
 
 
 <div class="container d-flex justify-content-center pt-4">
-  <div class="card shadow-lg p-4 bg-dark rounded-4 w-75">
+  <div class="card menu-page-frame shadow-lg p-4 bg-dark rounded-4 w-75">
   <h1>Il Nostro Menù</h1>
 
 
     <div class="container mb-4">
-      <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
+      <div class="menu-categories-shell">
+        <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
         <div class="card filter-card text-white bg-dark border-3" 
             style="min-width:150px; cursor:pointer;" 
             data-target="menu">
@@ -435,6 +508,7 @@
           <h6 class="card-title mb-0">Dolci</h6>
         </div>
       </div>
+        </div>
       </div>
     </div>
 
@@ -2580,6 +2654,8 @@
   document.addEventListener('DOMContentLoaded', function(){
     var isMobile = window.matchMedia('(max-width: 576px)').matches;
     var strip = document.getElementById('macroCards');
+    var shell = strip ? strip.closest('.menu-categories-shell') : null;
+    var userHasInteracted = false;
     if (!strip) return;
 
     function centerCard(card){
@@ -2591,11 +2667,33 @@
       strip.scrollTo({ left: target, behavior: 'smooth' });
     }
 
+    function updateScrollCue() {
+      if (!shell) return;
+      var maxScroll = Math.max(0, strip.scrollWidth - strip.clientWidth);
+      var current = strip.scrollLeft;
+      shell.classList.toggle('has-scrolled', userHasInteracted);
+      shell.classList.toggle('is-at-end', userHasInteracted && maxScroll > 0 && current >= maxScroll - 16);
+    }
+
     if (isMobile) {
+      updateScrollCue();
+      strip.addEventListener('touchstart', function () {
+        userHasInteracted = true;
+        updateScrollCue();
+      }, { passive: true });
+      strip.addEventListener('scroll', function () {
+        if (userHasInteracted) updateScrollCue();
+      }, { passive: true });
+
       // Centra la card toccata
       strip.addEventListener('click', function(e){
+        if (!e.isTrusted) return;
         var card = e.target.closest('.filter-card');
-        if (card && strip.contains(card)) centerCard(card);
+        if (card && strip.contains(card)) {
+          userHasInteracted = true;
+          updateScrollCue();
+          centerCard(card);
+        }
       });
       var cards = strip.querySelectorAll('.filter-card');
       function currentSectionKey(){

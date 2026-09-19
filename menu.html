@@ -110,6 +110,45 @@
     color: rgb(245, 236, 73);
   }
 
+  /* badge diete/allergeni accanto al titolo */
+  .tag-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.15em 0.55em;
+    border-radius: 999px;
+    margin-left: 0.4em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .tag-pesce {
+    color: #4fa3e3;
+    background: rgba(79, 163, 227, 0.15);
+    border: 1px solid #4fa3e3;
+  }
+  .tag-veg {
+    color: #6fcf57;
+    background: rgba(111, 207, 87, 0.15);
+    border: 1px solid #6fcf57;
+  }
+  .tag-piccante {
+    color: #ff4d6d;
+    background: rgba(255, 77, 109, 0.15);
+    border: 1px solid #ff4d6d;
+  }
+  .tag-glutenfree {
+    color: #e0a458;
+    background: rgba(224, 164, 88, 0.15);
+    border: 1px solid #e0a458;
+  }
+  .tag-frutta {
+    color: #ff9f43;
+    background: rgba(255, 159, 67, 0.15);
+    border: 1px solid #ff9f43;
+  }
+
   .navbar {
     border-bottom: 2px solid rgb(245, 236, 73) !important;
   }
@@ -544,7 +583,7 @@
               <!--  -->
               <div class="product-info">
                 <p class="title">Pizza a volont&agrave;</p>
-                <p class="desc">Un cestello di Maltagliate ogni 4 persone, un suppl&iacute;, 1 bruschetta, pizza a volont&agrave; (senza spreco).</p>
+                <p class="desc">Un cestello di Maltagliate ogni 4 persone, 1 bruschetta, pizza a volont&agrave; (senza spreco).</p>
               </div>
               <div class="price">€ 18,00</div>
             </div>
@@ -637,7 +676,16 @@
             class="accordion-collapse collapse"
             data-bs-parent="#accordionCantina">
           <div class="accordion-body">
-            <!-- Wine items to be added here -->
+
+            <!-- Bellone -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Bellone</p>
+                <p class="desc">Vino bianco Alc. 12%</p>
+              </div>
+              <div class="price">Calice € 4,50<br>0,35L € 5,50<br>0,7L € 9,50</div>
+            </div>
+
           </div>
         </div>
 
@@ -661,100 +709,13 @@
             data-bs-parent="#accordionCantina">
           <div class="accordion-body">
 
-            <!-- TIRAMISU’ CLASSICO -->
+            <!-- Syrah -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">TIRAMISU’ CLASSICO</p>
+                <p class="title">Syrah</p>
+                <p class="desc">Vino rosso Alc. 13%</p>
               </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- BOUNTY -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">BOUNTY</p>
-                <p class="desc">Mousse al cocco, Amaretti al cocco, Copertura al latte</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- CHEESECAKE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CHEESECAKE</p>
-                <p class="desc">Ai frutti di bosco, Cocco e Nutella, Cioccolato bianco e caramello salato, Fragola</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- ORO DI BRONTE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">ORO DI BRONTE</p>
-                <p class="desc">Frolla gluten free al cacao, Crema bavarese al Pistacchio, pistacchi pralinati</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- COFFEE BREAK -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">COFFEE BREAK</p>
-                <p class="desc">Frolla gluten free al cacao, Crema pasticcera alla nocciola, Mousse al caffè</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- CAPPUCCETTO ROSSO -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CAPPUCCETTO ROSSO</p>
-                <p class="desc">Crumble con crema Chantilly e Frutti di bosco freschi</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- GIRELLONE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">GIRELLONE</p>
-                <p class="desc">La Girella come una volta con abbondante Nutella</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- CANNOLO SCOMPOSTO -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CANNOLO SCOMPOSTO</p>
-                <p class="desc">Ricotta finemente lavorata, Sambuca, Cialda artigianale, Cioccolato, Pistacchio, Arancia candita</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- CROCCANTE AMARENA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CROCCANTE AMARENA</p>
-                <p class="desc">Fior di latte alla vaniglia, morbido ripieno all’Amarena, Copertura fondente, Nocciole pralinate</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- SORBETTO AL LIMONE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">SORBETTO AL LIMONE</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- CREMOLATO DI FRAGOLE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CREMOLATO DI FRAGOLE</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
+              <div class="price">Calice € 4,50<br>0,35L € 5,50<br>0,7L € 9,50</div>
             </div>
 
           </div>
@@ -777,7 +738,39 @@
         </h2>
         <div id="collapseBollicine" class="accordion-collapse collapse" aria-labelledby="headingBO" data-bs-parent="#accordionCantina">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
-            <!-- Lista prodotti… -->
+
+            <!-- Prosecco -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Prosecco</p>
+              </div>
+              <div class="price">€ 14,50</div>
+            </div>
+
+            <!-- Spumante Secco -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Spumante Secco</p>
+              </div>
+              <div class="price">€ 14,50</div>
+            </div>
+
+            <!-- Spumante Dolce -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Spumante Dolce</p>
+              </div>
+              <div class="price">€ 14,50</div>
+            </div>
+
+            <!-- Brachetto -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Brachetto</p>
+              </div>
+              <div class="price">€ 14,50</div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -946,31 +939,22 @@
             data-bs-parent="#accordionBirra">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-            <!-- Prodotto 1 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Moretti baffo d'oro</p>
-                <p class="desc">0,66 L</p>
-              </div>
-              <div class="price">€ 3,00</div>
-            </div>
-
-            <!-- Prodotto 2 -->
+            <!-- Daura chiara -->
             <div class="product-item">
               <div class="product-info">
                 <p class="title">Daura chiara</p>
-                <p class="desc">0,33 L</p>
+                <p class="desc">0,3 L</p>
               </div>
-              <div class="price">€ 3,00</div>
+              <div class="price">€ 4,90</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Daura ambrata -->
             <div class="product-item">
               <div class="product-info">
                 <p class="title">Daura ambrata</p>
-                <p class="desc">0,33 L</p>
+                <p class="desc">0,3 L</p>
               </div>
-              <div class="price">€ 3,00</div>
+              <div class="price">€ 4,90</div>
             </div>
 
             <!-- …altri prodotti… -->
@@ -1006,83 +990,40 @@
             data-bs-parent="#accordionBirra">
           <div class="accordion-body">
 
-            <!-- Prodotto 1 -->
+            <!-- Spritz -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Aperol Spritz</p>
+                <p class="title">Spritz</p>
+                <p class="desc">Aperol / Campari / Select</p>
               </div>
               <div class="price">€ 6,00</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Gin Tonic / Lemon -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Campari Spritz</p>
+                <p class="title">Gin Tonic / Lemon</p>
+                <p class="desc">Base: Bombay</p>
               </div>
               <div class="price">€ 6,00</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Gin Tonic / Lemon Premium -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Hugo Spritz</p>
-              </div>
-              <div class="price">€ 6,00</div>
-            </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Cynar Spritz</p>
-              </div>
-              <div class="price">€ 6,00</div>
-            </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Select Spritz</p>
-              </div>
-              <div class="price">€ 6,00</div>
-            </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Gin Tonic</p>
-                <p class="desc">Base: Bombey</p>
-              </div>
-              <div class="price">€ 6,00</div>
-            </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Gin Tonic</p>
-                <p class="desc">Premium: Gin mare, Hendrix Gin</p>
+                <p class="title">Gin Tonic / Lemon Premium</p>
+                <p class="desc">Hendrick's, Gin Mare</p>
               </div>
               <div class="price">€ 8,00</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Analcolico -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Gin Lemon</p>
-                <p class="desc">Base: Bombey</p>
+                <p class="title">Analcolico</p>
               </div>
               <div class="price">€ 6,00</div>
             </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">Gin Lemon</p>
-                <p class="desc">Premium: Gin mare, Hendrix Gin</p>
-              </div>
-              <div class="price">€ 8,00</div>
-            </div>
-
-            
 
             <!-- …altri prodotti… -->
 
@@ -1133,7 +1074,7 @@
                 <p class="title">Coca cola</p>
                 <p class="desc">1L</p>
               </div>
-              <div class="price">€ 4,50</div>
+              <div class="price">€ 5,00</div>
             </div>
 
             <!-- Prodotto 2 -->
@@ -1142,7 +1083,7 @@
                 <p class="title">Fanta vetro</p>
                 <p class="desc">1L</p>
               </div>
-              <div class="price">€ 4,50</div>
+              <div class="price">€ 5,00</div>
             </div>
 
             <!-- Prodotto 2 -->
@@ -1151,7 +1092,7 @@
                 <p class="title">Coca cola</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1159,7 +1100,7 @@
                 <p class="title">Coca cola Zero</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1167,7 +1108,7 @@
                 <p class="title">Coca cola Zero No caffeina</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1175,7 +1116,7 @@
                 <p class="title">Fanta</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1183,7 +1124,7 @@
                 <p class="title">Sprite</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1191,7 +1132,7 @@
                 <p class="title">T&egrave; Limone/Pesca</p>
                 <p class="desc">0,5L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1199,7 +1140,7 @@
                 <p class="title">Succhi di frutta</p>
                 <p class="desc">0,2L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1207,7 +1148,7 @@
                 <p class="title">Chinotto Neri</p>
                 <p class="desc">0,2L</p>
               </div>
-              <div class="price">€ 2,90</div>
+              <div class="price">€ 3,20</div>
             </div>
 
             <div class="product-item">
@@ -1215,7 +1156,7 @@
                 <p class="title">Birra No alcool</p>
                 <p class="desc">0,3L</p>
               </div>
-              <div class="price">€ 3,50</div>
+              <div class="price">€ 3,80</div>
             </div>
 
             
@@ -1249,7 +1190,7 @@
               <div class="product-info">
                 <p class="title">Caff&eacute;</p>
               </div>
-              <div class="price">€ 1,00</div>
+              <div class="price">€ 1,50</div>
             </div>
 
             <!-- Prodotto 2 -->
@@ -1306,7 +1247,15 @@
               <div class="product-info">
                 <p class="title">Limoncello</p>
               </div>
-              <div class="price">€ 3,50</div>
+              <div class="price">€ 4,00</div>
+            </div>
+
+            <!-- Mandarinello -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Mandarinello</p>
+              </div>
+              <div class="price">€ 4,00</div>
             </div>
 
             <!-- Prodotto 1 -->
@@ -1314,7 +1263,7 @@
               <div class="product-info">
                 <p class="title">Liquirizia</p>
               </div>
-              <div class="price">€ 3,50</div>
+              <div class="price">€ 4,00</div>
             </div>
 
             <!-- Prodotto 1 -->
@@ -1322,7 +1271,7 @@
               <div class="product-info">
                 <p class="title">Cannella</p>
               </div>
-              <div class="price">€ 3,50</div>
+              <div class="price">€ 4,00</div>
             </div>
 
             <!-- …altri prodotti… -->
@@ -1412,7 +1361,7 @@
             <!-- Prodotto 1 -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Sambuca Caffo</p>
+                <p class="title">Sambuca</p>
               </div>
               <div class="price">€ 3,50</div>
             </div>
@@ -1428,7 +1377,7 @@
             <!-- Prodotto 1 -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Negrone</p>
+                <p class="title">Nerone</p>
               </div>
               <div class="price">€ 3,50</div>
             </div>
@@ -1484,15 +1433,8 @@
             <!-- Prodotto 1 -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Montenegro</p>
-              </div>
-              <div class="price">€ 3,50</div>
-            </div>
-
-            <!-- Prodotto 1 -->
-            <div class="product-item">
-              <div class="product-info">
                 <p class="title">Capometro</p>
+                <p class="desc">10 Amaro del Capo</p>
               </div>
               <div class="price">€ 30,00</div>
             </div>
@@ -1588,7 +1530,7 @@
             <!-- Prodotto 1 -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Rosmarino</p>
+                <p class="title">AgroDolce</p>
               </div>
               <div class="price">€ 1,00</div>
             </div>
@@ -1612,7 +1554,7 @@
             <!-- Prodotto 1 -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Messicana - <small>Leggermente piccante</small></p>
+                <p class="title">Messicana <span class="tag-badge tag-piccante">Leggermente Piccante</span></p>
               </div>
               <div class="price">€ 1,00</div>
             </div>
@@ -1668,10 +1610,10 @@
             <!-- SCICCHERIA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">SCICCHERIA</p>
+                <p class="title">SCICCHERIA <span class="tag-badge tag-pesce">Pesce</span></p>
                 <p class="desc">Dolci pomodori confit, Burrata di bufala e Filetti di alici</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- FIRST LADY -->
@@ -1680,7 +1622,7 @@
                 <p class="title">FIRST LADY</p>
                 <p class="desc">Mantecato di Stracchino e Ciauscolo marchigiano</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- STRABUONA -->
@@ -1689,7 +1631,16 @@
                 <p class="title">STRABUONA</p>
                 <p class="desc">Patate saltate in padella con Mascarpone e Pancetta croccante</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
+            </div>
+
+            <!-- BRIOSA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">BRIOSA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Brie, Miele e Noci</p>
+              </div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- A MORTE SUA -->
@@ -1698,61 +1649,43 @@
                 <p class="title">A MORTE SUA</p>
                 <p class="desc">Salsiccia e mozzarella spalmati sul pane</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- TONNARA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">TONNARA</p>
-                <p class="desc">Tonno, Capperi, Olive tggiasche, Cipolla rossa, Origano</p>
+                <p class="title">TONNARA <span class="tag-badge tag-pesce">Pesce</span></p>
+                <p class="desc">Tonno, Capperi, Olive taggiasche, Cipolla rossa, Origano</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
-            <!-- ControCorrente -->
+            <!-- EL LOCO -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">ControCorrente</p>
-                <p class="desc">Mousse di salmone e Philadelphia, Erba cipollina</p>
+                <p class="title">EL LOCO</p>
+                <p class="desc">Guacamole e Prosciutto crudo</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
-            <!-- CARBONARA -->
+            <!-- SGT. PEPPER -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CARBONARA</p>
-                <p class="desc">Tagliolini alla Carbonara con Pancetta croccante</p>
+                <p class="title">SGT. PEPPER</p>
+                <p class="desc">Pollo con i peperoni</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
-            <!-- CACCIATORA -->
+            <!-- SCAPECCIATA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CACCIATORA</p>
-                <p class="desc">Fusi di pollo alla Cacciatora</p>
+                <p class="title">SCAPECCIATA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Zucchine marinate con aceto e menta, Stracciatella</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
-            </div>
-
-            <!-- POLPETTA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">POLPETTA</p>
-                <p class="desc">Polpette di Manzo al sugo</p>
-              </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
-            </div>
-
-            <!-- CAPONATA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CAPONATA</p>
-                <p class="desc">Caponata di Melanzane</p>
-              </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- CAMPAGNOLA -->
@@ -1761,16 +1694,34 @@
                 <p class="title">CAMPAGNOLA</p>
                 <p class="desc">Cicoria ripassata in padella con Patate, Salsiccia e Provola affumicata fusa</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
-            <!-- EOLIA -->
+            <!-- CACCIATORA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">EOLIA</p>
-                <p class="desc">Melanzane sott’Olio</p>
+                <p class="title">CACCIATORA</p>
+                <p class="desc">Fusi di pollo spolpati alla Cacciatora</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
+            </div>
+
+            <!-- CAPONATA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CAPONATA <span class="tag-badge tag-veg">Vegana</span></p>
+                <p class="desc">Caponata di Melanzane</p>
+              </div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
+            </div>
+
+            <!-- CONTADINA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CONTADINA <span class="tag-badge tag-veg">Vegana</span></p>
+                <p class="desc">Zucchine, Melanzane, Pomodorini, Peperoni, Scalogno, Origano</p>
+              </div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- SATOLLO -->
@@ -1779,43 +1730,34 @@
                 <p class="title">SATOLLO</p>
                 <p class="desc">Insalata di pollo</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
-            <!-- CAPRESE -->
+            <!-- MAMMELUCCA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CAPRESE</p>
-                <p class="desc">Mozzarella di bufala, Pomodoo, Basilico, Origano</p>
+                <p class="title">MAMMELUCCA <span class="tag-badge tag-pesce">Pesce</span></p>
+                <p class="desc">Ricotta, Fiori di zucca, Fior di latte, Filetti di alici</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
+            </div>
+
+            <!-- POLPETTA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">POLPETTA</p>
+                <p class="desc">Polpette di Manzo al sugo</p>
+              </div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- BRUTALE -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">BRUTALE</p>
+                <p class="title">BRUTALE <span class="tag-badge tag-piccante">Piccante</span></p>
                 <p class="desc">Peperoni stufati con ‘Nduja calabrese e Provola affumicata fusa</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
-            </div>
-
-            <!-- BRIOSA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">BRIOSA</p>
-                <p class="desc">Brie, miele e noci</p>
-              </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
-            </div>
-
-            <!-- MR PINK -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">MR PINK</p>
-                <p class="desc">Mortadella, Zucchine grigliate e Burrata di bufala</p>
-              </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- SAINT TROPEA -->
@@ -1824,7 +1766,7 @@
                 <p class="title">SAINT TROPEA</p>
                 <p class="desc">Cipolla caramellata, Taleggio fuso e Pancetta croccante</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- MR DONALDS -->
@@ -1833,24 +1775,34 @@
                 <p class="title">MR DONALDS</p>
                 <p class="desc">Salsiccia saltata con Patatine fritte, Crema di cheddar e Salsa BBQ</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <!-- PEPERONATA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">PEPERONATA</p>
-                <p class="desc">Peperoni stufati con aceto e zucchero di canna.</p>
+                <p class="title">PEPERONATA <span class="tag-badge tag-veg">Vegana</span></p>
+                <p class="desc">Peperoni stufati con aceto e zucchero di canna</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
+            <!-- MR PINK -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Mr. Pink</p>
-                <p class="desc">Mozzarella, zucchine grigliate e burrata di bufala</p>
+                <p class="title">MR PINK</p>
+                <p class="desc">Mortadella, Zucchine grigliate e Burrata di bufala</p>
               </div>
-              <div class="price">€ 3,60 Cad<br>€ 3,90 Gluten free</div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
+            </div>
+
+            <!-- TEMPTATION -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">TEMPTATION</p>
+                <p class="desc">Fichi caramellati, Crudo, Ricotta</p>
+              </div>
+              <div class="price">€ 3,90 Cad<br>€ 4,40 Gluten free</div>
             </div>
 
             <div class="product-item">
@@ -1889,7 +1841,13 @@
             data-bs-parent="#accordionBruschetteNG">
         <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-         
+            <!-- Nota Gluten Free -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tutte le nostre Bruschette sono disponibili in versione Gluten Free</p>
+              </div>
+              <div class="price">+ € 0,50</div>
+            </div>
 
         </div>
         </div>
@@ -1919,6 +1877,15 @@
             data-bs-parent="#accordionBianche">
           <div class="accordion-body">
 
+            <!-- 5 FORMAGGI -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">5 FORMAGGI <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Fior di latte, Gorgonzola mascarponato, Parmigiano, Provola affumicata</p>
+              </div>
+              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
+            </div>
+
             <!-- BOSCAIOLA -->
             <div class="product-item">
               <div class="product-info">
@@ -1932,16 +1899,7 @@
             <div class="product-item">
               <div class="product-info">
                 <p class="title">FIOR DI COTTO</p>
-                <p class="desc">Fior di latte e prosciutto cotto</p>
-              </div>
-              <div class="price">€ 8,00 ½ Pizza<br>€ 16,00 1 Pizza<br>€ 9,50 Gluten free</div>
-            </div>
-
-            <!-- 5 FORMAGGI -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">5 FORMAGGI</p>
-                <p class="desc">Fior di latte, Gorgonzola, Taleggio, Pecorino romano, Brie</p>
+                <p class="desc">Fior di latte e Prosciutto cotto</p>
               </div>
               <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
             </div>
@@ -1949,28 +1907,19 @@
             <!-- APULIA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">APULIA</p>
-                <p class="desc">Fior di latte, Pomodori secchi, Olive taggiasche, Burrata, Emulsione di basilico</p>
+                <p class="title">APULIA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Fior di latte, Pomodori secchi, Olive taggiasche, Burrata ed Emulsione di Basilico</p>
               </div>
               <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
-            </div>
-
-            <!-- MAGNA GRECIA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">MAGNA GRECIA</p>
-                <p class="desc">Nduja, Bufala, fior di latte, Pomodori ciliegino</p>
-              </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
             </div>
 
             <!-- ORTOLANA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">ORTOLANA</p>
-                <p class="desc">Fior di latte, Melanzane, Zucchine, Pomodori ciliegino, Peperoni</p>
+                <p class="title">ORTOLANA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Fior di latte, Melanzane, Zucchine, Pomodori ciliegino e Peperoni</p>
               </div>
-              <div class="price">€ 8,00 ½ Pizza<br>€ 16,00 1 Pizza<br>€ 9,50 Gluten free</div>
+              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
             </div>
 
             <!-- REGINA -->
@@ -1979,25 +1928,7 @@
                 <p class="title">REGINA</p>
                 <p class="desc">Fior di latte, Crudo, Pomodori ciliegino, Mozzarella di bufala, Noci</p>
               </div>
-              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
-            </div>
-
-            <!-- ROMAGNA MIA -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">ROMAGNA MIA</p>
-                <p class="desc">Fior di latte, Finocchiona, Stracchino, Rucola</p>
-              </div>
-              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
-            </div>
-
-            <!-- FIORI X ALICE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">FIORI X ALICE</p>
-                <p class="desc">Fior di latte, Fiori di Zucca, Alici</p>
-              </div>
-              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
+              <div class="price">€ 9,50 ½ Pizza<br>€ 19,00 1 Pizza<br>€ 11,00 Gluten free</div>
             </div>
 
             <!-- ZUCCANTICA -->
@@ -2007,6 +1938,15 @@
                 <p class="desc">Fior di latte, Zucchine, Guanciale, Grana</p>
               </div>
               <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
+            </div>
+
+            <!-- FIORI X ALICE -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">FIORI X ALICE <span class="tag-badge tag-pesce">Pesce</span></p>
+                <p class="desc">Fior di latte, Fiori di zucca, Filetti di alici</p>
+              </div>
+              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
 
           </div>
@@ -2034,62 +1974,44 @@
             <!-- MARGHERITA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">MARGHERITA</p>
+                <p class="title">MARGHERITA <span class="tag-badge tag-veg">Vegetariana</span></p>
                 <p class="desc">La Margherita di Manforte</p>
               </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
+              <div class="price">€ 8,00 ½ Pizza<br>€ 16,00 1 Pizza<br>€ 9,50 Gluten free</div>
             </div>
 
             <!-- BUFALINA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">BUFALINA</p>
-                <p class="desc">Pomodori pelati, Mozzarella di bufala e Pomodorini ciliegino</p>
+                <p class="title">BUFALINA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Pomodori pelati, Mozzarella di bufala e Pomodorini ciliegino a crudo, Basilico</p>
               </div>
               <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
 
-            <!-- BELZEBU’ -->
+            <!-- RED HOT -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">BELZEBU’</p>
-                <p class="desc">Pomodori pelati, Salame piccante, Fior di latte</p>
+                <p class="title">RED HOT <span class="tag-badge tag-piccante">Piccante</span></p>
+                <p class="desc">Pomodori pelati, Salame piccante, Burrata, Polvere di Olive nere</p>
               </div>
               <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
-            </div>
-
-            <!-- GIOVENTU’ -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">GIOVENTU’</p>
-                <p class="desc">Pomodori pelati, Fior di latte, Patatine Fritte, Wurstel di pollo e tacchino</p>
-              </div>
-              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
 
             <!-- FUNGHI -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">FUNGHI</p>
-                <p class="desc">Pomodori pelati, Fior di latte e Funghi Champignon<br>In versione vegana senza Fior di latte</p>
-              </div>
-              <div class="price">€ 8,00 ½ Pizza<br>€ 16,00 1 Pizza<br>€ 9,50 Gluten free</div>
-            </div>
-
-            <!-- SIGNORA AMMAZZATUTTI -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">SIGNORA AMMAZZATUTTI</p>
-                <p class="desc">Pomodori pelati, Fior di latte, Cipolle caramellate, Tonno a crudo</p>
+                <p class="title">FUNGHI <span class="tag-badge tag-veg">Vegetariana</span> <span class="tag-badge tag-veg">Vegana</span></p>
+                <p class="desc">Pomodori pelati, Funghi champignon e Fior di latte<br>In versione vegana senza Fior di latte</p>
               </div>
               <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
             </div>
 
-            <!-- COSTIERA -->
+            <!-- LA SIGNORA AMMAZZATUTTI -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">COSTIERA</p>
-                <p class="desc">Pomodori pelati, Burrata di bufala, Pomodorini Confit, Rucola, Mandorle, Zeste di limone</p>
+                <p class="title">LA SIGNORA AMMAZZATUTTI</p>
+                <p class="desc">Pomodori pelati, Fior di latte, Cipolle crude, Tonno</p>
               </div>
               <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
             </div>
@@ -2098,7 +2020,7 @@
             <div class="product-item">
               <div class="product-info">
                 <p class="title">CAPRICCIOSA</p>
-                <p class="desc">Pomodori pelati, Fior di latte, Funghi champignon, Carciofi fritti, Olive nere, Crudo</p>
+                <p class="desc">Pomodori pelati, Fior di latte, Funghi champignon, Carciofi sott’olio, Olive nere e Crudo</p>
               </div>
               <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
@@ -2106,19 +2028,19 @@
             <!-- NORMA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">NORMA</p>
-                <p class="desc">Pomodori pelati, Fior di latte, Melanzane fritte, Mozzarella di bufala, Ricotta salata, Emulsione di basilico</p>
+                <p class="title">NORMA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Pomodori pelati, Melanzane fritte, Mozzarella di bufala, Ricotta salata, Emulsione di Basilico</p>
               </div>
-              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
+              <div class="price">€ 9,50 ½ Pizza<br>€ 19,00 1 Pizza<br>€ 11,00 Gluten free</div>
             </div>
 
-            <!-- PARIOLINA -->
+            <!-- GIOVENTU’ -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">PARIOLINA</p>
-                <p class="desc">Pomodori pelati, Olive taggiasche, Pomodorini disidratati, Capperi, Scaglie di grana</p>
+                <p class="title">GIOVENTU’</p>
+                <p class="desc">Pomodori pelati, Fior di latte, Patatine fritte, Wurstel di pollo e tacchino</p>
               </div>
-              <div class="price">€ 8,50 ½ Pizza<br>€ 17,00 1 Pizza<br>€ 10,00 Gluten free</div>
+              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
 
           </div>
@@ -2143,27 +2065,41 @@
             data-bs-parent="#accordionFocacce">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-            <!-- Prodotto 1 -->
+            <!-- NORD&SUD -->
             <div class="product-item">
-              <img src="img/cibointavola.jpeg" alt="Prosecco">
               <div class="product-info">
-                <p class="title">Prosecco Reguta Cuvee Blanche</p>
-                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+                <p class="title">NORD&SUD <span class="tag-badge tag-pesce">Pesce</span></p>
+                <p class="desc">Salmone, Bufala, Rucola, Zeste di limone, Pepe rosa</p>
               </div>
-              <div class="price">€ 25,00</div>
+              <div class="price">€ 9,50 ½ Pizza<br>€ 19,00 1 Pizza<br>€ 11,00 Gluten free</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- LELLA -->
             <div class="product-item">
-              <img src="img/cibointavola.jpeg" alt="Prosecco">
               <div class="product-info">
-                <p class="title">Nome Prodotto 2</p>
-                <p class="desc">Descrizione prodotto 2</p>
+                <p class="title">LELLA</p>
+                <p class="desc">Mortadella, Burrata, Granella di pistacchio</p>
               </div>
-              <div class="price">€ 30,00</div>
+              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
             </div>
 
-            <!-- …altri prodotti… -->
+            <!-- MAGNA GRECIA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">MAGNA GRECIA <span class="tag-badge tag-piccante">Piccante</span></p>
+                <p class="desc">Bufala, ‘Nduja, Pomodori ciliegino</p>
+              </div>
+              <div class="price">€ 9,00 ½ Pizza<br>€ 18,00 1 Pizza<br>€ 10,50 Gluten free</div>
+            </div>
+
+            <!-- ITALIAN JOB -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">ITALIAN JOB</p>
+                <p class="desc">Bresaola, Rucola, Grana in scaglie</p>
+              </div>
+              <div class="price">€ 9,50 ½ Pizza<br>€ 19,00 1 Pizza<br>€ 11,00 Gluten free</div>
+            </div>
 
           </div>
         </div>
@@ -2199,37 +2135,37 @@
              <!-- CHEESEBURGER -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">CHEESEBURGER – ANCHE GLUTEN FREE</p>
+              <p class="title">CHEESEBURGER <span class="tag-badge tag-glutenfree">Anche Gluten Free</span></p>
               <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Cheddar fuso</p>
             </div>
-            <div class="price">€ 11,00</div>
+            <div class="price">€ 12,00</div>
+          </div>
+
+          <!-- INFERNO -->
+          <div class="product-item">
+            <div class="product-info">
+              <p class="title">INFERNO <span class="tag-badge tag-piccante">Extra Piccante</span></p>
+              <p class="desc">Hamburger 180gr, Jalapeno fresco, Stracciatella, Salsa Tabasco</p>
+            </div>
+            <div class="price">€ 13,00</div>
           </div>
 
           <!-- OVOBURGER -->
           <div class="product-item">
             <div class="product-info">
               <p class="title">OVOBURGER</p>
-              <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Uovo alla Bismarck, Pancetta croccante e Salsa verde</p>
+              <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Uovo alla Bismarck, Pancetta croccante e Salsa al Tartufo</p>
             </div>
-            <div class="price">€ 12,00</div>
+            <div class="price">€ 13,00</div>
           </div>
 
           <!-- VEGETA -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">VEGETA – ANCHE GLUTEN FREE</p>
-              <p class="desc">Hamburger di Ceci e Spinaci con Provola affumicata, Zucchine grigliate, Rucola e Salsa al Lime e Pepe nero</p>
+              <p class="title">VEGETA <span class="tag-badge tag-veg">Vegetariano</span> <span class="tag-badge tag-glutenfree">Anche Gluten Free</span></p>
+              <p class="desc">Hamburger di Ceci e Spinaci artigianale, Provola affumicata, Zucchine grigliate, Rughetta e Salsa al Lime e Pepe nero</p>
             </div>
             <div class="price">€ 9,00</div>
-          </div>
-
-          <!-- LUCIFERO -->
-          <div class="product-item">
-            <div class="product-info">
-              <p class="title">LUCIFERO</p>
-              <p class="desc">Hamburger 180gr, Mozzarella di bufala, Songino, Peperoncino dolce al forno, Crema di Habanero EXTRA PICCANTE</p>
-            </div>
-            <div class="price">€ 13,00</div>
           </div>
 
           <!-- MEZZOGIORNO -->
@@ -2241,22 +2177,22 @@
             <div class="price">€ 14,00</div>
           </div>
 
-          <!-- BRONTE -->
+          <!-- IUESSEI -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">BRONTE</p>
-              <p class="desc">Hamburger 180gr, Mortadella a fette, Burratina di bufala, Pesto di pistacchi, Songino</p>
+              <p class="title">IUESSEI <span class="tag-badge tag-glutenfree">Anche Gluten Free</span></p>
+              <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Cipolle caramellate, Pancetta croccante, Cheddar fuso e Salsa BBQ</p>
             </div>
             <div class="price">€ 14,00</div>
           </div>
 
-          <!-- IUESSEI -->
+          <!-- PORK 'N ROLL -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">IUESSEI – ANCHE GLUTEN FREE</p>
-              <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Cipolle caramellate, Pancetta croccante, Cheddar fuso e Salsa BBQ</p>
+              <p class="title">PORK 'N ROLL</p>
+              <p class="desc">Pulled Pork 160gr, Insalata, Patate al forno schiacciate, Salsa Mayo affumicata</p>
             </div>
-            <div class="price">€ 13,00</div>
+            <div class="price">€ 15,00</div>
           </div>
 
           <!-- MEKIKO -->
@@ -2265,7 +2201,34 @@
               <p class="title">MEKIKO</p>
               <p class="desc">Hamburger 180 gr, Insalata, Pomodoro, Salsa Messicana, Pancetta croccante, Cheddar fuso e Guacamole</p>
             </div>
-            <div class="price">€ 12,00</div>
+            <div class="price">€ 13,00</div>
+          </div>
+
+          <!-- BRISKET BROTHERS -->
+          <div class="product-item">
+            <div class="product-info">
+              <p class="title">BRISKET BROTHERS <span class="tag-badge tag-glutenfree">Anche Gluten Free</span></p>
+              <p class="desc">Brisket di Manzo 180gr, Iceberg, Pomodoro arrosto, Salsa BBQ</p>
+            </div>
+            <div class="price">€ 14,00</div>
+          </div>
+
+          <!-- PESO PIUMA -->
+          <div class="product-item">
+            <div class="product-info">
+              <p class="title">PESO PIUMA</p>
+              <p class="desc">Hamburger di pollo e tacchino 180 gr, Zucchine grigliate, Rughetta, Grana in scaglie, Salsa all’Aceto balsamico</p>
+            </div>
+            <div class="price">€ 11,00</div>
+          </div>
+
+          <!-- APOLLO -->
+          <div class="product-item">
+            <div class="product-info">
+              <p class="title">APOLLO <span class="tag-badge tag-glutenfree">Anche Gluten Free</span></p>
+              <p class="desc">Burger di pollo crunchy 140gr, Insalata, Pomodoro, Cheddar, Salsa crispy</p>
+            </div>
+            <div class="price">€ 13,00</div>
           </div>
 
           <!-- GRATTACIELO -->
@@ -2277,31 +2240,22 @@
             <div class="price">€ 14,00</div>
           </div>
 
-          <!-- PESO PIUMA -->
+          <!-- DOUBLE TROUBLE -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">PESO PIUMA</p>
-              <p class="desc">Hamburger di Tacchino 180 gr, Zucchine grigliate, Rughetta, Grana in scaglie, salsa all’Aceto balsamico</p>
+              <p class="title">DOUBLE TROUBLE – ORIGINALI</p>
+              <p class="desc">Doppio Hamburger 100gr, Pomodoro, Cetriolini, Iceberg, Cheddar, Cipolla tritata, Salsa Burger</p>
             </div>
-            <div class="price">€ 11,00</div>
+            <div class="price">€ 14,00</div>
           </div>
 
-          <!-- APOLLO -->
+          <!-- BEYOND MEAT -->
           <div class="product-item">
             <div class="product-info">
-              <p class="title">APOLLO – ANCHE GLUTEN FREE</p>
-              <p class="desc">Burger di pollo 140 crunchy, Insalata, Pomodoro, Cheddar, Salsa crispy</p>
+              <p class="title">Beyond Meat Burger</p>
+              <p class="desc">Sostituisci la carne dei nostri burger con la "carne che sa di carne ma non è carne". Completamente vegetale</p>
             </div>
-            <div class="price">€ 12,00</div>
-          </div>
-
-          <!-- LO SBAGLIATO -->
-          <div class="product-item">
-            <div class="product-info">
-              <p class="title">LO SBAGLIATO – ANCHE GLUTEN FREE</p>
-              <p class="desc">Hamburger 180gr, Insalata, Pomodoro, Caciotta stagionata, Maionese</p>
-            </div>
-            <div class="price">€ 13,00</div>
+            <div class="price">+ € 2,00</div>
           </div>
 
             <!-- …altri prodotti… -->
@@ -2336,34 +2290,32 @@
             data-bs-parent="#accordionInsalate">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-            <!-- Prodotto 1 -->
+            <!-- CAESAR SALAD -->
             <div class="product-item">
               <div class="product-info">
                 <p class="title">CAESAR SALAD</p>
-                <p class="desc">Iceberg, pollo grigliato, grana, fiocchi di pane croccante, salsa caesar</p>
+                <p class="desc">Pollo grigliato, Iceberg, Grana, Fiocchi di pane croccante, Salsa Caesar</p>
+              </div>
+              <div class="price">€ 11,00</div>
+            </div>
+
+            <!-- RINASCIMENTO -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">RINASCIMENTO <span class="tag-badge tag-pesce">Pesce</span></p>
+                <p class="desc">Riso venere, Salmone affumicato, Zucchine, Carote, Rughetta, Basilico, Pomodorini ciliegino</p>
+              </div>
+              <div class="price">€ 12,00</div>
+            </div>
+
+            <!-- ITALIANA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">ITALIANA <span class="tag-badge tag-veg">Vegetariana</span></p>
+                <p class="desc">Insalata, Uova sode, Olive nere, Tonno, Salsa Yogurt</p>
               </div>
               <div class="price">€ 10,00</div>
             </div>
-
-            <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">RINASCIMENTO</p>
-                <p class="desc">Riso venere, Salmone affumicato, Zucchine, Carote, Rughetta, Basilico, Ricotta salata, Pomodorini</p>
-              </div>
-              <div class="price">€ 10,00</div>
-            </div>
-
-                        <!-- Prodotto 2 -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">FRISELLA</p>
-                <p class="desc">Frisella artigianale gluten free, Pomodori ciliegino, Mozzarella di bufala, Origano, Basilico</div>
-              <div class="price">€ 10,00</div>
-            </div>
-            
-
-            <!-- …altri prodotti… -->
 
           </div>
         </div>
@@ -2393,48 +2345,22 @@
             data-bs-parent="#accordionDolci">
           <div class="accordion-body">
 
+            <!-- PIZZOTTELLA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">PIZZOTTELLA <span class="tag-badge tag-glutenfree">Anche Senza Glutine</span> <span class="tag-badge tag-veg">Anche Vegana</span></p>
+                <p class="desc">Impasto della pizza con Nutella e Granella di Nocciole</p>
+              </div>
+              <div class="price">€ 5,30</div>
+            </div>
+
             <!-- TIRAMISU’ CLASSICO -->
             <div class="product-item">
               <div class="product-info">
                 <p class="title">TIRAMISU’ CLASSICO</p>
+                <p class="desc">Savoiardi artigianali, Crema al Mascarpone, Caffè, Cacao</p>
               </div>
-              <div class="price">€ 4,00</div>
-            </div>
-
-            <!-- BOUNTY -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">BOUNTY</p>
-                <p class="desc">Mousse al cocco, Amaretti al cocco, Copertura al latte</p>
-              </div>
-              <div class="price">€ 4,00</div>
-            </div>
-
-            <!-- CHEESECAKE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">CHEESECAKE</p>
-                <p class="desc">Ai frutti di bosco, Cocco e Nutella, Cioccolato bianco e caramello salato, Fragola</p>
-              </div>
-              <div class="price">€ 4,00</div>
-            </div>
-
-            <!-- ORO DI BRONTE -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">ORO DI BRONTE</p>
-                <p class="desc">Frolla gluten free al cacao, Crema bavarese al Pistacchio, pistacchi pralinati</p>
-              </div>
-              <div class="price">€ 4,00</div>
-            </div>
-
-            <!-- COFFEE BREAK -->
-            <div class="product-item">
-              <div class="product-info">
-                <p class="title">COFFEE BREAK</p>
-                <p class="desc">Frolla gluten free al cacao, Crema pasticcera alla nocciola, Mousse al caffè</p>
-              </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 5,30</div>
             </div>
 
             <!-- CAPPUCCETTO ROSSO -->
@@ -2443,34 +2369,88 @@
                 <p class="title">CAPPUCCETTO ROSSO</p>
                 <p class="desc">Crumble con crema Chantilly e Frutti di bosco freschi</p>
               </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- CHEESECAKE -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CHEESECAKE</p>
+                <p class="desc">Frutti di bosco, Cocco e Nutella, Cioccolato bianco e Caramello salato, Topping fragola</p>
+              </div>
+              <div class="price">€ 5,30</div>
             </div>
 
             <!-- GIRELLONE -->
             <div class="product-item">
               <div class="product-info">
                 <p class="title">GIRELLONE</p>
-                <p class="desc">La Girella come una volta con abbondante Nutella</p>
+                <p class="desc">La Girella con abbondante Nutella</p>
               </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 5,30</div>
             </div>
 
-            <!-- CANNOLO SCOMPOSTO -->
+            <!-- CROSTATA RICOTTA E VISCIOLE -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CANNOLO SCOMPOSTO</p>
-                <p class="desc">Ricotta finemente lavorata, Sambuca, Cialda artigianale, Cioccolato, Pistacchio, Arancia candita</p>
+                <p class="title">CROSTATA RICOTTA E VISCIOLE</p>
+                <p class="desc">Frolla Gluten Free, Ricotta, Visciole</p>
               </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 5,30</div>
             </div>
 
-            <!-- CROCCANTE AMARENA -->
+            <!-- NUVOLA -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CROCCANTE AMARENA</p>
-                <p class="desc">Fior di latte alla vaniglia, morbido ripieno all’Amarena, Copertura fondente, Nocciole pralinate</p>
+                <p class="title">NUVOLA</p>
+                <p class="desc">Mousse allo yogurt con topping a scelta tra: Miele e Croccante alle mandorle, Frutti di bosco, Cioccolato bianco e Caramello salato, Topping fragole</p>
               </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- CROCCANTE ALL'AMARENA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CROCCANTE ALL’AMARENA</p>
+                <p class="desc">Fior di latte alla vaniglia, morbido ripieno all’Amarena, Copertura fondente e Nocciole pralinate</p>
+              </div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- CUORE MATTO -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CUORE MATTO</p>
+                <p class="desc">Morbida crema al Mascarpone con cuore al Pistacchio salato e copertura al Pistacchio</p>
+              </div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- COCCOLOSO -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">COCCOLOSO <span class="tag-badge tag-veg">Vegano</span></p>
+                <p class="desc">Brownie al cioccolato, Mousse al cocco, Cocco grattugiato</p>
+              </div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- CREMOLATO DI FRAGOLE CON PANNA -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">CREMOLATO DI FRAGOLE CON PANNA <span class="tag-badge tag-veg">Vegano</span></p>
+                <p class="desc">Senza guarnizione di panna</p>
+              </div>
+              <div class="price">€ 5,30</div>
+            </div>
+
+            <!-- ANANAS -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">ANANAS <span class="tag-badge tag-veg">Vegano</span> <span class="tag-badge tag-frutta">Frutta</span></p>
+                <p class="desc">Al bicchiere (+ Maraschino + € 1,50)</p>
+              </div>
+              <div class="price">€ 5,30</div>
             </div>
 
             <!-- SORBETTO AL LIMONE -->
@@ -2478,15 +2458,46 @@
               <div class="product-info">
                 <p class="title">SORBETTO AL LIMONE</p>
               </div>
-              <div class="price">€ 4,00</div>
+              <div class="price">€ 4,50</div>
             </div>
 
-            <!-- CREMOLATO DI FRAGOLE -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">CREMOLATO DI FRAGOLE</p>
+                <p class="title">Tutti i dessert sono esclusivamente Gluten Free</p>
+                <p class="desc">Ad eccezione della Pizzottella, disponibile in entrambe le versioni</p>
               </div>
-              <div class="price">€ 4,00</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TORTE -->
+      <div class="accordion-item" style="border-color: rgb(245, 236, 73);">
+        <h2 class="accordion-header" id="headingTorte">
+          <button class="accordion-button collapsed bg-dark"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTorte"
+                  aria-expanded="false"
+                  aria-controls="collapseTorte"
+                  style="color: rgb(245, 236, 73);">
+            Torte
+          </button>
+        </h2>
+        <div id="collapseTorte"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionDolci">
+          <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+
+            <!-- TORTA ARTIGIANALE -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Torta Artigianale</p>
+                <p class="desc">Festeggia con la Tua torta preferita! Possiamo preparare la torta che desideri (anche senza glutine). Solo su prenotazione, circa 10 porzioni al Kg</p>
+              </div>
+              <div class="price">€ 25,00 al Kg</div>
             </div>
 
           </div>
@@ -2512,25 +2523,88 @@
             data-bs-parent="#accordionTartufi">
           <div class="accordion-body" style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
 
-            <!-- Prodotto 1 -->
+            <!-- Tartufo Classico -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Prosecco Reguta Cuvee Blanche</p>
-                <p class="desc">Vino extra dry 0,75l 11,5%vol.</p>
+                <p class="title">Tartufo Classico</p>
+                <p class="desc">Cioccolato e Nocciola con cuore di Cioccolato</p>
               </div>
-              <div class="price">€ 25,00</div>
+              <div class="price">€ 6,50</div>
             </div>
 
-            <!-- Prodotto 2 -->
+            <!-- Tartufo Nero -->
             <div class="product-item">
               <div class="product-info">
-                <p class="title">Nome Prodotto 2</p>
-                <p class="desc">Descrizione prodotto 2</p>
+                <p class="title">Tartufo Nero</p>
+                <p class="desc">Cuore di Cioccolato</p>
               </div>
-              <div class="price">€ 30,00</div>
+              <div class="price">€ 6,50</div>
             </div>
 
-            <!-- …altri prodotti… -->
+            <!-- Tartufo al Pistacchio -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo al Pistacchio</p>
+                <p class="desc">Cuore di Cioccolato</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <!-- Tartufo alla Nocciola -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo alla Nocciola</p>
+                <p class="desc">Cuore di Cioccolato</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <!-- Tartufo Bianco -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo Bianco</p>
+                <p class="desc">Cuore al Caffè</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <p class="text-yellow fw-bold mt-3 mb-2">Senza Lattosio</p>
+
+            <!-- Tartufo Cioccolato -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo Cioccolato</p>
+                <p class="desc">Cuore di Cioccolato</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <!-- Tartufo al Limone -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo al Limone</p>
+                <p class="desc">Cuore al Limoncello</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <!-- Tartufo al Cocco -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo al Cocco</p>
+                <p class="desc">Cuore di Cioccolato</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
+
+            <!-- Tartufo alla Fragola -->
+            <div class="product-item">
+              <div class="product-info">
+                <p class="title">Tartufo alla Fragola</p>
+                <p class="desc">Cuore di Cioccolato</p>
+              </div>
+              <div class="price">€ 6,50</div>
+            </div>
 
           </div>
         </div>
@@ -2652,7 +2726,8 @@
   });
 
   document.addEventListener('DOMContentLoaded', function(){
-    var isMobile = window.matchMedia('(max-width: 576px)').matches;
+    var mobileQuery = window.matchMedia('(max-width: 576px)');
+    function isMobile() { return mobileQuery.matches; }
     var strip = document.getElementById('macroCards');
     var shell = strip ? strip.closest('.menu-categories-shell') : null;
     var userHasInteracted = false;
@@ -2668,45 +2743,47 @@
     }
 
     function updateScrollCue() {
-      if (!shell) return;
+      if (!shell || !isMobile()) return;
       var maxScroll = Math.max(0, strip.scrollWidth - strip.clientWidth);
       var current = strip.scrollLeft;
       shell.classList.toggle('has-scrolled', userHasInteracted);
       shell.classList.toggle('is-at-end', userHasInteracted && maxScroll > 0 && current >= maxScroll - 16);
     }
 
-    if (isMobile) {
+    updateScrollCue();
+    strip.addEventListener('touchstart', function () {
+      userHasInteracted = true;
       updateScrollCue();
-      strip.addEventListener('touchstart', function () {
+    }, { passive: true });
+    strip.addEventListener('scroll', function () {
+      if (userHasInteracted) updateScrollCue();
+    }, { passive: true });
+
+    // Centra la card toccata
+    strip.addEventListener('click', function(e){
+      if (!e.isTrusted || !isMobile()) return;
+      var card = e.target.closest('.filter-card');
+      if (card && strip.contains(card)) {
         userHasInteracted = true;
         updateScrollCue();
-      }, { passive: true });
-      strip.addEventListener('scroll', function () {
-        if (userHasInteracted) updateScrollCue();
-      }, { passive: true });
-
-      // Centra la card toccata
-      strip.addEventListener('click', function(e){
-        if (!e.isTrusted) return;
-        var card = e.target.closest('.filter-card');
-        if (card && strip.contains(card)) {
-          userHasInteracted = true;
-          updateScrollCue();
-          centerCard(card);
-        }
-      });
-      var cards = strip.querySelectorAll('.filter-card');
-      function currentSectionKey(){
-        var secs = document.querySelectorAll('.macro-section');
-        for (var i = 0; i < secs.length; i++) {
-          if (!secs[i].classList.contains('d-none')) {
-            var id = secs[i].id; 
-            var dash = id.indexOf('-');
-            return dash > 0 ? id.substring(0, dash) : id; 
-          }
-        }
-        return null;
+        centerCard(card);
       }
+    });
+    var cards = strip.querySelectorAll('.filter-card');
+    function currentSectionKey(){
+      var secs = document.querySelectorAll('.macro-section');
+      for (var i = 0; i < secs.length; i++) {
+        if (!secs[i].classList.contains('d-none')) {
+          var id = secs[i].id;
+          var dash = id.indexOf('-');
+          return dash > 0 ? id.substring(0, dash) : id;
+        }
+      }
+      return null;
+    }
+
+    function centerActiveCard(){
+      if (!isMobile()) return;
       var key = currentSectionKey();
       var toCenter = null;
       if (key) {
@@ -2719,6 +2796,8 @@
         setTimeout(function(){ centerCard(toCenter); }, 150);
       }
     }
+    centerActiveCard();
+    mobileQuery.addEventListener('change', centerActiveCard);
   });
 </script>
 

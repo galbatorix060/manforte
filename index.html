@@ -416,8 +416,53 @@
         }
 
         .events-preview-wrap {
+          position: relative;
           overflow: hidden;
           padding: 0 0 1rem;
+        }
+
+        .events-nav-btn {
+          display: none;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 3;
+          width: 48px;
+          height: 48px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          border: 1px solid rgb(245, 236, 73);
+          background: rgba(0, 0, 0, 0.6);
+          color: rgb(245, 236, 73);
+          font-size: 1.3rem;
+          cursor: pointer;
+          transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .events-nav-btn:hover {
+          background: rgb(245, 236, 73);
+          color: #000;
+        }
+
+        .events-nav-prev {
+          left: 0.5rem;
+        }
+
+        .events-nav-next {
+          right: 0.5rem;
+        }
+
+        .events-nav-btn.is-disabled {
+          opacity: 0.25;
+          cursor: default;
+          pointer-events: none;
+        }
+
+        @media (min-width: 768px) {
+          .events-nav-btn {
+            display: flex;
+          }
         }
 
         .events-preview-scroller {
@@ -473,6 +518,12 @@
 
     <div class="container text-center mb-3">
       <div class="events-preview-wrap">
+        <button type="button" class="events-nav-btn events-nav-prev" id="eventsPrevBtn" aria-label="Evento precedente">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button type="button" class="events-nav-btn events-nav-next" id="eventsNextBtn" aria-label="Evento successivo">
+          <i class="bi bi-chevron-right"></i>
+        </button>
         <div class="events-preview-scroller" id="eventsPreviewScroller">
           <article class="events-preview-card p-3 d-flex flex-column">
             <div class="position-relative mb-3">
@@ -565,6 +616,37 @@
       </div>
     </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var scroller = document.getElementById('eventsPreviewScroller');
+    var prevBtn = document.getElementById('eventsPrevBtn');
+    var nextBtn = document.getElementById('eventsNextBtn');
+    if (!scroller || !prevBtn || !nextBtn) return;
+
+    function scrollAmount() {
+      var card = scroller.querySelector('.events-preview-card');
+      var gap = 16;
+      return card ? card.offsetWidth + gap : scroller.clientWidth * 0.8;
+    }
+
+    function updateButtons() {
+      var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+      prevBtn.classList.toggle('is-disabled', scroller.scrollLeft <= 4);
+      nextBtn.classList.toggle('is-disabled', scroller.scrollLeft >= maxScroll - 4);
+    }
+
+    prevBtn.addEventListener('click', function () {
+      scroller.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      scroller.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+    scroller.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  });
+</script>
 
 
 <div class="p-3" style="background-color:rgba(255, 255, 255, 0.05);">
@@ -1438,7 +1520,6 @@
           <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Men&ugrave; dedicato a 15€ con burger, patatine e bevanda da 0,3L inclusa</li>
           <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Sconto del 50% su tutte le bevande extra, per rendere la serata ancora più lunga</li>
           <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Spazio riservato al tuo gruppo, con possibilit&agrave; di proseguire l&apos;asta fino alle 2:00 di notte</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-yellow"></i>Coppa omaggio a fine campionato, perch&eacute; vincere merita di essere celebrato!</li>
         </ul>
 
       </div>

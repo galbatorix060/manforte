@@ -348,6 +348,16 @@
           position: relative;
         }
 
+        /* Riquadro menu: pieno schermo su mobile/tablet (anche in orizzontale), 75% da desktop */
+        .menu-page-frame {
+          width: 100%;
+        }
+        @media (min-width: 992px) {
+          .menu-page-frame {
+            width: 75%;
+          }
+        }
+
         /* --- Mobile: centratura e scroll-snap delle macroCards --- */
         @media (max-width: 576px) {
           .menu-page-frame {
@@ -463,12 +473,12 @@
   </nav>
 
 
-<div class="container d-flex justify-content-center pt-4">
-  <div class="card menu-page-frame shadow-lg p-4 bg-dark rounded-4 w-75">
+<div class="container-lg d-flex justify-content-center pt-4">
+  <div class="card menu-page-frame shadow-lg p-4 bg-dark rounded-4">
   <h1>Il Nostro Menù</h1>
 
 
-    <div class="container mb-4">
+    <div class="container-fluid mb-4">
       <div class="menu-categories-shell">
         <div id="macroCards" class="d-flex overflow-auto gap-3 py-2">
         <div class="card filter-card text-white bg-dark border-3" 
@@ -559,7 +569,7 @@
 
 
 
-  <div class="container">
+  <div class="container-fluid">
 
   <!-- MENU -->
   <div id="menu-section" class="macro-section">
